@@ -383,6 +383,25 @@ footer a{color:#fff}
 .partners .row.more img.tall{height:78px}
 .partners .row.more img:hover{filter:none;opacity:1}
 .partners .kicker.second{margin-top:18px}
+
+/* hotels */
+.hotels{margin-top:34px}
+.hotels h3.ht{font-weight:900;text-transform:uppercase;font-size:1.3rem;color:var(--text);margin-bottom:6px}
+.hotels .hs{color:var(--muted);font-size:.95rem;margin-bottom:16px}
+.hchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.hchips button{border:1.5px solid var(--line);background:#fff;color:var(--text);font:800 .86rem/1 var(--f);padding:11px 15px;border-radius:999px;cursor:pointer}
+.hchips button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#fff}
+.hlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.hotel{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--mist);border-radius:16px;padding:16px 18px}
+.hotel .st{font-weight:900;color:var(--blue);font-size:.95rem;white-space:nowrap;letter-spacing:1px;min-width:5.6em}
+.hotel b{display:block;font-weight:800;font-size:1rem}
+.hotel small{display:block;color:var(--muted);font-size:.84rem;line-height:1.35}
+.hotel .km{font:900 1.05rem/1 var(--f);color:var(--text);white-space:nowrap;text-align:right}
+.hotel .km span{display:block;font:600 .7rem/1.2 var(--f);color:var(--muted);margin-top:3px}
+.hotel .hl{grid-column:2/-1;display:flex;flex-wrap:wrap;gap:12px;font-size:.84rem;font-weight:700}
+.hotel .hl a{color:var(--blue)}
+.hnote{font-size:.84rem;color:var(--muted);margin-top:14px}
+@media (max-width:860px){.hlist{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -556,6 +575,13 @@ footer a{color:#fff}
       <h2 class="H" id="gs-title">Come <em>to watch</em></h2>
     </div>
     <div class="g3" id="gs-cards"></div>
+    <div class="hotels">
+      <h3 class="ht" id="ht-title">Where to stay</h3>
+      <p class="hs" id="ht-sub"></p>
+      <div class="hchips" id="ht-chips" role="group" aria-label="Hotel category"></div>
+      <div class="hlist" id="ht-list"></div>
+      <p class="hnote" id="ht-note"></p>
+    </div>
   </div>
 </section>
 
@@ -1059,7 +1085,45 @@ function renderExtra(){
   setH("sp-grid",SP.map(function(p){var name=typeof p.n==="string"?p.n:L(p.n);return '<div class="sp '+p.c+'"><h3>'+esc(name)+'</h3>'+(p.i?'<div class="inc">'+esc(L(INC)+p.i)+'</div>':'')+'<ul>'+L(p.b).map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+'</ul>'+(p.p?'<div class="price">'+p.p+' '+esc(Lx("mln"))+'</div>':'')+'</div>';}).join(""));
   setH("fq-title",Lx("fq_title"));
   setH("fq-list",FQ.map(function(q,i){return '<details'+(i===0?' open':'')+'><summary>'+esc(L(q[0]))+'</summary><p>'+esc(L(q[1]))+'</p></details>';}).join(""));
-  setT("pt-more",Lx("pt_more"));setT("ft-sp",Lx("ft_sp"));
+  setT("pt-more",Lx("pt_more"));setT("ft-sp",Lx("ft_sp"));renderHotels();
+}
+
+/* hotels near KNUS (51.0594 N, 71.3894 E); distances are straight-line, approximate */
+var HOTELS=[
+{s:5,n:"Hilton Astana",a:{en:"14 Heydar Aliyev St, next to EXPO",kk:"Гейдар Әлиев к-сі, 14, EXPO жанында",ru:"ул. Гейдара Алиева, 14, рядом с EXPO"},km:3.8},
+{s:5,n:"Sheraton Astana Hotel",a:{en:"60/1 Syganak St",kk:"Сығанақ к-сі, 60/1",ru:"ул. Сыганак, 60/1"},km:7.5},
+{s:5,n:"The Ritz-Carlton, Astana",a:{en:"16 Dostyk St",kk:"Достық к-сі, 16",ru:"ул. Достык, 16"},km:7.8},
+{s:5,n:"Rixos President Astana",a:{en:"7 Kunayev St",kk:"Қонаев к-сі, 7",ru:"ул. Кунаева, 7"},km:8.5},
+{s:4,n:"Wyndham Garden Astana",a:{en:"25 Hussein bin Talal St",kk:"Хусейн бен Талал к-сі, 25",ru:"ул. Хусейн бен Талал, 25"},km:2.8},
+{s:4,n:"AyKun Hotel",a:{en:"12B Kerey and Zhanibek Khans St",kk:"Керей, Жәнібек хандар к-сі, 12Б",ru:"ул. Керей, Жанибек хандар, 12Б"},km:6.4},
+{s:4,n:"Hilton Garden Inn Astana",a:{en:"15 Kabanbay Batyr Ave",kk:"Қабанбай батыр даңғ., 15",ru:"пр. Кабанбай батыра, 15"},km:8.6},
+{s:3,n:"ASYR Expo Hotel",a:{en:"5/1 Turar Ryskulov St, near EXPO",kk:"Тұрар Рысқұлов к-сі, 5/1, EXPO маңы",ru:"ул. Турара Рыскулова, 5/1, рядом с EXPO"},km:4},
+{s:0,n:"Astana Best Hostel",a:{en:"42 Kabanbay Batyr Ave",kk:"Қабанбай батыр даңғ., 42",ru:"пр. Кабанбай батыра, 42"},km:6.9},
+{s:0,n:"Hostel Forum",a:{en:"9 Kabanbay Batyr Ave",kk:"Қабанбай батыр даңғ., 9",ru:"пр. Кабанбай батыра, 9"},km:9.3}
+];
+var HX={
+title:{en:"Where to stay",kk:"Қайда тұруға болады",ru:"Где остановиться"},
+sub:{en:"Hotels by category, sorted by distance to KNUS (15 Karkaraly Hwy). Prices and availability are on the booking sites.",kk:"Санаты бойынша қонақүйлер, KNUS-қа дейінгі қашықтық бойынша (Қарқаралы тасжолы, 15). Бағалар мен бос орындар брондау сайттарында.",ru:"Гостиницы по категориям, по удаленности от KNUS (Каркаралинское шоссе, 15). Цены и наличие мест смотрите на сайтах бронирования."},
+all:{en:"All",kk:"Барлығы",ru:"Все"},
+hostel:{en:"Hostels",kk:"Хостелдер",ru:"Хостелы"},
+hostelTag:{en:"Hostel",kk:"Хостел",ru:"Хостел"},
+km:{en:"km to KNUS",kk:"км KNUS-қа дейін",ru:"км до KNUS"},
+book:{en:"Booking",kk:"Booking",ru:"Booking"},
+map:{en:"2GIS map",kk:"2GIS картасы",ru:"Карта 2GIS"},
+note:{en:"Distances are approximate, in a straight line. Book early: the festival brings thousands of guests to Astana. Apartments near EXPO are a good option for teams.",kk:"Қашықтық шамамен, түзу сызық бойынша. Ертерек брондаңыз: фестивальге мыңдаған қонақ келеді. Командаларға EXPO маңындағы пәтерлер де ыңғайлы.",ru:"Расстояния примерные, по прямой. Бронируйте заранее: на фестиваль приезжают тысячи гостей. Для команд удобны и квартиры посуточно рядом с EXPO."}
+};
+var hFilter="all";
+function renderHotels(){
+  setT("ht-title",L(HX.title));setT("ht-sub",L(HX.sub));setT("ht-note",L(HX.note));
+  var cats=[["all",L(HX.all)],["5","★★★★★"],["4","★★★★"],["3","★★★"],["0",L(HX.hostel)]];
+  setH("ht-chips",cats.map(function(c){return '<button type="button" data-h="'+c[0]+'" aria-pressed="'+(hFilter===c[0])+'">'+esc(c[1])+'</button>';}).join(""));
+  document.querySelectorAll("#ht-chips button").forEach(function(b){b.addEventListener("click",function(){hFilter=b.dataset.h;renderHotels();});});
+  var list=HOTELS.filter(function(h){return hFilter==="all"||String(h.s)===hFilter;}).slice().sort(function(a,b){return hFilter==="all"?(b.s-a.s)||(a.km-b.km):a.km-b.km;});
+  setH("ht-list",list.map(function(h){
+    var q=encodeURIComponent(h.n+" Astana");
+    var stars=h.s?new Array(h.s+1).join("★"):L(HX.hostelTag);
+    return '<div class="hotel"><span class="st">'+esc(stars)+'</span><div><b>'+esc(h.n)+'</b><small>'+esc(L(h.a))+'</small></div><div class="km">≈'+String(h.km).replace(".",lang==="en"?".":",")+'<span>'+esc(L(HX.km))+'</span></div><div class="hl"><a href="https://www.booking.com/searchresults.html?ss='+q+'&checkin=2027-02-17&checkout=2027-02-22" target="_blank" rel="noopener">'+esc(L(HX.book))+' ↗</a><a href="https://2gis.kz/astana/search/'+encodeURIComponent(h.n)+'" target="_blank" rel="noopener">'+esc(L(HX.map))+' ↗</a></div></div>';
+  }).join(""));
 }
 /* video: play inline on the real site, open YouTube inside claude.ai */
 document.getElementById("vd-card").addEventListener("click",function(){
