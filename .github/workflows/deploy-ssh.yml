@@ -35,7 +35,14 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           PORT="${SSH_PORT:-22}"
           ssh-keyscan -p "$PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
-          rsync -avz \
-            --exclude ".git/" --exclude ".github/" --exclude ".nojekyll" \
-            -e "ssh -i ~/.ssh/deploy_key -p $PORT" \
-            ./ "$SSH_USER@$SSH_HOST:$SSH_PATH/"
+          SSH="ssh -i $HOME/.ssh/deploy_key -p $PORT"
+          if $SSH "$SSH_USER@$SSH_HOST" "command -v rsync" >/dev/null 2>&1; then
+            rsync -avz \
+              --exclude ".git/" --exclude ".github/" --exclude ".nojekyll" \
+              -e "$SSH" ./ "$SSH_USER@$SSH_HOST:$SSH_PATH/"
+          else
+            echo "rsync not available on server, using scp"
+            $SSH "$SSH_USER@$SSH_HOST" "mkdir -p '$SSH_PATH/img'"
+            scp -i ~/.ssh/deploy_key -P "$PORT" index.html "$SSH_USER@$SSH_HOST:$SSH_PATH/"
+            scp -i ~/.ssh/deploy_key -P "$PORT" img/* "$SSH_USER@$SSH_HOST:$SSH_PATH/img/"
+          fi
