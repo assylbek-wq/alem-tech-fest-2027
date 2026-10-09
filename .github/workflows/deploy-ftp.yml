@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  # Folder on the FTP server that serves alemtechfest.kz
+  # Document root of alemtechfest.kz in Plesk
   DEPLOY_DIR: /httpdocs
 
 jobs:
@@ -34,15 +34,13 @@ jobs:
         if: steps.check.outputs.ready == 'true'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq lftp
 
-      - name: Show server folders
+      - name: Clean up files that must not be public
         if: steps.check.outputs.ready == 'true'
         run: |
           lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_SERVER" -e "
             set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no;
-            set net:max-retries 3; set net:timeout 30;
-            echo '--- /'; cls -1 /;
-            echo '--- /httpdocs'; cls -1 /httpdocs;
-            echo '--- /alemtechfest.kz'; cls -1 /alemtechfest.kz;
+            set cmd:fail-exit no; set net:max-retries 3; set net:timeout 30;
+            rm -r $DEPLOY_DIR/.git; rm -r $DEPLOY_DIR/.github; rm $DEPLOY_DIR/.ftp-deploy-sync-state.json; rm -r /alemtechfest.kz;
             bye" || true
 
       - name: Upload site
@@ -53,5 +51,5 @@ jobs:
           lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_SERVER" -e "
             set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no;
             set net:max-retries 3; set net:timeout 30;
-            mirror -R --verbose --no-perms --exclude-glob .git* --exclude-glob .github/ --exclude-glob .nojekyll ./ $DIR;
+            mirror -R --verbose --no-perms --exclude ^\\.git/ --exclude ^\\.github/ --exclude ^\\.nojekyll$ --exclude ^\\.gitignore$ ./ $DIR;
             bye"
