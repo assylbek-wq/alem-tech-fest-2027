@@ -40,7 +40,7 @@ jobs:
           lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_SERVER" -e "
             set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no;
             set cmd:fail-exit no; set net:max-retries 3; set net:timeout 30;
-            rm -r $DEPLOY_DIR/.git; rm -r $DEPLOY_DIR/.github; rm $DEPLOY_DIR/.ftp-deploy-sync-state.json; rm -r /alemtechfest.kz;
+            rm -r $DEPLOY_DIR/.git; rm $DEPLOY_DIR/.ftp-deploy-sync-state.json;
             bye" || true
 
       - name: Upload site
