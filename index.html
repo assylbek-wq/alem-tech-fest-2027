@@ -511,16 +511,7 @@ footer a{color:#fff}
   </div>
 </section>
 
-<section class="world">
-  <div class="tint"><img src="img/champions.jpg" alt="" loading="lazy"></div>
-  <div class="wrap">
-    <div class="kicker" style="margin-bottom:18px">FIRST Global Challenge</div>
-    <h2 class="big4" data-t="w_title" data-html="1"><em class="lime">4×</em> world<br>champions</h2>
-    <p class="sub" style="margin-top:20px" data-t="w_sub">Every year 190+ countries compete at the FIRST Global Challenge robotics world championship. Kazakhstan's national team, prepared by USTEM Foundation, has won it four times.</p>
-    <div class="timeline" id="timeline"></div>
-    <div class="quota"><span class="pill">50+</span><p data-t="quota">quotas to international FIRST championships for Kazakhstan's teams in the 2025-2026 season</p></div>
-  </div>
-</section>
+
 
 <section id="programme" class="prog">
   <div class="dots" aria-hidden="true"><i style="width:200px;height:200px;left:-70px;bottom:-60px;background:var(--blue)"></i><i style="width:80px;height:80px;right:10%;top:60px;background:var(--blue)"></i></div>
@@ -978,7 +969,7 @@ function applyLang(l){
   document.querySelectorAll("[data-t]").forEach(function(el){var k=el.getAttribute("data-t");if(el.hasAttribute("data-html"))el.innerHTML=t(k);else el.textContent=t(k);});
   document.querySelectorAll("[data-tp]").forEach(function(el){el.setAttribute("placeholder",t(el.getAttribute("data-tp")));});
   document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.lang===lang));});
-  renderDisc();renderDays();renderTimeline();renderVisa();if(typeof renderExtra==="function")renderExtra();fillDiscSelect();fillCountrySelect(document.getElementById("r-country"),true);
+  renderDisc();renderDays();renderVisa();if(typeof renderExtra==="function")renderExtra();fillDiscSelect();fillCountrySelect(document.getElementById("r-country"),true);
   renderMine();renderAdmin();
   try{localStorage.setItem("atf-lang",lang);}catch(e){}
 }
