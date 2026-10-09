@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Alem Tech Fest 2027 - международный фестиваль робототехники, ИИ, дронов и инженерии. 18-21 февраля 2027, KNUS, Астана.">
+<meta property="og:title" content="Alem Tech Fest 2027">
+<meta property="og:description" content="18-21.02.2027 · KNUS, Astana · Robotics, AI, Drones, Engineering">
+<meta property="og:image" content="img/hero-ftc.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230346F5%22/%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2222%22 fill=%22%23E0FE04%22/%3E%3C/svg%3E">
+<title>Alem Tech Fest 2027</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;600&display=swap">
+<style>
+/* Layout: the Alem Tech Fest 2026 deck turned into a page. Electric-blue slides with deep-blue dot fields, blue-toned photos, lime highlight words and pills; white "detail" slides for venue and registration. */
+:root{
+  --blue:#0346F5; --blue-2:#1F5BFF; --deep:#002D9D; --navy:#061A5C; --night:#030F3A;
+  --lime:#E0FE04; --lime-ink:#1A2200;
+  --white:#FFFFFF; --mist:#F2F5FD; --line:#D9E1F5;
+  --text:#0A1440; --muted:#55608A;
+  --on:#FFFFFF; --on-2:rgba(255,255,255,.74); --glass:rgba(255,255,255,.08); --glass-line:rgba(255,255,255,.18);
+  --ok:#0E8A5F; --ok-soft:#DCF5EA; --warn:#A35D00; --warn-soft:#FFF0D6; --bad:#C0261C; --bad-soft:#FDE3E0;
+  --f:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-logo:"Outfit","Onest",system-ui,sans-serif;
+  --r:18px; --maxw:1220px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--blue);color:var(--on);font:400 16px/1.6 var(--f)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px;border-radius:6px}
+img{max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:20px;position:relative;z-index:2}
+h1,h2,h3{margin:0;font-family:var(--f);text-wrap:balance}
+p{margin:0}
+.H{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;line-height:1.02;font-size:clamp(2rem,5vw,3.7rem)}
+.H em,.mission em,.lime{font-style:normal;color:var(--lime)}
+.kicker{font:700 .78rem/1 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--on-2)}
+section{position:relative;padding-block:clamp(64px,9vw,112px);overflow:hidden}
+.sub{color:var(--on-2);font-size:1.08rem;max-width:720px}
+.head{display:grid;gap:16px;margin-bottom:40px}
+/* dots: deep-blue circles like the deck background */
+.dots{position:absolute;inset:0;pointer-events:none;z-index:0}
+.dots i{position:absolute;border-radius:50%;background:var(--deep)}
+.stripe{position:absolute;pointer-events:none;z-index:0;background:var(--lime);transform:rotate(-58deg);width:140px;height:220%}
+/* blue-toned photo */
+.tint{position:relative;background:var(--blue);overflow:hidden}
+.tint img{display:block;width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.92;filter:contrast(1.08)}
+.tint::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,15,58,0) 35%,rgba(3,15,58,.85));pointer-events:none}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 .98rem/1 var(--f);padding:16px 24px;border-radius:999px;border:0;cursor:pointer;text-decoration:none;transition:transform .15s,background .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:var(--lime-ink)}
+.btn-lime:hover{box-shadow:0 10px 30px -8px rgba(224,254,4,.6)}
+.btn-glass{background:var(--glass);color:var(--on);box-shadow:inset 0 0 0 1.5px var(--glass-line);backdrop-filter:blur(8px)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-line{background:var(--white);color:var(--text);box-shadow:inset 0 0 0 1.5px var(--line)}
+.pill{display:inline-block;background:var(--lime);color:var(--lime-ink)!important;font-weight:800;border-radius:14px;padding:8px 16px;line-height:1.1;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+
+/* logo */
+.logo{display:inline-flex;align-items:center;gap:.35em;text-decoration:none;color:#fff}
+.logo svg{width:1.55em;height:1.55em;flex:none;fill:var(--lime)}
+.logo .wm{font:400 1em/0.86 var(--f-logo);letter-spacing:-.02em;display:block}
+.logo .yr{font:600 .42em/1 var(--f-logo);color:var(--lime);display:block;margin-left:.15em}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(3,58,214,.86);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:68px}
+.top .logo{font-size:17px}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{color:var(--on-2);text-decoration:none;font-weight:600;font-size:.9rem;padding:8px 11px;border-radius:999px}
+.nav a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.lang{display:flex;background:rgba(0,0,0,.18);border-radius:999px;padding:3px}
+.lang button{border:0;background:transparent;color:var(--on-2);font:700 .75rem/1 var(--f);padding:8px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--lime);color:var(--lime-ink)}
+.top .btn{padding:11px 18px;font-size:.88rem}
+@media (max-width:1040px){.nav{display:none}.lang{margin-left:auto}}
+@media (max-width:560px){.top .btn{display:none}}
+
+/* hero */
+.hero{padding-block:0;background:var(--blue);min-height:0}
+.hero-photo{position:absolute;inset:0;z-index:0}
+.hero-photo img{opacity:.28}
+.hero-photo::after{background:linear-gradient(90deg,var(--blue) 25%,rgba(3,70,245,.55) 60%,rgba(3,70,245,.2))}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:24px;align-items:end;padding-top:clamp(48px,7vw,90px)}
+.hero-copy{padding-bottom:clamp(40px,6vw,80px);display:grid;gap:26px}
+.hero .logo{font-size:clamp(40px,8.4vw,108px);gap:.28em;align-items:center}
+.hero .logo .yr{font-size:.36em;margin-top:.08em}
+.tag{font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(.95rem,1.6vw,1.2rem)}
+.hero .lede{color:var(--on-2);font-size:clamp(1.02rem,1.5vw,1.2rem);max-width:580px}
+.pills{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.pills .pill{font-size:clamp(1.05rem,2vw,1.45rem)}
+.pills .pill:first-child{transform:rotate(-2deg)}
+.pills .pill:nth-child(2){transform:rotate(1.5deg);background:#fff;color:var(--deep)!important}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-art{position:relative;align-self:stretch;min-height:560px;margin-bottom:60px}
+.shot{margin:0;position:absolute;overflow:hidden;border-radius:22px;box-shadow:0 30px 50px -20px rgba(0,10,60,.7)}
+.shot img{display:block;width:100%;height:100%;object-fit:cover}
+.shot1{right:-30px;top:110px;width:118%;aspect-ratio:4/3;border:6px solid #fff;transform:rotate(2.5deg)}
+.shot2{left:-60px;bottom:-30px;width:62%;aspect-ratio:4/3;border:6px solid var(--lime);transform:rotate(-4deg);z-index:2}
+.cd{position:absolute;left:-40px;top:40px;background:rgba(3,15,58,.55);backdrop-filter:blur(10px);border:1px solid var(--glass-line);border-radius:var(--r);padding:16px 18px;z-index:3;min-width:250px}
+.cd .kicker{margin-bottom:10px;display:block}
+.cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.cd-grid strong{display:block;font:800 1.7rem/1 var(--f);font-variant-numeric:tabular-nums;color:var(--lime)}
+.cd-grid span{font:600 .64rem/1 var(--f);letter-spacing:.08em;text-transform:uppercase;color:var(--on-2)}
+.orgs{position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.16);background:rgba(3,15,58,.35);backdrop-filter:blur(6px)}
+.orgs .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:18px 34px;padding-block:18px}
+.orgs .kicker{margin-right:6px}
+.orgs img{height:44px;width:auto;display:block}
+.orgs img.daryn{height:34px}
+@media (max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.hero-art{min-height:0;max-width:520px;width:100%;justify-self:center;display:grid;gap:18px;margin-bottom:56px}.shot{position:relative;inset:auto}.shot1{width:100%;right:auto;top:auto;transform:rotate(1.5deg)}.shot2{width:70%;left:auto;bottom:auto;justify-self:end;margin-top:-70px;transform:rotate(-3deg)}.cd{position:relative;left:0;top:0;min-width:0}.hero .stripe{top:auto!important;bottom:-140%;right:-160px!important}.hero-copy{padding-bottom:0}}
+
+/* numbers */
+.numbers{background:var(--blue);padding-block:clamp(56px,7vw,90px)}
+.num-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:center}
+.num{display:grid;justify-items:start;gap:10px}
+.num .pill{font-size:clamp(1.6rem,3.6vw,2.6rem);padding:12px 20px}
+.num:nth-child(odd) .pill{transform:rotate(-2.5deg)}
+.num:nth-child(even) .pill{transform:rotate(2deg)}
+.num > span:not(.pill){font-weight:700;text-transform:uppercase;font-size:.88rem;letter-spacing:.04em;color:var(--on-2);padding-left:6px}
+@media (max-width:760px){.num-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px}}
+
+/* mission */
+.mission{background:var(--night);padding-block:clamp(80px,12vw,150px)}
+.mission .tint{position:absolute;inset:0;z-index:0;background:var(--deep)}
+.mission .tint img{opacity:.5}
+.mission .tint::after{background:linear-gradient(90deg,rgba(3,15,58,.92) 30%,rgba(3,15,58,.35))}
+.mission h2{font-size:clamp(2rem,5.4vw,4.2rem);font-weight:800;text-transform:uppercase;line-height:1.02;max-width:900px}
+.mission .about{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:40px;max-width:980px;color:var(--on-2);font-size:1.05rem}
+.glass-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:36px;max-width:980px}
+.glass{background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r);padding:20px;backdrop-filter:blur(10px)}
+.glass b{display:block;text-transform:uppercase;font-weight:800;font-size:1.02rem;color:var(--lime);margin-bottom:6px}
+.glass span{color:var(--on-2);font-size:.92rem;line-height:1.5;display:block}
+@media (max-width:760px){.mission .about,.glass-row{grid-template-columns:minmax(0,1fr)}}
+
+/* disciplines */
+.disc-sec{background:var(--blue)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1.5px solid var(--glass-line);background:var(--glass);color:#fff;font:700 .85rem/1 var(--f);padding:11px 16px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--lime);border-color:var(--lime);color:var(--lime-ink)}
+.disc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;grid-auto-flow:dense}
+.disc.wide{grid-column:span 2}
+@media (max-width:960px){.disc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.disc-grid{grid-template-columns:minmax(0,1fr)}.disc.wide{grid-column:auto}}
+.disc{position:relative;border-radius:var(--r);overflow:hidden;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--deep);isolation:isolate}
+.disc .tint{position:absolute;inset:0;z-index:-1}
+.disc .tint img{transition:opacity .3s,mix-blend-mode .3s,transform .5s}
+.disc:hover .tint img{mix-blend-mode:normal;opacity:1;transform:scale(1.04)}
+.disc-body{padding:20px;display:grid;gap:8px}
+.disc-tag{font:700 .7rem/1 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--on-2)}
+.disc h3{font-weight:800;text-transform:uppercase;font-size:1.22rem;overflow-wrap:anywhere;hyphens:auto;line-height:1.05;color:var(--lime)}
+.disc p{font-size:.88rem;color:rgba(255,255,255,.86);line-height:1.45}
+.ages{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.ages span{font:800 .74rem/1 var(--f);background:#fff;color:var(--deep);padding:6px 9px;border-radius:8px}
+.note{font-size:.88rem;color:var(--on-2);margin-top:20px}
+
+/* world */
+.world{background:var(--blue)}
+.world .tint{position:absolute;inset:0;z-index:0}
+.world .tint img{opacity:.32}
+.world .tint::after{background:linear-gradient(180deg,rgba(3,70,245,.4),rgba(3,70,245,.95) 75%)}
+.big4{font-weight:900;text-transform:uppercase;line-height:.95;font-size:clamp(2.4rem,7vw,5.6rem);letter-spacing:-.02em}
+.timeline{position:relative;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:48px}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:rgba(255,255,255,.4)}
+.ev{position:relative;padding-top:30px}
+.ev::before{content:"";position:absolute;top:2px;left:0;width:16px;height:16px;border-radius:50%;background:#fff}
+.ev b{display:block;font-weight:800;text-transform:uppercase;font-size:1.02rem;line-height:1.1}
+.ev b span{color:var(--lime)}
+.ev small{display:block;color:var(--on-2);font-size:.82rem;margin-top:4px;line-height:1.35}
+.ev.last{background:var(--lime);color:var(--lime-ink);border-radius:14px;padding:30px 14px 14px}
+.ev.last::before{background:var(--lime-ink);left:14px;top:10px}
+.ev.last b span,.ev.last small{color:var(--lime-ink)}
+.quota{margin-top:34px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.quota .pill{font-size:1.6rem}
+.quota p{max-width:520px;color:var(--on-2)}
+@media (max-width:900px){.timeline{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:28px}.timeline::before{display:none}}
+@media (max-width:520px){.timeline{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* programme */
+.prog{background:var(--deep)}
+.days{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.day{background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r);padding:22px;display:grid;gap:12px;align-content:start;min-width:0;backdrop-filter:blur(8px)}
+.day-num{font:900 3.4rem/1 var(--f);letter-spacing:-.03em}
+.day-num small{font:700 .78rem/1 var(--f);letter-spacing:.1em;color:var(--on-2);margin-left:8px;text-transform:uppercase}
+.day h3{font-size:1.05rem;text-transform:uppercase;font-weight:800;color:var(--lime)}
+.day ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:.92rem;color:var(--on-2)}
+.day li{padding-left:16px;position:relative;line-height:1.45}
+.day li::before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.day.final{background:var(--lime);color:var(--lime-ink);border-color:var(--lime)}
+.day.final h3{color:var(--lime-ink)}
+.day.final ul,.day.final small{color:rgba(26,34,0,.8)}
+.day.final li::before{background:var(--deep)}
+@media (max-width:960px){.days{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.days{grid-template-columns:1fr}}
+
+/* white slides */
+.light{background:var(--white);color:var(--text);color-scheme:light}
+.light .kicker{color:var(--muted)}
+.light .H{color:var(--text)}
+.light .H em{color:var(--blue)}
+.light .sub{color:var(--muted)}
+.mosaic{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:160px;gap:12px}
+.mosaic figure{margin:0;position:relative;border-radius:16px;overflow:hidden;background:var(--mist)}
+.mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+.mosaic figcaption{position:absolute;left:12px;bottom:12px;background:var(--blue);color:#fff;font:700 .74rem/1.2 var(--f);text-transform:uppercase;letter-spacing:.04em;padding:8px 10px;border-radius:9px;max-width:calc(100% - 24px)}
+.g1{grid-column:span 4;grid-row:span 2}.g2{grid-column:span 2;grid-row:span 2}.g3,.g4,.g5{grid-column:span 2}
+.vinfo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.vi{background:var(--mist);border-radius:16px;padding:20px}
+.vi b{display:block;font-weight:800;text-transform:uppercase;font-size:.84rem;color:var(--blue);margin-bottom:8px;letter-spacing:.04em}
+.vi p{font-size:.95rem}
+.vi a{color:var(--blue);font-weight:700}
+@media (max-width:860px){.mosaic{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:150px}.g1{grid-column:span 2;grid-row:span 2}.g2,.g3,.g4,.g5{grid-column:span 1;grid-row:span 1}.vinfo{grid-template-columns:1fr}}
+
+/* visa */
+.visa{background:var(--night)}
+.visa-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:28px;align-items:start}
+.checker{background:var(--blue);border-radius:var(--r);padding:24px;display:grid;gap:14px;position:relative;overflow:hidden}
+.checker label{font:800 .76rem/1 var(--f);letter-spacing:.1em;text-transform:uppercase}
+.checker select{width:100%;font:600 1rem/1.2 var(--f);padding:15px;border-radius:12px;border:0;background:#fff;color:var(--text);color-scheme:light}
+.result[hidden]{display:none}
+.result{border-radius:14px;padding:18px;background:#fff;color:var(--text);display:grid;gap:8px}
+.result .st{justify-self:start;font:800 .74rem/1 var(--f);letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:7px}
+.st.free{background:var(--ok-soft);color:var(--ok)}.st.short{background:var(--warn-soft);color:var(--warn)}.st.need{background:var(--bad-soft);color:var(--bad)}
+.result strong{font:800 1.3rem/1.2 var(--f)}
+.result p{font-size:.92rem;color:var(--muted)}
+.lists{display:grid;gap:10px;margin-top:14px}
+.lists details{background:var(--glass);border-radius:14px;border:1px solid var(--glass-line)}
+.lists summary{cursor:pointer;padding:15px 18px;font-weight:700;font-size:.95rem;display:flex;justify-content:space-between;gap:10px}
+.lists summary span{color:var(--lime);font-weight:800}
+.lists details p{padding:0 18px 18px;font-size:.88rem;color:var(--on-2);line-height:1.6}
+.steps{display:grid;gap:12px;counter-reset:s}
+.step{background:var(--glass);border:1px solid var(--glass-line);border-radius:16px;padding:18px 18px 18px 70px;position:relative}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:18px;top:16px;width:36px;height:36px;border-radius:50%;background:var(--lime);color:var(--lime-ink);font:900 1rem/36px var(--f);text-align:center}
+.step h3{font-size:1rem;margin-bottom:6px;font-weight:800}
+.step p{font-size:.92rem;color:var(--on-2)}
+.step a{color:var(--lime)}
+.disclaim{font-size:.84rem;color:var(--on-2);margin-top:26px;border-top:1px solid var(--glass-line);padding-top:16px}
+.disclaim a{color:var(--lime)}
+@media (max-width:900px){.visa-grid{grid-template-columns:1fr}}
+
+/* registration */
+.reg-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.8fr);gap:28px;align-items:start}
+form.reg{background:var(--mist);border-radius:22px;padding:clamp(18px,3vw,32px);display:grid;gap:24px}
+fieldset{border:0;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+legend{font-weight:800;text-transform:uppercase;color:var(--blue);margin-bottom:14px;padding:0;letter-spacing:.03em}
+.f{display:grid;gap:6px;min-width:0}
+.f.full{grid-column:1/-1}
+.f label{font-size:.85rem;font-weight:600}
+.f label i{color:var(--bad);font-style:normal}
+.f input,.f select,.f textarea{width:100%;font:400 .98rem/1.3 var(--f);padding:13px 14px;border-radius:11px;border:1.5px solid var(--line);background:#fff;color:var(--text)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 3px rgba(3,70,245,.15)}
+.f textarea{min-height:84px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;grid-column:1/-1}
+.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--blue);flex:none}
+.err{color:var(--bad);font-size:.88rem;min-height:1.2em}
+@media (max-width:640px){fieldset{grid-template-columns:1fr}}
+.side{display:grid;gap:14px}
+.card{background:var(--mist);border-radius:18px;padding:22px}
+.card.blue{background:var(--blue);color:#fff}
+.card h3{margin-bottom:12px;font-weight:800;text-transform:uppercase;font-size:1rem}
+.card.blue h3{color:var(--lime)}
+.card ul{margin:0;padding-left:18px;display:grid;gap:7px;font-size:.92rem}
+.contact-line{display:flex;justify-content:space-between;gap:10px;align-items:center;font-weight:600;font-size:.95rem;padding:11px 0;border-bottom:1px solid var(--line)}
+.contact-line:last-child{border:0}
+.contact-line a{color:var(--blue)}
+.contact-line button{font:700 .74rem/1 var(--f);border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;cursor:pointer;color:var(--text)}
+.done{background:var(--ok-soft);border:1.5px solid var(--ok);border-radius:22px;padding:26px;display:grid;gap:10px}
+.done strong{font:800 1.25rem/1.2 var(--f);color:var(--ok)}
+.done code{font:800 1.15rem/1 ui-monospace,Menlo,monospace;background:#fff;padding:8px 12px;border-radius:8px;justify-self:start}
+.fallback{background:var(--mist);border:2px solid var(--blue);border-radius:22px;padding:24px;display:grid;gap:12px}
+.fallback strong{font:800 1.15rem/1.3 var(--f);color:var(--blue);text-transform:uppercase}
+.fallback textarea{width:100%;min-height:220px;font:400 .84rem/1.5 ui-monospace,Menlo,monospace;border-radius:10px;border:1px solid var(--line);padding:12px;background:#fff;color:var(--text)}
+.mine{display:grid;gap:4px}
+.mine div{display:flex;justify-content:space-between;gap:10px;font-size:.88rem;padding:8px 0;border-bottom:1px solid var(--line)}
+.mine code{font:700 .8rem/1 ui-monospace,Menlo,monospace;color:var(--muted)}
+@media (max-width:900px){.reg-grid{grid-template-columns:1fr}}
+
+/* partners strip */
+.partners{background:var(--white);color:var(--text);border-top:1px solid var(--line);padding-block:40px}
+.partners .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:22px 48px}
+.partners .kicker{color:var(--muted);flex-basis:100%}
+.partners img{height:56px;width:auto}
+.partners img.daryn{height:44px}
+.partners .atf{font-size:30px;color:var(--blue)}
+.partners .atf svg{fill:var(--blue)}
+
+/* admin */
+.admin{background:var(--white);color:var(--text);border-top:1px solid var(--line)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.tbl table{border-collapse:collapse;width:100%;font-size:.86rem;min-width:900px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--mist)}
+.admin-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.admin-bar .count{font:800 1.7rem/1 var(--f);margin-top:10px}
+
+/* footer */
+footer{background:var(--blue);color:var(--on-2);padding-block:56px 36px;font-size:.92rem;position:relative;overflow:hidden}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+footer .logo{font-size:30px;margin-bottom:14px}
+footer b{display:block;color:#fff;font-weight:800;text-transform:uppercase;margin-bottom:10px;font-size:.9rem;letter-spacing:.04em}
+footer a{color:#fff}
+.credits{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.18);padding-top:18px;font-size:.8rem}
+@media (max-width:760px){.ft{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="burst" viewBox="0 0 430 432"><circle cx="178" cy="13" r="11.3"/><circle cx="251" cy="13" r="11.3"/><circle cx="331" cy="46" r="11.3"/><circle cx="98" cy="46" r="11.3"/><circle cx="178" cy="55" r="13.9"/><circle cx="252" cy="56" r="13.9"/><circle cx="128" cy="76" r="13.9"/><circle cx="302" cy="76" r="13.9"/><circle cx="46" cy="98" r="11.3"/><circle cx="383" cy="98" r="11.3"/><circle cx="174" cy="115" r="20.9"/><circle cx="256" cy="116" r="20.9"/><circle cx="76" cy="128" r="13.9"/><circle cx="353" cy="128" r="14.0"/><circle cx="116" cy="173" r="20.9"/><circle cx="314" cy="174" r="20.9"/><circle cx="56" cy="177" r="13.9"/><circle cx="374" cy="178" r="13.9"/><circle cx="13" cy="178" r="11.3"/><circle cx="416" cy="178" r="11.3"/><circle cx="116" cy="255" r="20.9"/><circle cx="314" cy="256" r="20.9"/><circle cx="55" cy="251" r="13.9"/><circle cx="374" cy="252" r="13.9"/><circle cx="13" cy="251" r="11.3"/><circle cx="416" cy="251" r="11.3"/><circle cx="76" cy="301" r="13.9"/><circle cx="353" cy="302" r="13.9"/><circle cx="173" cy="313" r="21.0"/><circle cx="255" cy="314" r="21.0"/><circle cx="383" cy="331" r="11.3"/><circle cx="46" cy="331" r="11.3"/><circle cx="128" cy="353" r="13.9"/><circle cx="301" cy="353" r="13.9"/><circle cx="178" cy="374" r="14.0"/><circle cx="251" cy="374" r="13.9"/><circle cx="98" cy="383" r="11.2"/><circle cx="332" cy="383" r="11.3"/><circle cx="178" cy="416" r="11.3"/><circle cx="251" cy="416" r="11.3"/></symbol></svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Alem Tech Fest 2027"><svg><use href="#burst"/></svg><span><span class="wm">alem<br>techfest</span></span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about" data-t="nav_about">About</a>
+      <a href="#disciplines" data-t="nav_disc">Disciplines</a>
+      <a href="#programme" data-t="nav_prog">Programme</a>
+      <a href="#venue" data-t="nav_venue">Venue</a>
+      <a href="#visa" data-t="nav_visa">Visas</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="l-en" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" id="l-kk" data-lang="kk" aria-pressed="false">ҚАЗ</button>
+      <button type="button" id="l-ru" data-lang="ru" aria-pressed="false">РУС</button>
+    </div>
+    <a class="btn btn-lime" href="#register" data-t="cta_reg">Register a team</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="tint hero-photo"><img src="img/hero-team.jpg" alt=""></div>
+  <div class="dots" aria-hidden="true"><i style="width:220px;height:220px;right:30%;top:-90px"></i><i style="width:90px;height:90px;right:22%;top:160px"></i><i style="width:150px;height:150px;right:-40px;top:90px"></i><i style="width:60px;height:60px;left:46%;bottom:120px"></i><i style="width:120px;height:120px;right:6%;bottom:180px"></i></div>
+  <div class="stripe" style="right:-120px;top:-60%;opacity:.95" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 class="logo" aria-label="Alem Tech Fest 2027"><svg><use href="#burst"/></svg><span><span class="wm">alem<br>techfest</span></span><span class="yr">2027</span></h1>
+      <div class="tag" data-t="hero_tag">Robotics · AI · Drones · Engineering</div>
+      <p class="lede" data-t="hero_lede">Four days of robotics, AI, drones and engineering in Astana. School and university teams from Kazakhstan and abroad compete, build and learn side by side.</p>
+      <div class="pills"><span class="pill" data-t="pill_date">18-21 February 2027</span><span class="pill">KNUS · Astana</span></div>
+      <div class="ctas">
+        <a class="btn btn-lime" href="#register" data-t="cta_reg2">Register your team</a>
+        <a class="btn btn-glass" href="#visa" data-t="cta_visa">Visa info for international teams</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="cd" aria-live="off">
+        <span class="kicker" data-t="cd_title">Until the start</span>
+        <div class="cd-grid">
+          <div><strong id="cd-d">--</strong><span data-t="cd_d">days</span></div>
+          <div><strong id="cd-h">--</strong><span data-t="cd_h">hrs</span></div>
+          <div><strong id="cd-m">--</strong><span data-t="cd_m">min</span></div>
+          <div><strong id="cd-s">--</strong><span data-t="cd_s">sec</span></div>
+        </div>
+      </div>
+      <figure class="shot shot1"><img src="img/hero-ftc.jpg" alt="FIRST Tech Challenge match: teams drive robots on the field at a USTEM tournament"></figure>
+      <figure class="shot shot2"><img src="img/ftc-kid.jpg" alt="Kazakhstan team member placing a game element during an FTC match" loading="lazy"></figure>
+    </div>
+  </div>
+  <div class="orgs">
+    <div class="wrap">
+      <span class="kicker" data-t="org_title">Organizers &amp; partners</span>
+      <img src="img/ustem-white.png" alt="USTEM Foundation">
+      <img class="daryn" src="img/daryn-white.png" alt="Daryn Republican Scientific and Practical Center">
+    </div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="dots" aria-hidden="true"><i style="width:140px;height:140px;left:-50px;top:20px"></i><i style="width:70px;height:70px;right:8%;bottom:16px"></i></div>
+  <div class="wrap">
+    <div class="head" style="margin-bottom:34px"><div class="kicker" data-t="n_title">Alem Tech Fest 2026 in numbers</div></div>
+    <div class="num-grid">
+      <div class="num"><span class="pill">5000+</span><span data-t="n1">participants</span></div>
+      <div class="num"><span class="pill">10000+</span><span data-t="n2">guests</span></div>
+      <div class="num"><span class="pill">500+</span><span data-t="n3">teams</span></div>
+      <div class="num"><span class="pill">7</span><span data-t="n4">countries</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="mission" id="about">
+  <div class="tint"><img src="img/crowd.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="kicker" data-t="ab_eyebrow" style="margin-bottom:20px">About the festival</div>
+    <h2 data-t="mis" data-html="1">Grow <em>human capital</em> by bringing <em>young people</em> into STEM</h2>
+    <div class="about">
+      <p data-t="ab_p1">Alem Tech Fest is the international festival of USTEM Foundation, the official FIRST operator for Kazakhstan, Uzbekistan and Kyrgyzstan. In 2027 the festival moves to the new campus of the Kazakh National University of Sports in Astana.</p>
+      <p data-t="ab_p2">Teams aged 4 to 25 and older bring robots, drones, satellites and code. Results count toward national rankings and qualification to international championships.</p>
+    </div>
+    <div class="glass-row">
+      <div class="glass"><b data-t="pl1">Compete</b><span data-t="pl1d">FIRST, RoboCup, drones, space, cybersecurity</span></div>
+      <div class="glass"><b data-t="pl2">Learn</b><span data-t="pl2d">Workshops, Hour of AI and an open expo zone</span></div>
+      <div class="glass"><b data-t="pl3">Connect</b><span data-t="pl3d">Teams from Central Asia and beyond</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="disc-sec" id="disciplines">
+  <div class="dots" aria-hidden="true"><i style="width:260px;height:260px;right:-80px;top:-60px"></i><i style="width:100px;height:100px;right:20%;top:70px"></i></div>
+  <div class="wrap">
+    <div class="head">
+      <h2 class="H">Competition<br><em>based learning</em></h2>
+      <p class="sub" data-t="d_sub">Pick the track that fits your team. Regulations and field specs are sent to registered teams.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter">
+      <button class="chip" type="button" id="fl-all" data-f="all" aria-pressed="true" data-t="f_all">All</button>
+      <button class="chip" type="button" id="fl-rob" data-f="rob" aria-pressed="false" data-t="f_rob">Robotics</button>
+      <button class="chip" type="button" id="fl-air" data-f="air" aria-pressed="false" data-t="f_air">Drones &amp; space</button>
+      <button class="chip" type="button" id="fl-ai" data-f="ai" aria-pressed="false" data-t="f_ai">AI &amp; cyber</button>
+      <button class="chip" type="button" id="fl-eng" data-f="eng" aria-pressed="false" data-t="f_eng">Engineering</button>
+    </div>
+    <div class="disc-grid" id="disc-grid"></div>
+    <p class="note" data-t="d_note">The track list is preliminary and may be adjusted. Final regulations will be published before registration closes.</p>
+  </div>
+</section>
+
+<section class="world">
+  <div class="tint"><img src="img/champions.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <div class="kicker" style="margin-bottom:18px">FIRST Global Challenge</div>
+    <h2 class="big4" data-t="w_title" data-html="1"><em class="lime">4×</em> world<br>champions</h2>
+    <p class="sub" style="margin-top:20px" data-t="w_sub">Every year 190+ countries compete at the FIRST Global Challenge robotics world championship. Kazakhstan's national team, prepared by USTEM Foundation, has won it four times.</p>
+    <div class="timeline" id="timeline"></div>
+    <div class="quota"><span class="pill">50+</span><p data-t="quota">quotas to international FIRST championships for Kazakhstan's teams in the 2025-2026 season</p></div>
+  </div>
+</section>
+
+<section id="programme" class="prog">
+  <div class="dots" aria-hidden="true"><i style="width:200px;height:200px;left:-70px;bottom:-60px;background:var(--blue)"></i><i style="width:80px;height:80px;right:10%;top:60px;background:var(--blue)"></i></div>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" data-t="p_eyebrow">Programme</div>
+      <h2 class="H" data-t="p_title" data-html="1">Four days <em>at KNUS</em></h2>
+      <p class="sub" data-t="p_sub">Preliminary schedule. Detailed timing per track is shared with teams in early February.</p>
+    </div>
+    <div class="days" id="days"></div>
+  </div>
+</section>
+
+<section id="venue" class="light">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" data-t="v_eyebrow">Venue</div>
+      <h2 class="H" data-t="v_title" data-html="1">Kazakh National <em>University of Sports</em></h2>
+      <p class="sub" data-t="v_sub">A new campus in Astana, opened in July 2026: a glass-roofed atrium, an indoor athletics arena, sports halls, a conference stage and an outdoor stadium. All competition zones are under one roof.</p>
+    </div>
+    <div class="mosaic">
+      <figure class="g1"><img src="img/v-atrium.jpg" alt="KNUS main atrium with glass roof" loading="lazy"><figcaption data-t="cap1">Main atrium · expo and pits</figcaption></figure>
+      <figure class="g2"><img src="img/v-aerial.jpg" alt="Aerial view of the KNUS campus" loading="lazy"><figcaption data-t="cap2">Campus from above</figcaption></figure>
+      <figure class="g3"><img src="img/v-arena.jpg" alt="Indoor athletics arena with stands" loading="lazy"><figcaption data-t="cap3">Indoor arena</figcaption></figure>
+      <figure class="g4"><img src="img/v-hall.jpg" alt="Sports hall full of participants" loading="lazy"><figcaption data-t="cap4">Sports hall</figcaption></figure>
+      <figure class="g5"><img src="img/v-stage.jpg" alt="Conference hall with a large screen" loading="lazy"><figcaption data-t="cap5">Main stage</figcaption></figure>
+    </div>
+    <div class="vinfo">
+      <div class="vi"><b data-t="vi1">Address</b><p data-t="vi1d">15 Karkaraly St., Astana, Kazakhstan</p><p style="margin-top:8px"><a href="https://www.google.com/maps/search/?api=1&amp;query=Kazakh+National+University+of+Sports+Karkaraly+15+Astana" target="_blank" rel="noopener" data-t="vi_map">Open in Google Maps ↗</a> · <a href="https://2gis.kz/astana/search/KNUS" target="_blank" rel="noopener">2GIS ↗</a></p></div>
+      <div class="vi"><b data-t="vi2">Getting there</b><p data-t="vi2d">Fly into Nursultan Nazarbayev International Airport (NQZ). Taxi apps (Yandex Go, inDrive) work across the city.</p></div>
+      <div class="vi"><b data-t="vi3">Weather in February</b><p data-t="vi3d">Daytime is usually around −10 °C, nights often drop below −20 °C, and it is windy. Bring a warm coat, hat and gloves.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="visa" class="visa">
+  <div class="dots" aria-hidden="true"><i style="width:240px;height:240px;right:-90px;top:-70px;background:var(--navy)"></i><i style="width:90px;height:90px;left:40%;top:40px;background:var(--navy)"></i></div>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" data-t="vz_eyebrow">For international teams</div>
+      <h2 class="H" data-t="vz_title" data-html="1">Visas and entry <em>to Kazakhstan</em></h2>
+      <p class="sub" data-t="vz_sub">Citizens of 80+ countries can enter Kazakhstan without a visa. Check your passport country below, then follow the steps.</p>
+    </div>
+    <div class="visa-grid">
+      <div>
+        <div class="checker">
+          <label for="vz-country" data-t="vz_label">Passport country</label>
+          <select id="vz-country"></select>
+          <div class="result" id="vz-result" hidden></div>
+        </div>
+        <div class="lists" id="vz-lists"></div>
+      </div>
+      <div class="steps" id="vz-steps"></div>
+    </div>
+    <p class="disclaim" data-t="vz_disc" data-html="1">Based on the list of the Ministry of Foreign Affairs of Kazakhstan as of October 2026. Visa rules can change: confirm with the nearest Kazakhstan embassy before buying tickets. Official sources: <a href="https://www.gov.kz/memleket/entities/mfa" target="_blank" rel="noopener">Ministry of Foreign Affairs</a>, <a href="https://www.vmp.gov.kz" target="_blank" rel="noopener">Visa and Migration Portal</a>.</p>
+  </div>
+</section>
+
+<section id="register" class="light">
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker" data-t="r_eyebrow">Registration</div>
+      <h2 class="H" data-t="r_title" data-html="1">Register <em>your team</em></h2>
+      <p class="sub" data-t="r_sub">One form per team. The organizers confirm each registration and send regulations, invoices and the invitation letter if you request one.</p>
+    </div>
+    <div class="reg-grid">
+      <div id="reg-area">
+        <form class="reg" id="reg-form" novalidate>
+          <fieldset>
+            <legend data-t="r_team">Team</legend>
+            <div class="f full"><label for="r-team"><span data-t="r_teamname">Team name</span> <i>*</i></label><input id="r-team" name="team" required maxlength="80" autocomplete="off"></div>
+            <div class="f"><label for="r-disc"><span data-t="r_disc">Discipline</span> <i>*</i></label><select id="r-disc" name="discipline" required></select></div>
+            <div class="f"><label for="r-cat"><span data-t="r_cat">Category / age group</span></label><input id="r-cat" name="category" maxlength="60" data-tp="r_cat_ph" placeholder="e.g. FLL Challenge, 9-16"></div>
+            <div class="f"><label for="r-students"><span data-t="r_students">Participants</span> <i>*</i></label><input id="r-students" name="students" type="number" min="1" max="40" value="4" required></div>
+            <div class="f"><label for="r-coaches"><span data-t="r_coaches">Coaches / mentors</span></label><input id="r-coaches" name="coaches" type="number" min="0" max="10" value="1"></div>
+          </fieldset>
+          <fieldset>
+            <legend data-t="r_where">Where you come from</legend>
+            <div class="f"><label for="r-country"><span data-t="r_country">Country</span> <i>*</i></label><select id="r-country" name="country" required></select></div>
+            <div class="f"><label for="r-city"><span data-t="r_city">City</span> <i>*</i></label><input id="r-city" name="city" required maxlength="60"></div>
+            <div class="f full"><label for="r-org"><span data-t="r_org">School, university or club</span></label><input id="r-org" name="org" maxlength="120"></div>
+          </fieldset>
+          <fieldset>
+            <legend data-t="r_contact">Team lead</legend>
+            <div class="f full"><label for="r-lead"><span data-t="r_lead">Full name</span> <i>*</i></label><input id="r-lead" name="lead" required maxlength="80" autocomplete="name"></div>
+            <div class="f"><label for="r-email"><span data-t="r_email">Email</span> <i>*</i></label><input id="r-email" name="email" type="email" required maxlength="120" autocomplete="email"></div>
+            <div class="f"><label for="r-phone"><span data-t="r_phone">Phone / WhatsApp / Telegram</span> <i>*</i></label><input id="r-phone" name="phone" type="tel" required maxlength="40" autocomplete="tel" placeholder="+7 ..."></div>
+            <label class="check"><input type="checkbox" id="r-visa" name="visaLetter"><span data-t="r_visa">We need an official invitation letter for visas</span></label>
+            <label class="check"><input type="checkbox" id="r-hotel" name="hotel"><span data-t="r_hotel">We would like help with accommodation in Astana</span></label>
+            <div class="f full"><label for="r-notes" data-t="r_notes">Comments</label><textarea id="r-notes" name="notes" maxlength="800"></textarea></div>
+            <label class="check"><input type="checkbox" id="r-consent" required><span data-t="r_consent">I agree that USTEM Foundation processes this data to organize the festival and contact the team.</span></label>
+          </fieldset>
+          <div class="err" id="r-err" role="alert"></div>
+          <div><button class="btn btn-blue" type="submit" id="r-submit" data-t="r_submit">Submit registration</button></div>
+        </form>
+      </div>
+      <aside class="side">
+        <div class="card blue">
+          <h3 data-t="s_next">What happens next</h3>
+          <ul>
+            <li data-t="s1">Organizers review the form within 3 working days.</li>
+            <li data-t="s2">You receive the regulations and participation terms by email.</li>
+            <li data-t="s3">International teams get an invitation letter for the visa, if requested.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 data-t="s_contacts">Organizer contacts</h3>
+          <div class="contact-line"><span>hello@ustemfoundation.org</span><button type="button" id="cp-mail" data-copy="hello@ustemfoundation.org" data-t="copy">Copy</button></div>
+          <div class="contact-line"><span>+7 700 444 60 00</span><button type="button" id="cp-tel" data-copy="+77004446000" data-t="copy">Copy</button></div>
+          <div class="contact-line"><span>Instagram</span><a href="https://www.instagram.com/ustem_foundation/" target="_blank" rel="noopener">@ustem_foundation</a></div>
+        </div>
+        <div class="card" id="mine-card" hidden>
+          <h3 data-t="s_mine">Your registrations</h3>
+          <div class="mine" id="mine"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="admin" id="admin" hidden>
+  <div class="wrap">
+    <div class="admin-bar">
+      <div><div class="kicker" data-t="a_eyebrow">Organizers only</div><div class="count" id="a-count">0</div></div>
+      <button class="btn btn-line" type="button" id="a-csv" hidden data-t="a_csv">Download CSV</button>
+    </div>
+    <div class="tbl"><table><thead><tr><th>#</th><th data-t="r_teamname">Team name</th><th data-t="r_disc">Discipline</th><th data-t="r_country">Country</th><th data-t="r_students">Participants</th><th data-t="r_lead">Full name</th><th>Email / Phone</th><th data-t="a_visa">Visa letter</th><th data-t="a_date">Submitted</th></tr></thead><tbody id="a-rows"></tbody></table></div>
+  </div>
+</section>
+
+<div class="partners">
+  <div class="wrap">
+    <span class="kicker" data-t="org_title">Organizers &amp; partners</span>
+    <span class="logo atf"><svg><use href="#burst"/></svg><span><span class="wm">alem<br>techfest</span></span></span>
+    <img src="img/ustem-color.png" alt="USTEM Foundation">
+    <img class="daryn" src="img/daryn-color.png" alt="Daryn Republican Scientific and Practical Center">
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="dots" aria-hidden="true"><i style="width:180px;height:180px;right:-50px;top:-40px"></i><i style="width:70px;height:70px;right:18%;bottom:30px"></i></div>
+  <div class="wrap ft">
+    <div><span class="logo"><svg><use href="#burst"/></svg><span><span class="wm">alem<br>techfest</span></span><span class="yr">2027</span></span><p data-t="ft1">18-21 February 2027 · KNUS, Astana. Organized by USTEM Foundation, the Engineering Development Foundation of Central Asia.</p></div>
+    <div><b data-t="ft_c">Contacts</b><p>hello@ustemfoundation.org<br>+7 700 444 60 00<br><a href="https://www.instagram.com/ustem_foundation/" target="_blank" rel="noopener">@ustem_foundation</a></p></div>
+    <div><b data-t="ft_n">Quick links</b><p><a href="#register" data-t="nav_reg">Registration</a><br><a href="#visa" data-t="nav_visa">Visas</a><br><a href="#venue" data-t="nav_venue">Venue</a></p></div>
+    <p class="credits" data-t="ft_cr">Venue photos: Kazakh National University of Sports (knus.edu.kz). Competition photos: USTEM Foundation.</p>
+  </div>
+</footer>
+<script>
+(function(){
+"use strict";
+/* ---------- translations ---------- */
+var T={
+en:{},
+kk:{
+hero_tag:"Робототехника · ЖИ · Дрондар · Инженерия",pill_date:"2027 жылғы 18-21 ақпан",cd_title:"Басталуына дейін",org_title:"Ұйымдастырушылар мен серіктестер",
+n_title:"Alem Tech Fest 2026 сандармен",n1:"қатысушы",n2:"қонақ",n3:"команда",n4:"ел",
+mis:"Жастарды <em>STEM-ге</em> тарту арқылы <em>адами капиталды</em> арттыру",
+w_title:"<em class=\"lime\">4 дүркін</em><br>әлем чемпионы",w_sub:"Жыл сайын FIRST Global Challenge робототехникадан әлем чемпионатына 190-нан астам ел қатысады. USTEM Foundation дайындаған Қазақстан құрамасы оны төрт рет жеңді.",
+quota:"2025-2026 маусымында Қазақстан командаларына халықаралық FIRST чемпионаттарына квота",
+p_title:"KNUS-тағы <em>төрт күн</em>",v_title:"Қазақ ұлттық <em>спорт университеті</em>",vz_title:"Қазақстанға <em>виза және кіру</em>",r_title:"Команданы <em>тіркеу</em>",
+nav_about:"Фестиваль туралы",nav_disc:"Бағыттар",nav_prog:"Бағдарлама",nav_venue:"Өтетін орны",nav_visa:"Визалар",nav_reg:"Тіркелу",
+cta_reg:"Команданы тіркеу",cta_reg2:"Команданы тіркеу",cta_visa:"Шетелдік командаларға виза туралы",
+hero_lede:"Астанада робототехника, жасанды интеллект, дрондар және инженерия бойынша төрт күн. Қазақстан мен шетелдің мектеп және университет командалары жарысады, құрастырады және бірге үйренеді.",
+badge_kicker:"Қатысушы бейджі",badge_days:"Бейсенбі мен жексенбі аралығы, 2027 жылғы ақпан",b_venue:"Орны",b_city:"Мекенжай",b_org:"Ұйымдастырушы",
+venue_name:"Қазақ ұлттық спорт университеті (KNUS)",venue_addr:"Астана, Қарқаралы к-сі, 15",
+cd_d:"күн",cd_h:"сағ",cd_m:"мин",cd_s:"сек",
+st1:"Alem Tech Fest 2026 қатысушысы",st2:"бір алаңдағы жарыс бағыты",st3:"FIRST Global Challenge әлем чемпионы, Қазақстан құрамасы",st4:"күн, 2027 жылғы 18-21 ақпан",
+ab_eyebrow:"Фестиваль туралы",ab_title:"Жарыс арқылы оқыту, толық ауқымда",
+ab_p1:"Alem Tech Fest – Қазақстан, Өзбекстан және Қырғызстандағы FIRST ресми операторы USTEM Foundation қорының халықаралық фестивалі. 2027 жылы фестиваль Астанаға, Қазақ ұлттық спорт университетінің жаңа кампусына көшеді.",
+ab_p2:"4 жастан 25 жасқа дейінгі және одан үлкен командалар роботтарын, дрондарын, спутниктері мен кодын әкеледі. Нәтижелер ұлттық рейтингке және халықаралық чемпионаттарға іріктеуге есептеледі.",
+pl1:"Жарыс",pl1d:"FIRST, RoboCup, дрондар, ғарыш, киберқауіпсіздік",pl2:"Білім",pl2d:"Шеберлік сабақтары, Hour of AI және ашық экспо-аймақ",pl3:"Байланыс",pl3d:"Орталық Азия мен басқа елдердің командалары",
+d_eyebrow:"Бағыттар",d_title:"13 бағыт: 4 жастан кәсіпқойларға дейін",d_sub:"Командаңызға сай бағытты таңдаңыз. Ережелер мен алаң сипаттамалары тіркелген командаларға жіберіледі.",
+f_all:"Барлығы",f_rob:"Робототехника",f_air:"Дрондар мен ғарыш",f_ai:"ЖИ және кибер",f_eng:"Инженерия",
+d_note:"Бағыттар тізімі алдын ала берілген және өзгеруі мүмкін. Түпкілікті ережелер тіркеу жабылғанға дейін жарияланады.",
+p_eyebrow:"Бағдарлама",p_sub:"Алдын ала кесте. Әр бағыттың нақты уақыты командаларға ақпанның басында жіберіледі.",
+v_eyebrow:"Өтетін орны",v_sub:"Астанадағы 2026 жылдың шілдесінде ашылған жаңа кампус: шыны күмбезді атриум, жабық жеңіл атлетика манежі, спорт залдары, конференц-сахна және ашық стадион. Барлық жарыс аймақтары бір шатыр астында.",
+cap1:"Басты атриум · экспо және питтер",cap2:"Кампус жоғарыдан",cap3:"Жабық манеж",cap4:"Спорт залы",cap5:"Басты сахна",
+vi1:"Мекенжай",vi1d:"Қазақстан, Астана, Қарқаралы көшесі, 15",vi_map:"Google Maps-та ашу ↗",vi2:"Қалай жетуге болады",vi2d:"Нұрсұлтан Назарбаев атындағы халықаралық әуежайы (NQZ). Қала бойынша Yandex Go, inDrive такси қосымшалары жұмыс істейді.",
+vi3:"Ақпандағы ауа райы",vi3d:"Күндіз әдетте шамамен −10 °C, түнде −20 °C-тан төмен түседі, жел жиі соғады. Жылы күрте, бас киім және қолғап алыңыз.",
+vz_eyebrow:"Шетелдік командаларға",vz_sub:"80-нен астам елдің азаматтары Қазақстанға визасыз кіре алады. Төменде төлқұжатыңыздың елін тексеріп, қадамдарды орындаңыз.",
+vz_label:"Төлқұжат елі",
+vz_disc:"Қазақстан Республикасы Сыртқы істер министрлігінің 2026 жылғы қазандағы тізімі негізінде. Виза ережелері өзгеруі мүмкін: билет алмас бұрын Қазақстанның жақын елшілігінен нақтылаңыз. Ресми дереккөздер: <a href=\"https://www.gov.kz/memleket/entities/mfa\" target=\"_blank\" rel=\"noopener\">Сыртқы істер министрлігі</a>, <a href=\"https://www.vmp.gov.kz\" target=\"_blank\" rel=\"noopener\">Виза және көші-қон порталы</a>.",
+r_eyebrow:"Тіркелу",r_sub:"Әр командаға бір форма. Ұйымдастырушылар әр өтінімді растап, ережелерді, шотты және сұралған жағдайда шақыру хатын жібереді.",
+r_team:"Команда",r_teamname:"Команда атауы",r_disc:"Бағыт",r_cat:"Санат / жас тобы",r_cat_ph:"мысалы, FLL Challenge, 9-16",r_students:"Қатысушылар саны",r_coaches:"Жаттықтырушылар / менторлар",
+r_where:"Қайдан келесіздер",r_country:"Ел",r_city:"Қала",r_org:"Мектеп, университет немесе клуб",
+r_contact:"Команда жетекшісі",r_lead:"Аты-жөні",r_email:"Email",r_phone:"Телефон / WhatsApp / Telegram",
+r_visa:"Виза алу үшін ресми шақыру хаты керек",r_hotel:"Астанада тұрғын үй табуға көмек керек",r_notes:"Пікір",
+r_consent:"USTEM Foundation осы деректерді фестивальді ұйымдастыру және командамен байланысу үшін өңдеуіне келісемін.",
+r_submit:"Өтінімді жіберу",
+s_next:"Әрі қарай не болады",s1:"Ұйымдастырушылар өтінімді 3 жұмыс күні ішінде қарайды.",s2:"Email арқылы ережелер мен қатысу шарттарын аласыз.",s3:"Шетелдік командалар сұраған жағдайда виза үшін шақыру хатын алады.",
+s_contacts:"Ұйымдастырушы байланыстары",copy:"Көшіру",copied:"Көшірілді",s_mine:"Сіздің өтінімдеріңіз",
+a_eyebrow:"Тек ұйымдастырушыларға",a_csv:"CSV жүктеу",a_visa:"Шақыру хаты",a_date:"Жіберілді",a_count:"өтінім",
+ft1:"2027 жылғы 18-21 ақпан · KNUS, Астана. Ұйымдастырушы – USTEM Foundation, Орталық Азия инженериясын дамыту қоры.",ft_c:"Байланыс",ft_n:"Жылдам сілтемелер",
+ft_cr:"Алаң фотолары: Қазақ ұлттық спорт университеті (knus.edu.kz). Жарыс фотолары: USTEM Foundation.",
+e_req:"Жұлдызшамен белгіленген өрістерді толтырыңыз.",e_email:"Email мекенжайын тексеріңіз.",e_consent:"Деректерді өңдеуге келісіміңізді белгілеңіз.",
+sending:"Жіберілуде…",ok_title:"Өтінім қабылданды",ok_text:"Ұйымдастырушылар 3 жұмыс күні ішінде көрсетілген email арқылы хабарласады. Өтінім нөмірі:",ok_again:"Тағы бір команданы тіркеу",
+fb_title:"Соңғы қадам: өтінімді жіберіңіз",fb_text:"Төмендегі өтінімді ұйымдастырушыларға email немесе WhatsApp арқылы жіберіңіз. Олар тіркеуді 3 жұмыс күні ішінде растайды.",fb_mail:"Email арқылы жіберу",fb_wa:"WhatsApp арқылы жіберу",fb_copy:"Мәтінді көшіру",fb_back:"Формаға оралу",
+sel:"Таңдаңыз",other:"Басқа ел"
+},
+ru:{
+hero_tag:"Робототехника · ИИ · Дроны · Инженерия",pill_date:"18-21 февраля 2027",cd_title:"До старта",org_title:"Организаторы и партнеры",
+n_title:"Alem Tech Fest 2026 в цифрах",n1:"участников",n2:"гостей",n3:"команд",n4:"стран",
+mis:"Повысить <em>человеческий капитал</em> путем <em>вовлечения молодежи</em> в STEM",
+w_title:"<em class=\"lime\">Четырехкратные</em><br>чемпионы мира",w_sub:"Каждый год в чемпионате мира по робототехнике FIRST Global Challenge участвуют 190+ стран. Сборная Казахстана, которую готовит USTEM Foundation, выигрывала его четыре раза.",
+quota:"квот на международные чемпионаты FIRST для команд Казахстана в сезоне 2025-2026",
+p_title:"Четыре дня <em>в KNUS</em>",v_title:"Казахский национальный <em>университет спорта</em>",vz_title:"Визы и въезд <em>в Казахстан</em>",r_title:"Зарегистрируйте <em>команду</em>",
+nav_about:"О фестивале",nav_disc:"Дисциплины",nav_prog:"Программа",nav_venue:"Площадка",nav_visa:"Визы",nav_reg:"Регистрация",
+cta_reg:"Зарегистрировать команду",cta_reg2:"Зарегистрировать команду",cta_visa:"Визы для иностранных команд",
+hero_lede:"Четыре дня робототехники, искусственного интеллекта, дронов и инженерии в Астане. Школьные и студенческие команды из Казахстана и других стран соревнуются, строят и учатся вместе.",
+badge_kicker:"Бейдж участника",badge_days:"С четверга по воскресенье, февраль 2027",b_venue:"Площадка",b_city:"Адрес",b_org:"Организатор",
+venue_name:"Казахский национальный университет спорта (KNUS)",venue_addr:"Астана, ул. Каркаралы, 15",
+cd_d:"дней",cd_h:"час",cd_m:"мин",cd_s:"сек",
+st1:"участников Alem Tech Fest 2026",st2:"соревновательных направлений на одной площадке",st3:"чемпионы мира FIRST Global Challenge: сборная Казахстана",st4:"дня, 18-21 февраля 2027",
+ab_eyebrow:"О фестивале",ab_title:"Обучение через соревнования в полном масштабе",
+ab_p1:"Alem Tech Fest - международный фестиваль USTEM Foundation, официального оператора FIRST в Казахстане, Узбекистане и Кыргызстане. В 2027 году фестиваль проходит в Астане, в новом кампусе Казахского национального университета спорта.",
+ab_p2:"Команды от 4 до 25 лет и старше привозят роботов, дроны, спутники и код. Результаты идут в национальный рейтинг и в отбор на международные чемпионаты.",
+pl1:"Соревнования",pl1d:"FIRST, RoboCup, дроны, космос, кибербезопасность",pl2:"Обучение",pl2d:"Мастер-классы, Hour of AI и открытая экспо-зона",pl3:"Нетворкинг",pl3d:"Команды из Центральной Азии и других стран",
+d_eyebrow:"Дисциплины",d_title:"13 направлений: от 4 лет до профессионалов",d_sub:"Выберите направление для вашей команды. Регламенты и описания полей получают зарегистрированные команды.",
+f_all:"Все",f_rob:"Робототехника",f_air:"Дроны и космос",f_ai:"ИИ и кибер",f_eng:"Инженерия",
+d_note:"Список направлений предварительный и может уточняться. Окончательные регламенты будут опубликованы до закрытия регистрации.",
+p_eyebrow:"Программа",p_sub:"Предварительное расписание. Точное время по каждому направлению команды получат в начале февраля.",
+v_eyebrow:"Площадка",v_sub:"Новый кампус в Астане, открыт в июле 2026 года: атриум со стеклянной крышей, крытый легкоатлетический манеж, спортивные залы, конференц-сцена и открытый стадион. Все соревновательные зоны под одной крышей.",
+cap1:"Главный атриум · экспо и питы",cap2:"Кампус сверху",cap3:"Крытый манеж",cap4:"Спортивный зал",cap5:"Главная сцена",
+vi1:"Адрес",vi1d:"Казахстан, Астана, ул. Каркаралы, 15",vi_map:"Открыть в Google Maps ↗",vi2:"Как добраться",vi2d:"Международный аэропорт имени Нурсултана Назарбаева (NQZ). По городу работают такси Yandex Go и inDrive.",
+vi3:"Погода в феврале",vi3d:"Днем обычно около −10 °C, ночью часто ниже −20 °C, бывает сильный ветер. Возьмите теплую куртку, шапку и перчатки.",
+vz_eyebrow:"Для иностранных команд",vz_sub:"Граждане более 80 стран въезжают в Казахстан без визы. Проверьте страну вашего паспорта ниже и следуйте шагам.",
+vz_label:"Страна паспорта",
+vz_disc:"По данным Министерства иностранных дел Республики Казахстан на октябрь 2026 года. Визовые правила могут меняться: уточните их в ближайшем посольстве Казахстана до покупки билетов. Официальные источники: <a href=\"https://www.gov.kz/memleket/entities/mfa\" target=\"_blank\" rel=\"noopener\">МИД РК</a>, <a href=\"https://www.vmp.gov.kz\" target=\"_blank\" rel=\"noopener\">Визово-миграционный портал</a>.",
+r_eyebrow:"Регистрация",r_sub:"Одна форма на одну команду. Организаторы подтверждают каждую заявку и присылают регламенты, счет и приглашение для визы, если оно нужно.",
+r_team:"Команда",r_teamname:"Название команды",r_disc:"Дисциплина",r_cat:"Категория / возраст",r_cat_ph:"например, FLL Challenge, 9-16",r_students:"Участников",r_coaches:"Тренеров / менторов",
+r_where:"Откуда вы",r_country:"Страна",r_city:"Город",r_org:"Школа, университет или клуб",
+r_contact:"Руководитель команды",r_lead:"ФИО",r_email:"Email",r_phone:"Телефон / WhatsApp / Telegram",
+r_visa:"Нужно официальное приглашение для визы",r_hotel:"Нужна помощь с проживанием в Астане",r_notes:"Комментарий",
+r_consent:"Я согласен(на) на обработку этих данных USTEM Foundation для организации фестиваля и связи с командой.",
+r_submit:"Отправить заявку",
+s_next:"Что дальше",s1:"Организаторы рассматривают заявку в течение 3 рабочих дней.",s2:"На email приходят регламент и условия участия.",s3:"Иностранные команды по запросу получают приглашение для визы.",
+s_contacts:"Контакты организаторов",copy:"Копировать",copied:"Скопировано",s_mine:"Ваши заявки",
+a_eyebrow:"Только для организаторов",a_csv:"Скачать CSV",a_visa:"Приглашение",a_date:"Отправлено",a_count:"заявок",
+ft1:"18-21 февраля 2027 · KNUS, Астана. Организатор - USTEM Foundation, Фонд развития инженерии в Центральной Азии.",ft_c:"Контакты",ft_n:"Быстрые ссылки",
+ft_cr:"Фото площадки: Казахский национальный университет спорта (knus.edu.kz). Фото соревнований: USTEM Foundation.",
+e_req:"Заполните поля, отмеченные звездочкой.",e_email:"Проверьте адрес email.",e_consent:"Отметьте согласие на обработку данных.",
+sending:"Отправляем…",ok_title:"Заявка принята",ok_text:"Организаторы свяжутся с вами по указанному email в течение 3 рабочих дней. Номер заявки:",ok_again:"Зарегистрировать еще одну команду",
+fb_title:"Последний шаг: отправьте заявку",fb_text:"Отправьте заявку ниже организаторам по email или в WhatsApp. Они подтвердят регистрацию в течение 3 рабочих дней.",fb_mail:"Отправить на email",fb_wa:"Отправить в WhatsApp",fb_copy:"Скопировать текст",fb_back:"Вернуться к форме",
+sel:"Выберите",other:"Другая страна"
+}};
+var EN_EXTRA={copied:"Copied",a_count:"registrations",
+e_req:"Fill in the fields marked with an asterisk.",e_email:"Check the email address.",e_consent:"Tick the data consent box.",
+sending:"Sending…",ok_title:"Registration received",ok_text:"The organizers will contact you at the email you gave within 3 working days. Your reference:",ok_again:"Register another team",
+fb_title:"Last step: send your application",fb_text:"Send the application below to the organizers by email or WhatsApp. They will confirm the registration within 3 working days.",fb_mail:"Send by email",fb_wa:"Send via WhatsApp",fb_copy:"Copy text",fb_back:"Back to the form",
+sel:"Select",other:"Other country"};
+
+/* capture English from the page itself */
+document.querySelectorAll("[data-t]").forEach(function(el){var k=el.getAttribute("data-t");if(!(k in T.en))T.en[k]=el.hasAttribute("data-html")?el.innerHTML:el.textContent;});
+document.querySelectorAll("[data-tp]").forEach(function(el){T.en[el.getAttribute("data-tp")]=el.getAttribute("placeholder");});
+Object.keys(EN_EXTRA).forEach(function(k){T.en[k]=EN_EXTRA[k];});
+
+var lang="en";
+function t(k){return (T[lang]&&T[lang][k]!=null)?T[lang][k]:(T.en[k]!=null?T.en[k]:k);}
+function L(o){return o[lang]||o.en;}
+
+/* ---------- data ---------- */
+var DISC=[
+{id:"fll",w:1,f:"rob",img:"img/fll.jpg",tag:"FIRST",n:{en:"FIRST LEGO League",kk:"FIRST LEGO League",ru:"FIRST LEGO League"},d:{en:"Discover, Explore and Challenge: LEGO robots, research projects and core values.",kk:"Discover, Explore және Challenge: LEGO роботтары, зерттеу жобалары және негізгі құндылықтар.",ru:"Discover, Explore и Challenge: роботы LEGO, исследовательские проекты и базовые ценности."},a:["4-6","6-10","9-16"]},
+{id:"ftc",f:"rob",img:"img/ftc-kid.jpg",tag:"FIRST",n:{en:"FIRST Tech Challenge",kk:"FIRST Tech Challenge",ru:"FIRST Tech Challenge"},d:{en:"Metal robots in 2v2 alliances with computer vision, Android control and autonomous modes.",kk:"Компьютерлік көру, Android басқаруы және автономды режимі бар 2×2 одақтағы металл роботтар.",ru:"Металлические роботы в альянсах 2×2 с компьютерным зрением, Android-управлением и автономным режимом."},a:["12-18"]},
+{id:"drone",w:1,f:"air",img:"img/drone2.jpg",tag:"Alem Drone League",n:{en:"Alem Drone League",kk:"Alem Drone League",ru:"Alem Drone League"},d:{en:"Tiny Whoop racing, DCL simulator racing and drone soccer.",kk:"Tiny Whoop жарысы, DCL симуляторы және дрон-футбол.",ru:"Гонки Tiny Whoop, симулятор DCL и дрон-футбол."},a:["8+"]},
+{id:"wso",f:"air",img:"img/wso.jpg",tag:"WSO",n:{en:"World Space Olympiad",kk:"World Space Olympiad",ru:"World Space Olympiad"},d:{en:"CanSat, CubeSat, rovers and space research projects.",kk:"CanSat, CubeSat, роверлер және ғарыштық зерттеу жобалары.",ru:"CanSat, CubeSat, роверы и научные космические проекты."},a:["12+"]},
+{id:"race",w:1,f:"eng",img:"img/race.jpg",tag:"Future Race",n:{en:"Future Race",kk:"Future Race",ru:"Future Race"},d:{en:"Electric karts and autonomous driving in three tiers, from school kart builders to LiDAR-equipped cars.",kk:"Үш деңгейдегі электрокарттар мен автономды басқару: мектеп карттарынан LiDAR бар көліктерге дейін.",ru:"Электрокарты и автопилот в трех лигах: от школьных картов до автомобилей с LiDAR."},a:["14-17","18-25","20+"]},
+{id:"robocon",f:"rob",img:"img/robocon.jpg",tag:"ABU",n:{en:"ABU Robocon",kk:"ABU Robocon",ru:"ABU Robocon"},d:{en:"University engineering challenge: robots built for a new game mission every year.",kk:"Студенттік инженерлік жарыс: жыл сайын жаңа ойын миссиясына арналған роботтар.",ru:"Студенческое инженерное соревнование: роботы под новую игровую миссию каждый год."},a:["18-25"]},
+{id:"bots",f:"eng",img:"img/bots2.jpg",tag:"Battle of Bots",n:{en:"Battle of Bots",kk:"Battle of Bots",ru:"Battle of Bots"},d:{en:"One-on-one robot combat: durable design, tactics and real-time control.",kk:"Бір-біріне қарсы робот шайқасы: берік құрылым, тактика және нақты уақытта басқару.",ru:"Бои роботов один на один: прочная конструкция, тактика и управление в реальном времени."},a:["12+"]},
+{id:"soccer",f:"rob",img:"img/soccer2.jpg",tag:"RoboCup",n:{en:"RoboCup Soccer",kk:"RoboCup Soccer",ru:"RoboCup Soccer"},d:{en:"Teams design and program humanoid robots to play football.",kk:"Командалар футбол ойнайтын гуманоид роботтарды құрастырып, бағдарламалайды.",ru:"Команды собирают и программируют роботов-гуманоидов для игры в футбол."},a:["8+"]},
+{id:"rescue",f:"rob",img:"img/rescue2.jpg",tag:"RoboCup",n:{en:"RoboCup Rescue",kk:"RoboCup Rescue",ru:"RoboCup Rescue"},d:{en:"Search-and-rescue missions with quadruped robots through obstacle courses.",kk:"Кедергілері бар трассада робот-иттермен іздеу-құтқару миссиялары.",ru:"Поисково-спасательные миссии с роботами-собаками на трассе с препятствиями."},a:["14+"]},
+{id:"hack",f:"ai",img:"img/humanoid2.jpg",tag:"Physical AI",n:{en:"Physical AI Hackathon",kk:"Physical AI хакатоны",ru:"Physical AI хакатон"},d:{en:"Perception, navigation and motion control for humanoid robots.",kk:"Гуманоид роботтарға арналған қабылдау, навигация және қозғалысты басқару жүйелері.",ru:"Системы восприятия, навигации и управления движением для гуманоидных роботов."},a:["16+"]},
+{id:"ctf",f:"ai",img:"img/ctf.jpg",tag:"Cyber",n:{en:"CTF Cybersecurity",kk:"CTF киберқауіпсіздік",ru:"CTF кибербезопасность"},d:{en:"Capture The Flag: find vulnerabilities, analyze systems and protect data.",kk:"Capture The Flag: осалдықтарды іздеу, жүйелерді талдау және деректерді қорғау.",ru:"Capture The Flag: поиск уязвимостей, анализ систем и защита данных."},a:["14+"]},
+{id:"sarbaz",f:"eng",img:"img/sarbaz.jpg",tag:"Smart Sarbaz",n:{en:"Smart Sarbaz",kk:"Smart Sarbaz",ru:"Smart Sarbaz"},d:{en:"Engineering track of the Zhas Sarbaz movement: robotics, unmanned systems and electronics.",kk:"«Жас Сарбаз» қозғалысының инженерлік бағыты: робототехника, ұшқышсыз жүйелер, электроника.",ru:"Инженерное направление движения «Жас Сарбаз»: робототехника, беспилотные системы, электроника."},a:["10-18"]},
+{id:"stem",f:"ai",img:"img/hourai2.jpg",tag:"AI STEM Cup",n:{en:"AI STEM Cup",kk:"AI STEM Cup",ru:"AI STEM Cup"},d:{en:"Science experiments with digital sensors, data analysis and AI. Plus Hour of AI for every visitor.",kk:"Цифрлық датчиктермен ғылыми тәжірибелер, деректерді талдау және ЖИ. Әр қонаққа арналған Hour of AI.",ru:"Научные эксперименты с цифровыми датчиками, анализ данных и ИИ. Плюс Hour of AI для всех гостей."},a:["8-16"]}
+];
+var DAYS=[
+{n:"18",w:{en:"Thu",kk:"Бс",ru:"Чт"},h:{en:"Arrival & setup",kk:"Келу және дайындық",ru:"Заезд и подготовка"},i:{en:["Team check-in and accreditation","Pit setup and robot inspection","Practice runs on official fields","Coaches' briefing"],kk:["Командаларды тіркеу және аккредиттеу","Питтерді орнату және роботтарды тексеру","Ресми алаңдарда жаттығу","Жаттықтырушылар брифингі"],ru:["Заезд и аккредитация команд","Обустройство питов и техосмотр роботов","Тренировочные заезды на полях","Брифинг для тренеров"]}},
+{n:"19",w:{en:"Fri",kk:"Жм",ru:"Пт"},h:{en:"Opening & qualifiers",kk:"Ашылу және іріктеу",ru:"Открытие и отбор"},i:{en:["Opening ceremony","Qualification matches in all tracks","Judging sessions and project presentations","Hackathon kickoff"],kk:["Салтанатты ашылу","Барлық бағыттағы іріктеу кездесулері","Төрешілер сессиялары мен жоба қорғау","Хакатонның басталуы"],ru:["Торжественное открытие","Квалификация во всех направлениях","Судейские сессии и защита проектов","Старт хакатона"]}},
+{n:"20",w:{en:"Sat",kk:"Сн",ru:"Сб"},h:{en:"Main competition day",kk:"Негізгі жарыс күні",ru:"Главный соревновательный день"},i:{en:["Qualifiers continue, alliance selection","Drone and robot combat brackets","Open expo and Hour of AI for visitors","Workshops for coaches and teachers"],kk:["Іріктеудің жалғасы, одақтарды таңдау","Дрон және робот шайқастарының турнирлік кестесі","Келушілерге арналған экспо және Hour of AI","Жаттықтырушылар мен мұғалімдерге шеберлік сабақтары"],ru:["Продолжение отбора, выбор альянсов","Сетки дрон-гонок и боев роботов","Экспо и Hour of AI для гостей","Мастер-классы для тренеров и учителей"]}},
+{n:"21",w:{en:"Sun",kk:"Жс",ru:"Вс"},fin:true,h:{en:"Finals & awards",kk:"Финалдар және марапаттау",ru:"Финалы и награждение"},i:{en:["Playoffs and finals","Hackathon demos","Awards ceremony","Closing and team departures"],kk:["Плей-офф және финалдар","Хакатон жобаларын көрсету","Марапаттау рәсімі","Жабылу және командалардың кетуі"],ru:["Плей-офф и финалы","Демо проектов хакатона","Церемония награждения","Закрытие и отъезд команд"]}}
+];
+/* country: [en, kk, ru, days] ; days 0 = home, -1 = visa required */
+var C=[
+["Kazakhstan","Қазақстан","Казахстан",0],
+["Azerbaijan","Әзірбайжан","Азербайджан",90],["Albania","Албания","Албания",90],["Andorra","Андорра","Андорра",90],["Armenia","Армения","Армения",90],["Belarus","Беларусь","Беларусь",90],["Georgia","Грузия","Грузия",90],["Kyrgyzstan","Қырғызстан","Кыргызстан",90],["Moldova","Молдова","Молдова",90],["Mongolia","Моңғолия","Монголия",90],["Russia","Ресей","Россия",90],["San Marino","Сан-Марино","Сан-Марино",90],["Saint Kitts and Nevis","Сент-Китс және Невис","Сент-Китс и Невис",90],["Tajikistan","Тәжікстан","Таджикистан",90],["Turkey","Түркия","Турция",90],["Uzbekistan","Өзбекстан","Узбекистан",90],["Ukraine","Украина","Украина",90],
+["Dominican Republic","Доминикан Республикасы","Доминиканская Республика",60],["Barbados","Барбадос","Барбадос",28],
+["Australia","Аустралия","Австралия",30],["Austria","Австрия","Австрия",30],["Argentina","Аргентина","Аргентина",30],["Bahrain","Бахрейн","Бахрейн",30],["Belgium","Бельгия","Бельгия",30],["Bulgaria","Болгария","Болгария",30],["Brazil","Бразилия","Бразилия",30],["Vatican City","Ватикан","Ватикан",30],["United Kingdom","Ұлыбритания","Великобритания",30],["Hungary","Венгрия","Венгрия",30],["Vietnam","Вьетнам","Вьетнам",30],["Germany","Германия","Германия",30],["Greece","Грекия","Греция",30],["Denmark","Дания","Дания",30],["Israel","Израиль","Израиль",30],["Indonesia","Индонезия","Индонезия",30],["Ireland","Ирландия","Ирландия",30],["Iceland","Исландия","Исландия",30],["Spain","Испания","Испания",30],["Italy","Италия","Италия",30],["Canada","Канада","Канада",30],["Qatar","Катар","Катар",30],["Cyprus","Кипр","Кипр",30],["China","Қытай","Китай",30],["Colombia","Колумбия","Колумбия",30],["South Korea","Оңтүстік Корея","Республика Корея",30],["Kuwait","Кувейт","Кувейт",30],["Latvia","Латвия","Латвия",30],["Lithuania","Литва","Литва",30],["Liechtenstein","Лихтенштейн","Лихтенштейн",30],["Luxembourg","Люксембург","Люксембург",30],["Malaysia","Малайзия","Малайзия",30],["Maldives","Мальдив","Мальдивы",30],["Malta","Мальта","Мальта",30],["Morocco","Марокко","Марокко",30],["Mexico","Мексика","Мексика",30],["Monaco","Монако","Монако",30],["Netherlands","Нидерланд","Нидерланды",30],["Nicaragua","Никарагуа","Никарагуа",30],["New Zealand","Жаңа Зеландия","Новая Зеландия",30],["Norway","Норвегия","Норвегия",30],["United Arab Emirates","Біріккен Араб Әмірліктері","Объединенные Арабские Эмираты",30],["Oman","Оман","Оман",30],["Poland","Польша","Польша",30],["Portugal","Португалия","Португалия",30],["Romania","Румыния","Румыния",30],["Saudi Arabia","Сауд Арабиясы","Саудовская Аравия",30],["Seychelles","Сейшел аралдары","Сейшельские Острова",30],["Serbia","Сербия","Сербия",30],["Singapore","Сингапур","Сингапур",30],["Slovakia","Словакия","Словакия",30],["Slovenia","Словения","Словения",30],["United States","АҚШ","США",30],["Thailand","Тайланд","Таиланд",30],["Philippines","Филиппин","Филиппины",30],["Finland","Финляндия","Финляндия",30],["France","Франция","Франция",30],["Croatia","Хорватия","Хорватия",30],["Czech Republic","Чехия","Чехия",30],["Chile","Чили","Чили",30],["Switzerland","Швейцария","Швейцария",30],["Sweden","Швеция","Швеция",30],["Ecuador","Эквадор","Эквадор",30],["Estonia","Эстония","Эстония",30],["Japan","Жапония","Япония",30],
+["Hong Kong","Гонконг","Гонконг",14],["India","Үндістан","Индия",14],["Iran","Иран","Иран",14],["Macao","Макао","Макао",14],
+["Egypt","Мысыр","Египет",-1],["Pakistan","Пәкістан","Пакистан",-1],["Nigeria","Нигерия","Нигерия",-1],["South Africa","Оңтүстік Африка","ЮАР",-1],["Nepal","Непал","Непал",-1],["Bangladesh","Бангладеш","Бангладеш",-1],["Sri Lanka","Шри-Ланка","Шри-Ланка",-1],["Turkmenistan","Түрікменстан","Туркменистан",-1],["Afghanistan","Ауғанстан","Афганистан",-1],["Kenya","Кения","Кения",-1],["Peru","Перу","Перу",-1],["Tunisia","Тунис","Тунис",-1],["Jordan","Иордания","Иордания",-1],["Lebanon","Ливан","Ливан",-1],["Algeria","Алжир","Алжир",-1],["Cambodia","Камбоджа","Камбоджа",-1],["Myanmar","Мьянма","Мьянма",-1],["Laos","Лаос","Лаос",-1],["Ghana","Гана","Гана",-1],["Ethiopia","Эфиопия","Эфиопия",-1]
+];
+var LI={en:0,kk:1,ru:2};
+function cname(c){return c[LI[lang]];}
+
+var VZ={
+en:{
+free:"Visa-free",short:"Visa-free, short stay",need:"Visa required",home:"Home country",
+freeT:function(d){return "No visa needed for up to "+d+" days";},
+freeP:"Bring a passport valid for the whole trip. The festival fits easily into this stay.",
+shortP:"14 days covers the festival. Plan arrival no earlier than 9 February so the stay does not run out before you leave.",
+needT:"Apply for a visa before travel",
+needP:"Tick “invitation letter” in the registration form. The organizers send a letter you can use for an e-visa or an embassy visa. Allow at least 6 weeks.",
+homeT:"No visa needed",homeP:"Teams from Kazakhstan only need ID documents for each participant.",
+otherT:"Your country is not in the visa-free list",otherP:"Most likely you need a visa. Request an invitation letter in the registration form and check with the nearest Kazakhstan embassy.",
+g90:"Visa-free up to 90 days",g30:"Visa-free up to 30 days",g14:"Visa-free up to 14 days",gx:"Other visa-free stays",
+steps:[
+["Check your passport country","Use the checker on the left. Passports must be valid for the whole trip; we recommend at least 6 months of validity."],
+["Request an invitation letter","Need a visa? Tick the box in the registration form. The organizers issue an official invitation for each team member and coach."],
+["Apply for an e-visa or embassy visa","Many nationalities can apply online through the <a href=\"https://www.vmp.gov.kz\" target=\"_blank\" rel=\"noopener\">Visa and Migration Portal</a>. Processing usually takes 5 to 7 working days; e-visa holders enter through Astana or Almaty airport. Otherwise apply at a Kazakhstan embassy."],
+["Travelling with minors","For participants under 18 travelling without parents, carry a notarized parental consent (with a translation into Kazakh, Russian or English) and a copy of the birth certificate."],
+["Arrival and registration","Hotels notify the migration service of your stay within 3 working days. If you stay in a private apartment, ask the host to do it via eGov. Keep the migration card you get at the border."],
+["Pack for winter","Astana in February is cold and windy. Warm outerwear is essential for transfers between the hotel and the venue."]]
+},
+kk:{
+free:"Визасыз",short:"Визасыз, қысқа мерзім",need:"Виза қажет",home:"Өз елі",
+freeT:function(d){return d+" күнге дейін виза қажет емес";},
+freeP:"Бүкіл сапар мерзіміне жарамды төлқұжат алыңыз. Фестиваль осы мерзімге толық сыяды.",
+shortP:"14 күн фестивальге жеткілікті. Кеткенге дейін мерзім бітпеуі үшін 9 ақпаннан ерте келмеңіз.",
+needT:"Сапар алдында виза алыңыз",
+needP:"Тіркеу формасында «шақыру хаты» белгісін қойыңыз. Ұйымдастырушылар электронды визаға немесе елшілік визасына арналған хат жібереді. Кемінде 6 апта бұрын бастаңыз.",
+homeT:"Виза қажет емес",homeP:"Қазақстан командаларына әр қатысушының жеке куәлігі жеткілікті.",
+otherT:"Сіздің еліңіз визасыз тізімде жоқ",otherP:"Сізге виза қажет болуы мүмкін. Тіркеу формасында шақыру хатын сұраңыз және Қазақстанның жақын елшілігінен нақтылаңыз.",
+g90:"90 күнге дейін визасыз",g30:"30 күнге дейін визасыз",g14:"14 күнге дейін визасыз",gx:"Басқа визасыз мерзімдер",
+steps:[
+["Төлқұжат елін тексеріңіз","Сол жақтағы тексеруді қолданыңыз. Төлқұжат бүкіл сапар бойы жарамды болуы керек; кемінде 6 ай мерзімі болғаны дұрыс."],
+["Шақыру хатын сұраңыз","Виза керек пе? Тіркеу формасында белгі қойыңыз. Ұйымдастырушылар әр қатысушы мен жаттықтырушыға ресми шақыру береді."],
+["Электронды немесе елшілік визасын рәсімдеңіз","Көптеген елдің азаматтары <a href=\"https://www.vmp.gov.kz\" target=\"_blank\" rel=\"noopener\">Виза және көші-қон порталы</a> арқылы онлайн өтінім бере алады. Қарау әдетте 5-7 жұмыс күні; электронды визамен Астана немесе Алматы әуежайы арқылы кіреді. Әйтпесе Қазақстан елшілігіне жүгініңіз."],
+["Кәмелетке толмағандармен сапар","Ата-анасыз келетін 18 жасқа толмаған қатысушыларда ата-ананың нотариалды келісімі (қазақ, орыс немесе ағылшын тіліне аудармасымен) және туу туралы куәліктің көшірмесі болсын."],
+["Келу және тіркеу","Қонақүй сіздің тұруыңыз туралы көші-қон қызметіне 3 жұмыс күні ішінде хабарлайды. Пәтерде тұрсаңыз, үй иесінен eGov арқылы хабарлауды сұраңыз. Шекарада берілген көші-қон картасын сақтаңыз."],
+["Қысқы киім алыңыз","Ақпанда Астана суық әрі желді. Қонақүй мен алаң арасында жүру үшін жылы киім міндетті."]]
+},
+ru:{
+free:"Без визы",short:"Без визы, короткий срок",need:"Нужна виза",home:"Своя страна",
+freeT:function(d){return "Виза не нужна до "+d+" дней";},
+freeP:"Возьмите паспорт, действующий на весь срок поездки. Фестиваль полностью укладывается в этот срок.",
+shortP:"14 дней хватает на фестиваль. Не приезжайте раньше 9 февраля, чтобы срок не закончился до отъезда.",
+needT:"Оформите визу до поездки",
+needP:"Отметьте «приглашение для визы» в форме регистрации. Организаторы пришлют письмо для электронной визы или визы в посольстве. Начните минимум за 6 недель.",
+homeT:"Виза не нужна",homeP:"Командам из Казахстана достаточно документов, удостоверяющих личность каждого участника.",
+otherT:"Вашей страны нет в безвизовом списке",otherP:"Скорее всего, нужна виза. Запросите приглашение в форме регистрации и уточните в ближайшем посольстве Казахстана.",
+g90:"Без визы до 90 дней",g30:"Без визы до 30 дней",g14:"Без визы до 14 дней",gx:"Другие безвизовые сроки",
+steps:[
+["Проверьте страну паспорта","Используйте проверку слева. Паспорт должен действовать весь срок поездки; рекомендуем не менее 6 месяцев."],
+["Запросите приглашение","Нужна виза? Отметьте пункт в форме регистрации. Организаторы оформят официальное приглашение на каждого участника и тренера."],
+["Оформите электронную визу или визу в посольстве","Граждане многих стран подают заявку онлайн на <a href=\"https://www.vmp.gov.kz\" target=\"_blank\" rel=\"noopener\">Визово-миграционном портале</a>. Рассмотрение обычно 5-7 рабочих дней; с электронной визой въезд через аэропорты Астаны или Алматы. В остальных случаях обратитесь в посольство Казахстана."],
+["Поездка с несовершеннолетними","Участникам до 18 лет, которые едут без родителей, нужно нотариальное согласие родителей (с переводом на казахский, русский или английский) и копия свидетельства о рождении."],
+["Приезд и регистрация","Гостиница уведомляет миграционную службу о вашем проживании в течение 3 рабочих дней. Если вы живете в квартире, попросите хозяина сделать это через eGov. Сохраните миграционную карточку, полученную на границе."],
+["Теплая одежда","В феврале в Астане холодно и ветрено. Теплая верхняя одежда обязательна для переездов между гостиницей и площадкой."]]
+}};
+
+/* ---------- render ---------- */
+var esc=function(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});};
+var filter="all";
+function renderDisc(){
+  var g=document.getElementById("disc-grid");
+  g.innerHTML=DISC.filter(function(d){return filter==="all"||d.f===filter;}).map(function(d){
+    return '<article class="disc'+(d.w?' wide':'')+'"><div class="tint"><img src="'+d.img+'" alt="'+esc(L(d.n))+'" loading="lazy"></div><div class="disc-body"><div class="disc-tag">'+esc(d.tag)+'</div><h3>'+esc(L(d.n))+'</h3><p>'+esc(L(d.d))+'</p><div class="ages">'+d.a.map(function(a){return "<span>"+esc(a)+"</span>";}).join("")+'</div></div></article>';
+  }).join("");
+}
+var TL=[["Washington","2017",{en:"8th place",kk:"8-орын",ru:"8 место"}],["Dubai","2019",{en:"3rd place",kk:"3-орын",ru:"3 место"}],["Geneva","2022",{en:"World champions",kk:"Әлем чемпиондары",ru:"Чемпионы мира"}],["Singapore","2023",{en:"2× world champions",kk:"2 дүркін әлем чемпионы",ru:"Двукратные чемпионы мира"}],["Athens","2024",{en:"3× world champions",kk:"3 дүркін әлем чемпионы",ru:"Трехкратные чемпионы мира"}],["Panama City","2025",{en:"4× world champions",kk:"4 дүркін әлем чемпионы",ru:"Четырехкратные чемпионы мира"}]];
+function renderTimeline(){document.getElementById("timeline").innerHTML=TL.map(function(e,i){return '<div class="ev'+(i===TL.length-1?" last":"")+'"><b>'+esc(e[0])+' <span>'+e[1]+'</span></b><small>'+esc(L(e[2]))+'</small></div>';}).join("");}
+function renderDays(){
+  document.getElementById("days").innerHTML=DAYS.map(function(d){
+    return '<div class="day'+(d.fin?" final":"")+'"><div class="day-num">'+d.n+'<small>'+esc(L(d.w))+' · 02</small></div><h3>'+esc(L(d.h))+'</h3><ul>'+L(d.i).map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+'</ul></div>';
+  }).join("");
+}
+function sortedCountries(){return C.slice().sort(function(a,b){return cname(a).localeCompare(cname(b),lang);});}
+function fillCountrySelect(sel,includeOther){
+  var cur=sel.value;
+  var opts='<option value="">'+esc(t("sel"))+'</option>'+sortedCountries().map(function(c){return '<option value="'+esc(c[0])+'">'+esc(cname(c))+'</option>';}).join("");
+  if(includeOther)opts+='<option value="__other">'+esc(t("other"))+'</option>';
+  sel.innerHTML=opts; sel.value=cur;
+}
+function renderVisaResult(){
+  var v=VZ[lang], val=document.getElementById("vz-country").value, out=document.getElementById("vz-result");
+  var c=C.filter(function(x){return x[0]===val;})[0];
+  var pill,title,p;
+  if(!val){out.hidden=true;return;}
+  out.hidden=false;
+  if(val==="__other"){pill='<span class="st need">'+esc(v.need)+'</span>';title=v.otherT;p=v.otherP;}
+  else if(c[3]===0){pill='<span class="st free">'+esc(v.home)+'</span>';title=v.homeT;p=v.homeP;}
+  else if(c[3]===-1){pill='<span class="st need">'+esc(v.need)+'</span>';title=v.needT;p=v.needP;}
+  else if(c[3]<20){pill='<span class="st short">'+esc(v.short)+'</span>';title=v.freeT(c[3]);p=v.shortP;}
+  else{pill='<span class="st free">'+esc(v.free)+'</span>';title=v.freeT(c[3]);p=v.freeP;}
+  out.innerHTML=pill+'<strong>'+esc(title)+'</strong><p>'+esc(p)+'</p>';
+}
+function renderVisa(){
+  var v=VZ[lang], sel=document.getElementById("vz-country");
+  fillCountrySelect(sel,true); renderVisaResult();
+  function grp(test){return C.filter(test).map(cname).sort(function(a,b){return a.localeCompare(b,lang);}).join(", ");}
+  var groups=[[v.g90,function(c){return c[3]===90;}],[v.g30,function(c){return c[3]===30;}],[v.g14,function(c){return c[3]===14;}],[v.gx,function(c){return c[3]===60||c[3]===28;}]];
+  document.getElementById("vz-lists").innerHTML=groups.map(function(g){var n=C.filter(g[1]).length;return '<details><summary>'+esc(g[0])+'<span>'+n+'</span></summary><p>'+esc(grp(g[1]))+(g[0]===v.gx?" (60 / 28)":"")+'</p></details>';}).join("");
+  document.getElementById("vz-steps").innerHTML=v.steps.map(function(s){return '<div class="step"><h3>'+esc(s[0])+'</h3><p>'+s[1]+'</p></div>';}).join("");
+}
+function fillDiscSelect(){
+  var sel=document.getElementById("r-disc"),cur=sel.value;
+  sel.innerHTML='<option value="">'+esc(t("sel"))+'</option>'+DISC.map(function(d){return '<option value="'+d.id+'">'+esc(L(d.n))+'</option>';}).join("");
+  sel.value=cur;
+}
+function applyLang(l){
+  lang=T[l]?l:"en";
+  document.documentElement.lang=lang==="kk"?"kk":lang;
+  document.querySelectorAll("[data-t]").forEach(function(el){var k=el.getAttribute("data-t");if(el.hasAttribute("data-html"))el.innerHTML=t(k);else el.textContent=t(k);});
+  document.querySelectorAll("[data-tp]").forEach(function(el){el.setAttribute("placeholder",t(el.getAttribute("data-tp")));});
+  document.querySelectorAll(".lang button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.lang===lang));});
+  renderDisc();renderDays();renderTimeline();renderVisa();fillDiscSelect();fillCountrySelect(document.getElementById("r-country"),true);
+  renderMine();renderAdmin();
+  try{localStorage.setItem("atf-lang",lang);}catch(e){}
+}
+document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){applyLang(b.dataset.lang);});});
+document.querySelectorAll(".chip").forEach(function(b){b.addEventListener("click",function(){filter=b.dataset.f;document.querySelectorAll(".chip").forEach(function(x){x.setAttribute("aria-pressed",String(x===b));});renderDisc();});});
+document.getElementById("vz-country").addEventListener("change",renderVisaResult);
+
+/* countdown: 18 Feb 2027 09:00 Astana (UTC+5) */
+var START=Date.UTC(2027,1,18,4,0,0);
+function tick(){
+  var ms=Math.max(0,START-Date.now()),s=Math.floor(ms/1000);
+  var pad=function(n){return (n<10?"0":"")+n;};
+  document.getElementById("cd-d").textContent=Math.floor(s/86400);
+  document.getElementById("cd-h").textContent=pad(Math.floor(s%86400/3600));
+  document.getElementById("cd-m").textContent=pad(Math.floor(s%3600/60));
+  document.getElementById("cd-s").textContent=pad(s%60);
+}
+tick();setInterval(tick,1000);
+
+/* copy */
+function copyText(txt,btn){
+  var done=function(){if(btn){var o=btn.textContent;btn.textContent=t("copied");setTimeout(function(){btn.textContent=o;},1500);}};
+  try{navigator.clipboard.writeText(txt).then(done,function(){fallbackSel(btn);});}catch(e){fallbackSel(btn);}
+}
+function fallbackSel(btn){var ta=document.getElementById("fb-text");if(ta){ta.focus();ta.select();}}
+document.querySelectorAll("[data-copy]").forEach(function(b){b.addEventListener("click",function(){copyText(b.getAttribute("data-copy"),b);});});
+
+/* ---------- registration ---------- */
+var db=null,uid=null,userNs=null,mine=[],adminDocs=[],isAdmin=false,downloads=null;
+var formHTML=document.getElementById("reg-area").innerHTML;
+function discName(id){var d=DISC.filter(function(x){return x.id===id;})[0];return d?L(d.n):id;}
+function countryName(v){if(v==="__other")return t("other");var c=C.filter(function(x){return x[0]===v;})[0];return c?cname(c):v;}
+function makeRef(){var a="ABCDEFGHJKLMNPQRSTUVWXYZ23456789",s="ATF27-";for(var i=0;i<5;i++)s+=a[Math.floor(Math.random()*a.length)];return s;}
+function collect(f){
+  return {team:f.team.value.trim(),discipline:f.discipline.value,category:f.category.value.trim(),students:Number(f.students.value)||0,coaches:Number(f.coaches.value)||0,
+  country:f.country.value,city:f.city.value.trim(),org:f.org.value.trim(),lead:f.lead.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim(),
+  visaLetter:f.visaLetter.checked,hotel:f.hotel.checked,notes:f.notes.value.trim()};
+}
+function asText(r){
+  return ["ALEM TECH FEST 2027 · "+t("r_title"),"",
+  t("r_teamname")+": "+r.team, t("r_disc")+": "+discName(r.discipline), t("r_cat")+": "+(r.category||"-"),
+  t("r_students")+": "+r.students, t("r_coaches")+": "+r.coaches,
+  t("r_country")+": "+countryName(r.country), t("r_city")+": "+r.city, t("r_org")+": "+(r.org||"-"),
+  t("r_lead")+": "+r.lead, "Email: "+r.email, t("r_phone")+": "+r.phone,
+  t("r_visa")+": "+(r.visaLetter?"✓":"-"), t("r_hotel")+": "+(r.hotel?"✓":"-"),
+  t("r_notes")+": "+(r.notes||"-")].join("\n");
+}
+function bindForm(){
+  var f=document.getElementById("reg-form");
+  fillDiscSelect();fillCountrySelect(document.getElementById("r-country"),true);
+  document.querySelectorAll("#reg-form [data-t]").forEach(function(el){el.textContent=t(el.getAttribute("data-t"));});
+  document.querySelectorAll("#reg-form [data-tp]").forEach(function(el){el.setAttribute("placeholder",t(el.getAttribute("data-tp")));});
+  f.addEventListener("submit",onSubmit);
+}
+function showFallback(r){
+  var area=document.getElementById("reg-area");
+  area.innerHTML='<div class="fallback"><strong>'+esc(t("fb_title"))+'</strong><p>'+esc(t("fb_text"))+'</p><textarea id="fb-text" readonly>'+esc(asText(r))+'</textarea><div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-blue" id="fb-mail" target="_blank" rel="noopener" href="mailto:hello@ustemfoundation.org?subject='+encodeURIComponent("Alem Tech Fest 2027: "+r.team)+'&body='+encodeURIComponent(asText(r))+'">'+esc(t("fb_mail"))+'</a><a class="btn btn-lime" id="fb-wa" target="_blank" rel="noopener" href="https://wa.me/77004446000?text='+encodeURIComponent(asText(r))+'">'+esc(t("fb_wa"))+'</a><button class="btn btn-line" type="button" id="fb-copy">'+esc(t("fb_copy"))+'</button><button class="btn btn-line" type="button" id="fb-back">'+esc(t("fb_back"))+'</button></div></div>';
+  document.getElementById("fb-copy").addEventListener("click",function(e){copyText(document.getElementById("fb-text").value,e.currentTarget);});
+  document.getElementById("fb-back").addEventListener("click",function(){area.innerHTML=formHTML;bindForm();restore(r);});
+}
+function restore(r){
+  var f=document.getElementById("reg-form");if(!f)return;
+  ["team","discipline","category","students","coaches","country","city","org","lead","email","phone","notes"].forEach(function(k){if(f[k])f[k].value=r[k];});
+  f.visaLetter.checked=r.visaLetter;f.hotel.checked=r.hotel;
+}
+function showDone(ref){
+  var area=document.getElementById("reg-area");
+  area.innerHTML='<div class="done"><strong>'+esc(t("ok_title"))+'</strong><p>'+esc(t("ok_text"))+'</p><code>'+esc(ref)+'</code><div><button class="btn btn-line" type="button" id="ok-again">'+esc(t("ok_again"))+'</button></div></div>';
+  document.getElementById("ok-again").addEventListener("click",function(){area.innerHTML=formHTML;bindForm();});
+}
+async function onSubmit(e){
+  e.preventDefault();
+  var f=e.currentTarget,err=document.getElementById("r-err"),r=collect(f);
+  err.textContent="";
+  if(!r.team||!r.discipline||!r.students||!r.country||!r.city||!r.lead||!r.email||!r.phone){err.textContent=t("e_req");return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email)){err.textContent=t("e_email");return;}
+  if(!document.getElementById("r-consent").checked){err.textContent=t("e_consent");return;}
+  if(!db||!uid){showFallback(r);return;}
+  var btn=document.getElementById("r-submit");btn.disabled=true;btn.textContent=t("sending");
+  r.ref=makeRef();r.createdAt=new Date().toISOString();r.lang=lang;
+  try{
+    var ref=db.doc("regs/"+uid),snap=await ref.get(),old=(snap.exists&&snap.data().teams)||[];
+    var teams=old.map(function(x){return Object.assign({},x);});teams.push(r);
+    await ref.set({teams:teams,updatedAt:r.createdAt});
+    showDone(r.ref);
+  }catch(ex){showFallback(r);}
+}
+function renderMine(){
+  var card=document.getElementById("mine-card");
+  if(!mine.length){card.hidden=true;return;}
+  card.hidden=false;
+  document.getElementById("mine").innerHTML=mine.map(function(m){return '<div><span>'+esc(m.team)+' · '+esc(discName(m.discipline))+'</span><code>'+esc(m.ref)+'</code></div>';}).join("");
+}
+function allTeams(){var out=[];adminDocs.forEach(function(d){(d.teams||[]).forEach(function(x){out.push(x);});});out.sort(function(a,b){return String(a.createdAt).localeCompare(String(b.createdAt));});return out;}
+function renderAdmin(){
+  if(!isAdmin)return;
+  var rows=allTeams();
+  document.getElementById("admin").hidden=rows.length===0;
+  document.getElementById("a-count").textContent=rows.length+" "+t("a_count");
+  document.getElementById("a-rows").innerHTML=rows.map(function(r,i){
+    return "<tr><td>"+(i+1)+"</td><td><b>"+esc(r.team)+"</b><br><small>"+esc(r.ref)+"</small></td><td>"+esc(discName(r.discipline))+(r.category?"<br><small>"+esc(r.category)+"</small>":"")+"</td><td>"+esc(countryName(r.country))+"<br><small>"+esc(r.city)+"</small></td><td>"+esc(r.students)+" + "+esc(r.coaches)+"</td><td>"+esc(r.lead)+"<br><small>"+esc(r.org)+"</small></td><td>"+esc(r.email)+"<br><small>"+esc(r.phone)+"</small></td><td>"+(r.visaLetter?"✓":"")+"</td><td><small>"+esc(String(r.createdAt||"").slice(0,16).replace("T"," "))+"</small></td></tr>";
+  }).join("");
+}
+document.getElementById("a-csv").addEventListener("click",async function(){
+  if(!downloads)return;
+  var cols=["ref","createdAt","team","discipline","category","students","coaches","country","city","org","lead","email","phone","visaLetter","hotel","notes","lang"];
+  var q=function(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"';};
+  var csv="﻿"+cols.join(",")+"\n"+allTeams().map(function(r){return cols.map(function(c){return q(r[c]);}).join(",");}).join("\n");
+  try{await downloads.save({filename:"alem-tech-fest-2027-registrations.csv",data:new Blob([csv],{type:"text/csv"})});}catch(e){}
+});
+
+bindForm();
+
+/* initial language */
+var start="en";
+try{var s=localStorage.getItem("atf-lang");if(s)start=s;else{var nl=(navigator.language||"").slice(0,2);if(nl==="ru"||nl==="kk")start=nl;}}catch(e){}
+var h=(location.hash||"").replace("#","");if(h==="kk"||h==="ru"||h==="en")start=h;
+applyLang(start);
+
+/* capabilities */
+(async function(){
+  if(!window.claude||!window.claude.use)return;
+  try{
+    var r=await Promise.all([window.claude.use("db"),window.claude.use("user")]);
+    db=r[0];userNs=r[1];
+    if(userNs){try{uid=await userNs.id();}catch(e){uid=null;}}
+    if(db&&uid){
+      db.doc("regs/"+uid).onSnapshot(function(s){mine=(s.exists&&s.data().teams)||[];renderMine();},function(){});
+    }
+    var owner=false;
+    if(userNs){try{owner=(await userNs.isOwner())||(await userNs.canEdit());}catch(e){}}
+    if(db&&owner){
+      isAdmin=true;
+      db.collection("regs").onSnapshot(function(q){adminDocs=q.docs.map(function(d){return d.data()||{};});renderAdmin();},function(){});
+      try{downloads=await window.claude.use("downloads");}catch(e){}
+      document.getElementById("a-csv").hidden=!downloads;
+    }
+  }catch(e){}
+})();
+})();
+</script>
+
+
+</body>
+</html>
