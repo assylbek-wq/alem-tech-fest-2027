@@ -8,6 +8,8 @@ on:
 env:
   # Document root of alemtechfest.kz in Plesk
   DEPLOY_DIR: /httpdocs
+  # Plesk document root for alemtechfest.kz
+  DOMAIN_DIR: /alemtechfest.kz
 
 jobs:
   deploy:
@@ -46,10 +48,11 @@ jobs:
       - name: Upload site
         if: steps.check.outputs.ready == 'true'
         run: |
-          DIR="${FTP_DIR:-$DEPLOY_DIR}"
+          for DIR in ${FTP_DIR:-$DOMAIN_DIR $DEPLOY_DIR}; do
           echo "Deploying to $DIR"
           lftp -u "$FTP_USERNAME,$FTP_PASSWORD" "$FTP_SERVER" -e "
             set ftp:ssl-force true; set ftp:ssl-protect-data true; set ssl:verify-certificate no;
             set net:max-retries 3; set net:timeout 30;
             mirror -R --verbose --no-perms --exclude ^\\.git/ --exclude ^\\.github/ --exclude ^\\.nojekyll$ --exclude ^\\.gitignore$ ./ $DIR;
             bye"
+          done
