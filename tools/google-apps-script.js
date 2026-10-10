@@ -148,11 +148,11 @@ function handleDecision_(p) {
     var pdf = letterPdf_(req, false);
     MailApp.sendEmail({
       to: req.email, cc: NOTIFY_EMAIL, replyTo: NOTIFY_EMAIL, name: SENDER_NAME,
-      subject: 'Alem Tech Fest 2027 - visa invitation letter ' + req.id,
+      subject: 'Alem Tech Fest 2027 - invitation letter ' + req.id,
       htmlBody: '<p>Dear ' + esc_(req.contact || 'colleagues') + ',</p>' +
-        '<p>Please find attached the official invitation letter for the visa application of team <b>' + esc_(req.team) +
+        '<p>Please find attached the official invitation letter for team <b>' + esc_(req.team) +
         '</b> (' + req.people.length + ' people) to the Central Asia <i>FIRST</i>® Championship 2027 / Alem Tech Fest 2027, 18–21 February 2027, Astana.</p>' +
-        '<p>Submit it to the Embassy or Consulate of Kazakhstan, or use it for an e-visa application on vmp.gov.kz.</p>' +
+        '<p>If you need a visa, present this letter to the Embassy or Consulate of Kazakhstan, or use it for an e-visa application on vmp.gov.kz.</p>' +
         '<p>Best regards,<br>USTEM Foundation<br>hello@ustemfoundation.org · alemtechfest.kz</p>',
       attachments: [pdf]
     });
@@ -168,12 +168,14 @@ function handleDecision_(p) {
 /* Letter PDF                                                          */
 /* ------------------------------------------------------------------ */
 
+var ROLES_ = { student: 'Participant', coach: 'Coach / mentor', lead: 'Team leader' };
+
 function letterPdf_(req, draft) {
   var A = (typeof ASSETS !== 'undefined') ? ASSETS : {};
   var date = Utilities.formatDate(new Date(), 'Asia/Almaty', 'd MMMM yyyy');
   var rows = req.people.map(function (x, i) {
-    return '<tr><td>' + (i + 1) + '</td><td>' + esc_(x.name) + '</td><td>' + esc_(x.dob) + '</td><td>' + esc_(x.citizenship) +
-      '</td><td>' + esc_(x.passport) + '</td><td>' + esc_(x.role) + '</td></tr>';
+    return '<tr><td>' + (i + 1) + '</td><td>' + esc_(x.name) + '</td><td>' + esc_(fmt_(x.dob)) + '</td><td>' + esc_(x.citizenship) +
+      '</td><td>' + esc_(x.passport) + '</td><td>' + esc_(ROLES_[x.role] || x.role) + '</td></tr>';
   }).join('');
   var period = (req.arrival && req.departure) ? ' for the period from <b>' + esc_(fmt_(req.arrival)) + '</b> to <b>' + esc_(fmt_(req.departure)) + '</b>' : '';
   var html =
@@ -192,20 +194,21 @@ function letterPdf_(req, draft) {
     '<table class="h"><tr><td>' + (A.logo ? '<img src="' + A.logo + '" style="width:52mm">' : '<b>USTEM Foundation</b>') +
     '</td><td class="org" style="width:82mm"><b>«USTEM Foundation» Public Fund</b><br><i>Kazakhstan, Astana city, Mangilik El avenue,<br>Astana Hub, C4.6<br>Email: hello@ustemfoundation.org</i></td></tr></table>' +
     '<p style="margin-top:14pt">Ref. No: <b>' + esc_(req.id) + '</b><br>Date: ' + date + '</p>' +
-    '<p>To: The Consular Section of the Embassy (Consulate General) of the Republic of Kazakhstan</p>' +
-    '<p><b>Subject: Invitation letter for visa purposes</b></p>' +
-    '<p>Dear Sir or Madam,</p>' +
-    '<p>The «USTEM Foundation» Public Fund, the organizer of the <b>Central Asia <i>FIRST</i>® Championship 2027</b> held as part of the <b>Alem Tech Fest 2027</b> international festival, ' +
-    'hereby confirms that the persons listed below are registered participants of the team <b>' + esc_(req.team) + '</b> (' + esc_(req.country) + '). ' +
-    'The event will take place on <b>18–21 February 2027</b> at the Kazakh National University of Sports (KNUS), 15 Karkaraly Highway, Astana, Kazakhstan.</p>' +
-    '<p>We kindly request that you issue entry visas to the Republic of Kazakhstan to the following persons' + period + ':</p>' +
+    '<p>To: Team <b>«' + esc_(req.team) + '»</b>, ' + esc_(req.country) + (req.contact ? '<br>Attn: ' + esc_(req.contact) : '') + '</p>' +
+    '<p><b>Subject: Invitation to the Central Asia <i>FIRST</i>® Championship 2027 / Alem Tech Fest 2027</b></p>' +
+    '<p>Dear members of team «' + esc_(req.team) + '»,</p>' +
+    '<p>On behalf of the «USTEM Foundation» Public Fund, we are pleased to invite your team to take part in the <b>Central Asia <i>FIRST</i>® Championship 2027</b>, ' +
+    'held as part of the <b>Alem Tech Fest 2027</b> international festival of science and technology. The event will take place on <b>18–21 February 2027</b> ' +
+    'at the Kazakh National University of Sports (KNUS), 15 Karkaraly Highway, Astana, Republic of Kazakhstan, and is expected to bring together over 500 teams and more than 5,000 participants.</p>' +
+    '<p>We confirm that your team is registered for the event and invite the following persons to visit the Republic of Kazakhstan' + period + ':</p>' +
     '<table class="l"><tr><th>No.</th><th>Full name</th><th>Date of birth</th><th>Citizenship</th><th>Passport No.</th><th>Role</th></tr>' + rows + '</table>' +
-    '<p>Should you require any additional information, please contact us at hello@ustemfoundation.org.</p>' +
+    '<p>This letter may be presented to the Embassies and Consulates of the Republic of Kazakhstan, or used for an electronic visa application, as the basis for issuing entry visas to the persons listed above.</p>' +
+    '<p>We look forward to welcoming you in Astana. Should you have any questions, please contact us at hello@ustemfoundation.org.</p>' +
     '<table class="h" style="margin-top:14pt"><tr><td style="width:60%"><b>Sincerely,</b><br><br><b>Assylbek Murzakhmetov</b><br><b>Head of USTEM Foundation</b></td>' +
     '<td>' + (!draft && A.stamp ? '<img src="' + A.stamp + '" style="width:36mm">' : '') + (!draft && A.signature ? '<img src="' + A.signature + '" style="width:13mm;margin-left:-14mm;vertical-align:top">' : '') + '</td></tr></table>' +
     '</body></html>';
   var blob = HtmlService.createHtmlOutput(html).getBlob().getAs('application/pdf');
-  blob.setName((draft ? 'DRAFT_' : '') + 'Visa_invitation_' + req.id + '_' + String(req.team).replace(/[^\w-]+/g, '_') + '.pdf');
+  blob.setName((draft ? 'DRAFT_' : '') + 'Invitation_ATF2027_' + req.id + '_' + String(req.team).replace(/[^\w-]+/g, '_') + '.pdf');
   return blob;
 }
 
