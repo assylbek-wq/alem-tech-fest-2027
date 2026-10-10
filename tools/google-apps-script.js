@@ -116,7 +116,7 @@ function handleVisaRequest_(d) {
 
   MailApp.sendEmail({
     to: NOTIFY_EMAIL, name: SENDER_NAME,
-    subject: 'Запрос визового приглашения ' + id + ': ' + req.team + ' (' + req.country + '), ' + people.length + ' чел.',
+    subject: 'Запрос приглашения ' + id + ': ' + req.team + ' (' + req.country + '), ' + people.length + ' чел.',
     htmlBody:
       '<p><b>' + esc_(req.team) + '</b>, ' + esc_(req.country) + '<br>Контакт: ' + esc_(req.contact) + ', ' +
       esc_(req.email) + ', ' + esc_(req.phone) + '<br>Даты: ' + esc_(req.arrival) + ' - ' + esc_(req.departure) + '</p>' +

@@ -696,7 +696,7 @@ footer a{color:#fff}
             <div class="f full"><label for="r-lead"><span data-t="r_lead">Full name</span> <i>*</i></label><input id="r-lead" name="lead" required maxlength="80" autocomplete="name"></div>
             <div class="f"><label for="r-email"><span data-t="r_email">Email</span> <i>*</i></label><input id="r-email" name="email" type="email" required maxlength="120" autocomplete="email"></div>
             <div class="f"><label for="r-phone"><span data-t="r_phone">Phone / WhatsApp / Telegram</span> <i>*</i></label><input id="r-phone" name="phone" type="tel" required maxlength="40" autocomplete="tel" placeholder="+7 ..."></div>
-            <label class="check"><input type="checkbox" id="r-visa" name="visaLetter"><span data-t="r_visa">We need an official invitation letter for visas</span></label>
+            <label class="check"><input type="checkbox" id="r-visa" name="visaLetter"><span data-t="r_visa">We need an official invitation letter (for a visa or other purposes)</span></label>
             <label class="check"><input type="checkbox" id="r-hotel" name="hotel"><span data-t="r_hotel">We would like help with accommodation in Astana</span></label>
             <div class="f full"><label for="r-notes" data-t="r_notes">Comments</label><textarea id="r-notes" name="notes" maxlength="800"></textarea></div>
             <label class="check"><input type="checkbox" id="r-consent" required><span data-t="r_consent">I agree that USTEM Foundation processes this data to organize the festival and contact the team.</span></label>
@@ -835,7 +835,7 @@ r_eyebrow:"Тіркелу",r_sub:"Әр командаға бір форма. Ұ�
 r_team:"Команда",r_teamname:"Команда атауы",r_disc:"Бағыт",r_cat:"Санат / жас тобы",r_cat_ph:"мысалы, FLL Challenge, 9-16",r_students:"Қатысушылар саны",r_coaches:"Жаттықтырушылар / менторлар",
 r_where:"Қайдан келесіздер",r_country:"Ел",r_city:"Қала",r_org:"Мектеп, университет немесе клуб",
 r_contact:"Команда жетекшісі",r_lead:"Аты-жөні",r_email:"Email",r_phone:"Телефон / WhatsApp / Telegram",
-r_visa:"Виза алу үшін ресми шақыру хаты керек",r_hotel:"Астанада тұрғын үй табуға көмек керек",r_notes:"Пікір",
+r_visa:"Ресми шақыру хаты керек (виза үшін немесе басқа мақсатқа)",r_hotel:"Астанада тұрғын үй табуға көмек керек",r_notes:"Пікір",
 r_consent:"USTEM Foundation осы деректерді фестивальді ұйымдастыру және командамен байланысу үшін өңдеуіне келісемін.",
 r_submit:"Өтінімді жіберу",
 s_next:"Әрі қарай не болады",s1:"Ұйымдастырушылар өтінімді 3 жұмыс күні ішінде қарайды.",s2:"Email арқылы ережелер мен қатысу шарттарын аласыз.",s3:"Шетелдік командалар сұраған жағдайда виза үшін шақыру хатын алады.",
@@ -881,7 +881,7 @@ r_eyebrow:"Регистрация",r_sub:"Одна форма на одну ко
 r_team:"Команда",r_teamname:"Название команды",r_disc:"Дисциплина",r_cat:"Категория / возраст",r_cat_ph:"например, FLL Challenge, 9-16",r_students:"Участников",r_coaches:"Тренеров / менторов",
 r_where:"Откуда вы",r_country:"Страна",r_city:"Город",r_org:"Школа, университет или клуб",
 r_contact:"Руководитель команды",r_lead:"ФИО",r_email:"Email",r_phone:"Телефон / WhatsApp / Telegram",
-r_visa:"Нужно официальное приглашение для визы",r_hotel:"Нужна помощь с проживанием в Астане",r_notes:"Комментарий",
+r_visa:"Нужно официальное приглашение (для визы или для других целей)",r_hotel:"Нужна помощь с проживанием в Астане",r_notes:"Комментарий",
 r_consent:"Я согласен(на) на обработку этих данных USTEM Foundation для организации фестиваля и связи с командой.",
 r_submit:"Отправить заявку",
 s_next:"Что дальше",s1:"Организаторы рассматривают заявку в течение 3 рабочих дней.",s2:"На email приходят регламент и условия участия.",s3:"Иностранные команды по запросу получают приглашение для визы.",
@@ -1340,7 +1340,7 @@ applyLang(start);
 (function(){
 "use strict";
 var D={
-en:{title:"Request a <em>visa invitation letter</em>",sub:"Fill in every team member who needs a visa. The letter is generated automatically with the full list of names and is sent to you only after the organizers confirm the request.",
+en:{title:"Request an <em>invitation letter</em>",sub:"An official invitation for your team from the organizers with the full list of names. Use it for a visa, for your school or sponsors, or simply as confirmation of participation. The letter is sent to you only after the organizers confirm the request.",
 flow:["You send the list of participants","The organizers check the data, usually within 3 working days","You receive the signed and stamped letter (PDF) by email"],
 team:"Team name",country:"Country",contact:"Contact person",email:"Email for the letter",phone:"Phone / WhatsApp",ref:"Registration number, if you have one",arr:"Arrival in Kazakhstan",dep:"Departure",
 hn:"Full name as in passport",hd:"Date of birth",hc:"Citizenship",hp:"Passport No.",hr:"Role",student:"Participant",coach:"Coach / mentor",lead:"Team leader",
@@ -1348,7 +1348,7 @@ add:"+ Add person",count:function(n){return n+" of 40";},consent:"I confirm the 
 e_req:"Fill in all fields marked *.",e_email:"Check the email address.",e_dates:"Departure must be after arrival.",e_people:"Add at least one person with full name, date of birth, citizenship and passport number.",e_ok:"Please confirm the data.",
 ok_t:"Request received",ok_p:"The organizers will check the list and send the invitation letter to your email after confirmation. If something is missing, we will write to you.",again:"Send another request",
 fb_t:"Last step: send the request",fb_p:"Online sending is not connected yet. Send the list below to the organizers by email; the letter is issued after confirmation.",fb_mail:"Send by email",fb_copy:"Copy text",fb_back:"Back"},
-kk:{title:"<em>Визалық шақыру хатын</em> сұрау",sub:"Визасы қажет әр қатысушыны толтырыңыз. Хат аты-жөндердің толық тізімімен автоматты түрде жасалады және ұйымдастырушылар растағаннан кейін ғана жіберіледі.",
+kk:{title:"<em>Шақыру хатын</em> сұрау",sub:"Ұйымдастырушылардан командаңызға аты-жөндердің толық тізімі бар ресми шақыру. Виза алу, мектеп пен демеушілер үшін немесе жай ғана қатысуды растау ретінде жарайды. Хат ұйымдастырушылар растағаннан кейін ғана жіберіледі.",
 flow:["Сіз қатысушылар тізімін жібересіз","Ұйымдастырушылар деректерді тексереді, әдетте 3 жұмыс күні ішінде","Қол қойылған, мөр басылған хатты (PDF) email арқылы аласыз"],
 team:"Команда атауы",country:"Ел",contact:"Байланыс тұлғасы",email:"Хат жіберілетін email",phone:"Телефон / WhatsApp",ref:"Тіркеу нөмірі, бар болса",arr:"Қазақстанға келу",dep:"Кету",
 hn:"Төлқұжат бойынша толық аты-жөні",hd:"Туған күні",hc:"Азаматтығы",hp:"Төлқұжат №",hr:"Рөлі",student:"Қатысушы",coach:"Жаттықтырушы / ментор",lead:"Команда жетекшісі",
@@ -1356,7 +1356,7 @@ add:"+ Адам қосу",count:function(n){return n+" / 40";},consent:"Дере
 e_req:"* белгіленген барлық өрістерді толтырыңыз.",e_email:"Email мекенжайын тексеріңіз.",e_dates:"Кету күні келу күнінен кейін болуы керек.",e_people:"Кемінде бір адамның толық аты-жөнін, туған күнін, азаматтығын және төлқұжат нөмірін енгізіңіз.",e_ok:"Деректерді растаңыз.",
 ok_t:"Сұрау қабылданды",ok_p:"Ұйымдастырушылар тізімді тексеріп, растағаннан кейін шақыру хатын email-ге жібереді. Бірдеңе жетіспесе, сізге жазамыз.",again:"Тағы бір сұрау жіберу",
 fb_t:"Соңғы қадам: сұрауды жіберіңіз",fb_p:"Онлайн жіберу әлі қосылмаған. Төмендегі тізімді ұйымдастырушыларға email арқылы жіберіңіз; хат растаудан кейін беріледі.",fb_mail:"Email арқылы жіберу",fb_copy:"Мәтінді көшіру",fb_back:"Артқа"},
-ru:{title:"Запрос <em>визового приглашения</em>",sub:"Укажите каждого члена команды, которому нужна виза. Письмо формируется автоматически со списком ФИО и отправляется вам только после подтверждения организаторами.",
+ru:{title:"Запрос <em>приглашения</em>",sub:"Официальное приглашение команде от организаторов со списком ФИО. Подходит для визы, для школы и спонсоров или просто как подтверждение участия. Письмо отправляется вам только после подтверждения организаторами.",
 flow:["Вы отправляете список участников","Организаторы проверяют данные, обычно в течение 3 рабочих дней","Вы получаете письмо с подписью и печатью (PDF) на email"],
 team:"Название команды",country:"Страна",contact:"Контактное лицо",email:"Email для письма",phone:"Телефон / WhatsApp",ref:"Номер заявки на участие, если есть",arr:"Прибытие в Казахстан",dep:"Отъезд",
 hn:"ФИО как в паспорте",hd:"Дата рождения",hc:"Гражданство",hp:"№ паспорта",hr:"Роль",student:"Участник",coach:"Тренер / ментор",lead:"Руководитель команды",
@@ -1408,7 +1408,7 @@ function bind(){
   $("vl-form").addEventListener("submit",submit);
 }
 function asText(r){
-  return ["Visa invitation letter request / Alem Tech Fest 2027","",
+  return ["Invitation letter request / Alem Tech Fest 2027","",
   v("team")+": "+r.team,v("country")+": "+r.country,v("contact")+": "+r.contact,v("email")+": "+r.email,v("phone")+": "+r.phone,
   v("ref")+": "+(r.ref||"-"),v("arr")+": "+r.arrival,v("dep")+": "+r.departure,"",
   r.people.map(function(p,i){return (i+1)+". "+p.name+" | "+p.dob+" | "+p.citizenship+" | "+p.passport+" | "+v(p.role);}).join("\n")].join("\n");
@@ -1435,7 +1435,7 @@ function done(){
 }
 function fallback(r){
   var txt=asText(r);
-  $("vl-area").innerHTML='<div class="vl-done"><strong>'+esc(v("fb_t"))+'</strong><p>'+esc(v("fb_p"))+'</p><textarea readonly id="vl-txt">'+esc(txt)+'</textarea><div class="vl-actions"><a class="btn btn-blue" target="_blank" rel="noopener" href="mailto:hello@ustemfoundation.org?subject='+encodeURIComponent("Visa invitation letter: "+r.team+" ("+r.country+")")+'&body='+encodeURIComponent(txt)+'">'+esc(v("fb_mail"))+'</a><button class="btn btn-line" type="button" id="vl-copy">'+esc(v("fb_copy"))+'</button><button class="btn btn-line" type="button" id="vl-back">'+esc(v("fb_back"))+'</button></div></div>';
+  $("vl-area").innerHTML='<div class="vl-done"><strong>'+esc(v("fb_t"))+'</strong><p>'+esc(v("fb_p"))+'</p><textarea readonly id="vl-txt">'+esc(txt)+'</textarea><div class="vl-actions"><a class="btn btn-blue" target="_blank" rel="noopener" href="mailto:hello@ustemfoundation.org?subject='+encodeURIComponent("Invitation letter: "+r.team+" ("+r.country+")")+'&body='+encodeURIComponent(txt)+'">'+esc(v("fb_mail"))+'</a><button class="btn btn-line" type="button" id="vl-copy">'+esc(v("fb_copy"))+'</button><button class="btn btn-line" type="button" id="vl-back">'+esc(v("fb_back"))+'</button></div></div>';
   $("vl-copy").addEventListener("click",function(){var t=$("vl-txt");t.select();try{navigator.clipboard.writeText(t.value);}catch(x){document.execCommand("copy");}});
   $("vl-back").addEventListener("click",function(){reset(r);});
 }
