@@ -402,6 +402,39 @@ footer a{color:#fff}
 .hotel .hl a{color:var(--blue)}
 .hnote{font-size:.84rem;color:var(--muted);margin-top:14px}
 @media (max-width:860px){.hlist{grid-template-columns:minmax(0,1fr)}}
+
+/* visa letter request */
+.vl{color-scheme:light;margin-top:34px;background:#fff;color:var(--text);border-radius:22px;padding:clamp(18px,3vw,32px);display:grid;gap:22px}
+.vl h3{font:800 clamp(1.3rem,2.4vw,1.7rem)/1.15 var(--f);margin:0;color:var(--night)}
+.vl h3 em{font-style:normal;color:var(--blue)}
+.vl .vl-sub{margin:6px 0 0;color:#4a5578;font-size:.95rem;max-width:760px}
+.vl-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;counter-reset:v}
+.vl-flow div{background:var(--mist);border-radius:14px;padding:14px 14px 14px 52px;position:relative;font-size:.88rem;line-height:1.35}
+.vl-flow div:before{counter-increment:v;content:counter(v);position:absolute;left:14px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--lime);color:var(--lime-ink);font:800 .9rem/28px var(--f);text-align:center}
+.vl-people{display:grid;gap:10px}
+.vl-row{display:grid;grid-template-columns:28px minmax(0,2.2fr) minmax(0,1.15fr) minmax(0,1.3fr) minmax(0,1.3fr) minmax(0,1.1fr) 36px;gap:8px;align-items:center}
+.vl-row .n{font:800 .9rem/1 var(--f);color:var(--blue);text-align:center}
+.vl-row input,.vl-row select{width:100%;font:400 .92rem/1.2 var(--f);padding:11px 10px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--text);min-width:0}
+.vl-row input:focus,.vl-row select:focus{border-color:var(--blue);outline:none}
+.vl-head{font:700 .74rem/1.2 var(--f);text-transform:uppercase;letter-spacing:.05em;color:#6a7395}
+.vl-del{width:36px;height:36px;border-radius:50%;border:0;background:var(--mist);color:var(--text);font-size:1.1rem;cursor:pointer}
+.vl-del:hover{background:#ffe1de;color:var(--bad)}
+.vl-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.vl .btn-line{background:#fff;color:var(--text)}
+.vl-err{color:var(--bad);font-weight:600;font-size:.9rem;min-height:1em}
+.vl-done{background:var(--mist);border-radius:16px;padding:22px;display:grid;gap:10px}
+.vl-done strong{font:800 1.2rem/1.2 var(--f);color:var(--night)}
+.vl-done textarea{width:100%;min-height:150px;font:.85rem/1.4 ui-monospace,monospace;padding:12px;border-radius:10px;border:1.5px solid var(--line)}
+@media (max-width:860px){
+.vl-flow{grid-template-columns:1fr}
+.vl-head{display:none}
+.vl-row{grid-template-columns:22px minmax(0,1fr) minmax(0,1fr) 36px;background:var(--mist);padding:10px;border-radius:14px}
+.vl-row .n{grid-column:1;grid-row:1/4}
+.vl-row .nm{grid-column:2/4;grid-row:1}
+.vl-row .vl-del{grid-column:4;grid-row:1}
+.vl-row .db{grid-column:2;grid-row:2}.vl-row .ct{grid-column:3/5;grid-row:2}
+.vl-row .pp{grid-column:2;grid-row:3}.vl-row .rl{grid-column:3/5;grid-row:3}
+}
 </style>
 </head>
 <body>
@@ -603,6 +636,32 @@ footer a{color:#fff}
         <div class="lists" id="vz-lists"></div>
       </div>
       <div class="steps" id="vz-steps"></div>
+    </div>
+        <div class="vl" id="visa-letter">
+      <div>
+        <h3 id="vl-title"></h3>
+        <p class="vl-sub" id="vl-sub"></p>
+      </div>
+      <div class="vl-flow" id="vl-flow"></div>
+      <div id="vl-area">
+        <form class="vl-form" id="vl-form" novalidate style="display:grid;gap:22px">
+          <fieldset>
+            <div class="f"><label for="vl-team"><span data-v="team"></span> <i>*</i></label><input id="vl-team" required maxlength="80"></div>
+            <div class="f"><label for="vl-country"><span data-v="country"></span> <i>*</i></label><input id="vl-country" required maxlength="60"></div>
+            <div class="f"><label for="vl-contact"><span data-v="contact"></span> <i>*</i></label><input id="vl-contact" required maxlength="80" autocomplete="name"></div>
+            <div class="f"><label for="vl-email"><span data-v="email"></span> <i>*</i></label><input id="vl-email" type="email" required maxlength="120" autocomplete="email"></div>
+            <div class="f"><label for="vl-phone"><span data-v="phone"></span> <i>*</i></label><input id="vl-phone" type="tel" required maxlength="40" autocomplete="tel"></div>
+            <div class="f"><label for="vl-ref"><span data-v="ref"></span></label><input id="vl-ref" maxlength="20" placeholder="ATF27-..."></div>
+            <div class="f"><label for="vl-arr"><span data-v="arr"></span> <i>*</i></label><input id="vl-arr" type="date" required min="2027-01-15" max="2027-02-21" value="2027-02-17"></div>
+            <div class="f"><label for="vl-dep"><span data-v="dep"></span> <i>*</i></label><input id="vl-dep" type="date" required min="2027-02-18" max="2027-03-15" value="2027-02-22"></div>
+          </fieldset>
+          <div class="vl-people" id="vl-people"></div>
+          <div class="vl-actions"><button class="btn btn-line" type="button" id="vl-add"></button><span id="vl-count" style="font-size:.85rem;color:#6a7395"></span></div>
+          <label class="check"><input type="checkbox" id="vl-ok"><span data-v="consent"></span></label>
+          <div class="vl-err" id="vl-err" role="alert"></div>
+          <div class="vl-actions"><button class="btn btn-blue" type="submit" id="vl-send"></button></div>
+        </form>
+      </div>
     </div>
     <p class="disclaim" data-t="vz_disc" data-html="1">Based on the list of the Ministry of Foreign Affairs of Kazakhstan as of October 2026. Visa rules can change: confirm with the nearest Kazakhstan embassy before buying tickets. Official sources: <a href="https://www.gov.kz/memleket/entities/mfa" target="_blank" rel="noopener">Ministry of Foreign Affairs</a>, <a href="https://www.vmp.gov.kz" target="_blank" rel="noopener">Visa and Migration Portal</a>.</p>
   </div>
@@ -891,13 +950,13 @@ freeT:function(d){return "No visa needed for up to "+d+" days";},
 freeP:"Bring a passport valid for the whole trip. The festival fits easily into this stay.",
 shortP:"14 days covers the festival. Plan arrival no earlier than 9 February so the stay does not run out before you leave.",
 needT:"Apply for a visa before travel",
-needP:"Tick “invitation letter” in the registration form. The organizers send a letter you can use for an e-visa or an embassy visa. Allow at least 6 weeks.",
+needP:"Request an invitation letter with the form below. The organizers send a letter you can use for an e-visa or an embassy visa. Allow at least 6 weeks.",
 homeT:"No visa needed",homeP:"Teams from Kazakhstan only need ID documents for each participant.",
-otherT:"Your country is not in the visa-free list",otherP:"Most likely you need a visa. Request an invitation letter in the registration form and check with the nearest Kazakhstan embassy.",
+otherT:"Your country is not in the visa-free list",otherP:"Most likely you need a visa. Request an invitation letter with the form below and check with the nearest Kazakhstan embassy.",
 g90:"Visa-free up to 90 days",g30:"Visa-free up to 30 days",g14:"Visa-free up to 14 days",gx:"Other visa-free stays",
 steps:[
 ["Check your passport country","Use the checker on the left. Passports must be valid for the whole trip; we recommend at least 6 months of validity."],
-["Request an invitation letter","Need a visa? Tick the box in the registration form. The organizers issue an official invitation for each team member and coach."],
+["Request an invitation letter","Need a visa? Fill in the form below with every team member. After the organizers confirm, the official letter with all names is emailed to you."],
 ["Apply for an e-visa or embassy visa","Many nationalities can apply online through the <a href=\"https://www.vmp.gov.kz\" target=\"_blank\" rel=\"noopener\">Visa and Migration Portal</a>. Processing usually takes 5 to 7 working days; e-visa holders enter through Astana or Almaty airport. Otherwise apply at a Kazakhstan embassy."],
 ["Travelling with minors","For participants under 18 travelling without parents, carry a notarized parental consent (with a translation into Kazakh, Russian or English) and a copy of the birth certificate."],
 ["Arrival and registration","Hotels notify the migration service of your stay within 3 working days. If you stay in a private apartment, ask the host to do it via eGov. Keep the migration card you get at the border."],
@@ -909,13 +968,13 @@ freeT:function(d){return d+" күнге дейін виза қажет емес"
 freeP:"Бүкіл сапар мерзіміне жарамды төлқұжат алыңыз. Фестиваль осы мерзімге толық сыяды.",
 shortP:"14 күн фестивальге жеткілікті. Кеткенге дейін мерзім бітпеуі үшін 9 ақпаннан ерте келмеңіз.",
 needT:"Сапар алдында виза алыңыз",
-needP:"Тіркеу формасында «шақыру хаты» белгісін қойыңыз. Ұйымдастырушылар электронды визаға немесе елшілік визасына арналған хат жібереді. Кемінде 6 апта бұрын бастаңыз.",
+needP:"Төмендегі форма арқылы шақыру хатын сұраңыз. Ұйымдастырушылар электронды визаға немесе елшілік визасына арналған хат жібереді. Кемінде 6 апта бұрын бастаңыз.",
 homeT:"Виза қажет емес",homeP:"Қазақстан командаларына әр қатысушының жеке куәлігі жеткілікті.",
-otherT:"Сіздің еліңіз визасыз тізімде жоқ",otherP:"Сізге виза қажет болуы мүмкін. Тіркеу формасында шақыру хатын сұраңыз және Қазақстанның жақын елшілігінен нақтылаңыз.",
+otherT:"Сіздің еліңіз визасыз тізімде жоқ",otherP:"Сізге виза қажет болуы мүмкін. Төмендегі форма арқылы шақыру хатын сұраңыз және Қазақстанның жақын елшілігінен нақтылаңыз.",
 g90:"90 күнге дейін визасыз",g30:"30 күнге дейін визасыз",g14:"14 күнге дейін визасыз",gx:"Басқа визасыз мерзімдер",
 steps:[
 ["Төлқұжат елін тексеріңіз","Сол жақтағы тексеруді қолданыңыз. Төлқұжат бүкіл сапар бойы жарамды болуы керек; кемінде 6 ай мерзімі болғаны дұрыс."],
-["Шақыру хатын сұраңыз","Виза керек пе? Тіркеу формасында белгі қойыңыз. Ұйымдастырушылар әр қатысушы мен жаттықтырушыға ресми шақыру береді."],
+["Шақыру хатын сұраңыз","Виза керек пе? Төмендегі формаға команданың барлық мүшелерін енгізіңіз. Ұйымдастырушылар растағаннан кейін барлық аты-жөн көрсетілген ресми хат email-ге жіберіледі."],
 ["Электронды немесе елшілік визасын рәсімдеңіз","Көптеген елдің азаматтары <a href=\"https://www.vmp.gov.kz\" target=\"_blank\" rel=\"noopener\">Виза және көші-қон порталы</a> арқылы онлайн өтінім бере алады. Қарау әдетте 5-7 жұмыс күні; электронды визамен Астана немесе Алматы әуежайы арқылы кіреді. Әйтпесе Қазақстан елшілігіне жүгініңіз."],
 ["Кәмелетке толмағандармен сапар","Ата-анасыз келетін 18 жасқа толмаған қатысушыларда ата-ананың нотариалды келісімі (қазақ, орыс немесе ағылшын тіліне аудармасымен) және туу туралы куәліктің көшірмесі болсын."],
 ["Келу және тіркеу","Қонақүй сіздің тұруыңыз туралы көші-қон қызметіне 3 жұмыс күні ішінде хабарлайды. Пәтерде тұрсаңыз, үй иесінен eGov арқылы хабарлауды сұраңыз. Шекарада берілген көші-қон картасын сақтаңыз."],
@@ -927,13 +986,13 @@ freeT:function(d){return "Виза не нужна до "+d+" дней";},
 freeP:"Возьмите паспорт, действующий на весь срок поездки. Фестиваль полностью укладывается в этот срок.",
 shortP:"14 дней хватает на фестиваль. Не приезжайте раньше 9 февраля, чтобы срок не закончился до отъезда.",
 needT:"Оформите визу до поездки",
-needP:"Отметьте «приглашение для визы» в форме регистрации. Организаторы пришлют письмо для электронной визы или визы в посольстве. Начните минимум за 6 недель.",
+needP:"Запросите приглашение через форму ниже. Организаторы пришлют письмо для электронной визы или визы в посольстве. Начните минимум за 6 недель.",
 homeT:"Виза не нужна",homeP:"Командам из Казахстана достаточно документов, удостоверяющих личность каждого участника.",
-otherT:"Вашей страны нет в безвизовом списке",otherP:"Скорее всего, нужна виза. Запросите приглашение в форме регистрации и уточните в ближайшем посольстве Казахстана.",
+otherT:"Вашей страны нет в безвизовом списке",otherP:"Скорее всего, нужна виза. Запросите приглашение через форму ниже и уточните в ближайшем посольстве Казахстана.",
 g90:"Без визы до 90 дней",g30:"Без визы до 30 дней",g14:"Без визы до 14 дней",gx:"Другие безвизовые сроки",
 steps:[
 ["Проверьте страну паспорта","Используйте проверку слева. Паспорт должен действовать весь срок поездки; рекомендуем не менее 6 месяцев."],
-["Запросите приглашение","Нужна виза? Отметьте пункт в форме регистрации. Организаторы оформят официальное приглашение на каждого участника и тренера."],
+["Запросите приглашение","Нужна виза? Заполните форму ниже на всех членов команды. После подтверждения организаторами официальное письмо со всеми ФИО придет на ваш email."],
 ["Оформите электронную визу или визу в посольстве","Граждане многих стран подают заявку онлайн на <a href=\"https://www.vmp.gov.kz\" target=\"_blank\" rel=\"noopener\">Визово-миграционном портале</a>. Рассмотрение обычно 5-7 рабочих дней; с электронной визой въезд через аэропорты Астаны или Алматы. В остальных случаях обратитесь в посольство Казахстана."],
 ["Поездка с несовершеннолетними","Участникам до 18 лет, которые едут без родителей, нужно нотариальное согласие родителей (с переводом на казахский, русский или английский) и копия свидетельства о рождении."],
 ["Приезд и регистрация","Гостиница уведомляет миграционную службу о вашем проживании в течение 3 рабочих дней. Если вы живете в квартире, попросите хозяина сделать это через eGov. Сохраните миграционную карточку, полученную на границе."],
@@ -1015,6 +1074,7 @@ var CFG={
   ytId:"xSGzwMSwTLw",
   ytMore:"https://www.youtube.com/results?search_query=alemtechfest"
 };
+window.ATF_CFG=CFG;
 var X={
 vd_title:{en:"See how it <em>was in 2026</em>",kk:"2026 жылы <em>қалай өтті</em>",ru:"Как это <em>было в 2026</em>"},
 vd_sub:{en:"Vlog from Central Asia's largest STEM festival: 5000+ participants, robots, drones and finals at EXPO Astana.",kk:"Орталық Азиядағы ең ірі STEM фестивалінен влог: 5000+ қатысушы, роботтар, дрондар және EXPO Астанадағы финалдар.",ru:"Влог с крупнейшего STEM-фестиваля Центральной Азии: 5000+ участников, роботы, дроны и финалы в МВЦ EXPO Астана."},
@@ -1276,5 +1336,118 @@ applyLang(start);
 </script>
 
 
+<script>
+(function(){
+"use strict";
+var D={
+en:{title:"Request a <em>visa invitation letter</em>",sub:"Fill in every team member who needs a visa. The letter is generated automatically with the full list of names and is sent to you only after the organizers confirm the request.",
+flow:["You send the list of participants","The organizers check the data, usually within 3 working days","You receive the signed and stamped letter (PDF) by email"],
+team:"Team name",country:"Country",contact:"Contact person",email:"Email for the letter",phone:"Phone / WhatsApp",ref:"Registration number, if you have one",arr:"Arrival in Kazakhstan",dep:"Departure",
+hn:"Full name as in passport",hd:"Date of birth",hc:"Citizenship",hp:"Passport No.",hr:"Role",student:"Participant",coach:"Coach / mentor",lead:"Team leader",
+add:"+ Add person",count:function(n){return n+" of 40";},consent:"I confirm the data matches the passports and agree to its processing for the invitation letter.",send:"Request the letter",sending:"Sending…",
+e_req:"Fill in all fields marked *.",e_email:"Check the email address.",e_dates:"Departure must be after arrival.",e_people:"Add at least one person with full name, date of birth, citizenship and passport number.",e_ok:"Please confirm the data.",
+ok_t:"Request received",ok_p:"The organizers will check the list and send the invitation letter to your email after confirmation. If something is missing, we will write to you.",again:"Send another request",
+fb_t:"Last step: send the request",fb_p:"Online sending is not connected yet. Send the list below to the organizers by email; the letter is issued after confirmation.",fb_mail:"Send by email",fb_copy:"Copy text",fb_back:"Back"},
+kk:{title:"<em>Визалық шақыру хатын</em> сұрау",sub:"Визасы қажет әр қатысушыны толтырыңыз. Хат аты-жөндердің толық тізімімен автоматты түрде жасалады және ұйымдастырушылар растағаннан кейін ғана жіберіледі.",
+flow:["Сіз қатысушылар тізімін жібересіз","Ұйымдастырушылар деректерді тексереді, әдетте 3 жұмыс күні ішінде","Қол қойылған, мөр басылған хатты (PDF) email арқылы аласыз"],
+team:"Команда атауы",country:"Ел",contact:"Байланыс тұлғасы",email:"Хат жіберілетін email",phone:"Телефон / WhatsApp",ref:"Тіркеу нөмірі, бар болса",arr:"Қазақстанға келу",dep:"Кету",
+hn:"Төлқұжат бойынша толық аты-жөні",hd:"Туған күні",hc:"Азаматтығы",hp:"Төлқұжат №",hr:"Рөлі",student:"Қатысушы",coach:"Жаттықтырушы / ментор",lead:"Команда жетекшісі",
+add:"+ Адам қосу",count:function(n){return n+" / 40";},consent:"Деректер төлқұжаттарға сәйкес екенін растаймын және оларды шақыру хаты үшін өңдеуге келісемін.",send:"Хатты сұрау",sending:"Жіберілуде…",
+e_req:"* белгіленген барлық өрістерді толтырыңыз.",e_email:"Email мекенжайын тексеріңіз.",e_dates:"Кету күні келу күнінен кейін болуы керек.",e_people:"Кемінде бір адамның толық аты-жөнін, туған күнін, азаматтығын және төлқұжат нөмірін енгізіңіз.",e_ok:"Деректерді растаңыз.",
+ok_t:"Сұрау қабылданды",ok_p:"Ұйымдастырушылар тізімді тексеріп, растағаннан кейін шақыру хатын email-ге жібереді. Бірдеңе жетіспесе, сізге жазамыз.",again:"Тағы бір сұрау жіберу",
+fb_t:"Соңғы қадам: сұрауды жіберіңіз",fb_p:"Онлайн жіберу әлі қосылмаған. Төмендегі тізімді ұйымдастырушыларға email арқылы жіберіңіз; хат растаудан кейін беріледі.",fb_mail:"Email арқылы жіберу",fb_copy:"Мәтінді көшіру",fb_back:"Артқа"},
+ru:{title:"Запрос <em>визового приглашения</em>",sub:"Укажите каждого члена команды, которому нужна виза. Письмо формируется автоматически со списком ФИО и отправляется вам только после подтверждения организаторами.",
+flow:["Вы отправляете список участников","Организаторы проверяют данные, обычно в течение 3 рабочих дней","Вы получаете письмо с подписью и печатью (PDF) на email"],
+team:"Название команды",country:"Страна",contact:"Контактное лицо",email:"Email для письма",phone:"Телефон / WhatsApp",ref:"Номер заявки на участие, если есть",arr:"Прибытие в Казахстан",dep:"Отъезд",
+hn:"ФИО как в паспорте",hd:"Дата рождения",hc:"Гражданство",hp:"№ паспорта",hr:"Роль",student:"Участник",coach:"Тренер / ментор",lead:"Руководитель команды",
+add:"+ Добавить человека",count:function(n){return n+" из 40";},consent:"Подтверждаю, что данные совпадают с паспортами, и согласен на их обработку для приглашения.",send:"Запросить письмо",sending:"Отправка…",
+e_req:"Заполните все поля, отмеченные *.",e_email:"Проверьте адрес email.",e_dates:"Дата отъезда должна быть позже прибытия.",e_people:"Добавьте хотя бы одного человека с ФИО, датой рождения, гражданством и номером паспорта.",e_ok:"Подтвердите данные.",
+ok_t:"Запрос получен",ok_p:"Организаторы проверят список и после подтверждения отправят приглашение на ваш email. Если чего-то не хватает, мы напишем вам.",again:"Отправить еще один запрос",
+fb_t:"Последний шаг: отправьте запрос",fb_p:"Онлайн-отправка пока не подключена. Отправьте список ниже организаторам по email; письмо выдается после подтверждения.",fb_mail:"Отправить по email",fb_copy:"Копировать текст",fb_back:"Назад"}
+};
+var root=document.getElementById("visa-letter");if(!root)return;
+function lg(){var l=window.ATF_PAGE_LANG||document.documentElement.lang||"en";l=l.slice(0,2);return D[l]?l:"en";}
+function v(k){return D[lg()][k];}
+function esc(x){return String(x==null?"":x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+var $=function(id){return document.getElementById(id);};
+var formHTML=$("vl-area").innerHTML;
+var rows=[{role:"student"},{role:"student"},{role:"coach"}];
+
+function collect(){
+  var out=[];document.querySelectorAll("#vl-people .vl-row[data-i]").forEach(function(r){
+    out.push({name:r.querySelector(".nm").value.trim(),dob:r.querySelector(".db").value,citizenship:r.querySelector(".ct").value.trim(),passport:r.querySelector(".pp").value.trim(),role:r.querySelector(".rl").value});
+  });return out;
+}
+function renderRows(){
+  var box=$("vl-people");if(!box)return;
+  var h='<div class="vl-row vl-head"><span>#</span><span>'+esc(v("hn"))+'</span><span>'+esc(v("hd"))+'</span><span>'+esc(v("hc"))+'</span><span>'+esc(v("hp"))+'</span><span>'+esc(v("hr"))+'</span><span></span></div>';
+  rows.forEach(function(p,i){
+    h+='<div class="vl-row" data-i="'+i+'"><span class="n">'+(i+1)+'</span>'+
+    '<input class="nm" maxlength="120" placeholder="'+esc(v("hn"))+'" aria-label="'+esc(v("hn"))+'" value="'+esc(p.name)+'">'+
+    '<input class="db" type="date" min="1940-01-01" max="2022-12-31" aria-label="'+esc(v("hd"))+'" title="'+esc(v("hd"))+'" value="'+esc(p.dob)+'">'+
+    '<input class="ct" maxlength="60" placeholder="'+esc(v("hc"))+'" aria-label="'+esc(v("hc"))+'" value="'+esc(p.citizenship)+'">'+
+    '<input class="pp" maxlength="30" placeholder="'+esc(v("hp"))+'" aria-label="'+esc(v("hp"))+'" value="'+esc(p.passport)+'">'+
+    '<select class="rl" aria-label="'+esc(v("hr"))+'">'+["student","coach","lead"].map(function(r){return '<option value="'+r+'"'+(p.role===r?" selected":"")+'>'+esc(v(r))+'</option>';}).join("")+'</select>'+
+    '<button type="button" class="vl-del" data-del="'+i+'" aria-label="remove">&times;</button></div>';
+  });
+  box.innerHTML=h;
+  $("vl-count").textContent=v("count")(rows.length);
+  $("vl-add").disabled=rows.length>=40;
+}
+function labels(){
+  $("vl-title").innerHTML=v("title");$("vl-sub").textContent=v("sub");
+  $("vl-flow").innerHTML=v("flow").map(function(x){return "<div>"+esc(x)+"</div>";}).join("");
+  root.querySelectorAll("[data-v]").forEach(function(el){el.textContent=v(el.getAttribute("data-v"));});
+  if($("vl-add"))$("vl-add").textContent=v("add");
+  if($("vl-send"))$("vl-send").textContent=v("send");
+  if($("vl-people")){rows=collect().length?collect():rows;renderRows();}
+}
+function bind(){
+  $("vl-add").addEventListener("click",function(){rows=collect();if(rows.length<40){rows.push({role:"student"});renderRows();var n=document.querySelectorAll("#vl-people .nm");n[n.length-1].focus();}});
+  $("vl-people").addEventListener("click",function(e){var b=e.target.closest("[data-del]");if(!b)return;rows=collect();rows.splice(+b.getAttribute("data-del"),1);if(!rows.length)rows=[{role:"student"}];renderRows();});
+  $("vl-form").addEventListener("submit",submit);
+}
+function asText(r){
+  return ["Visa invitation letter request / Alem Tech Fest 2027","",
+  v("team")+": "+r.team,v("country")+": "+r.country,v("contact")+": "+r.contact,v("email")+": "+r.email,v("phone")+": "+r.phone,
+  v("ref")+": "+(r.ref||"-"),v("arr")+": "+r.arrival,v("dep")+": "+r.departure,"",
+  r.people.map(function(p,i){return (i+1)+". "+p.name+" | "+p.dob+" | "+p.citizenship+" | "+p.passport+" | "+v(p.role);}).join("\n")].join("\n");
+}
+async function submit(e){
+  e.preventDefault();var err=$("vl-err");err.textContent="";
+  var r={type:"visa",lang:lg(),team:$("vl-team").value.trim(),country:$("vl-country").value.trim(),contact:$("vl-contact").value.trim(),email:$("vl-email").value.trim(),phone:$("vl-phone").value.trim(),ref:$("vl-ref").value.trim(),arrival:$("vl-arr").value,departure:$("vl-dep").value};
+  if(!r.team||!r.country||!r.contact||!r.email||!r.phone||!r.arrival||!r.departure){err.textContent=v("e_req");return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r.email)){err.textContent=v("e_email");return;}
+  if(r.departure<=r.arrival){err.textContent=v("e_dates");return;}
+  rows=collect();
+  r.people=rows.filter(function(p){return p.name||p.passport;});
+  if(!r.people.length||r.people.some(function(p){return !p.name||!p.dob||!p.citizenship||!p.passport;})){err.textContent=v("e_people");return;}
+  if(!$("vl-ok").checked){err.textContent=v("e_ok");return;}
+  var cfg=window.ATF_CFG||{};
+  if(!cfg.sheetUrl){fallback(r);return;}
+  var b=$("vl-send");b.disabled=true;b.textContent=v("sending");
+  try{await fetch(cfg.sheetUrl,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(r)});done();}
+  catch(x){b.disabled=false;b.textContent=v("send");fallback(r);}
+}
+function done(){
+  $("vl-area").innerHTML='<div class="vl-done"><strong>'+esc(v("ok_t"))+'</strong><p>'+esc(v("ok_p"))+'</p><div><button class="btn btn-line" type="button" id="vl-again">'+esc(v("again"))+'</button></div></div>';
+  $("vl-again").addEventListener("click",reset);
+}
+function fallback(r){
+  var txt=asText(r);
+  $("vl-area").innerHTML='<div class="vl-done"><strong>'+esc(v("fb_t"))+'</strong><p>'+esc(v("fb_p"))+'</p><textarea readonly id="vl-txt">'+esc(txt)+'</textarea><div class="vl-actions"><a class="btn btn-blue" target="_blank" rel="noopener" href="mailto:hello@ustemfoundation.org?subject='+encodeURIComponent("Visa invitation letter: "+r.team+" ("+r.country+")")+'&body='+encodeURIComponent(txt)+'">'+esc(v("fb_mail"))+'</a><button class="btn btn-line" type="button" id="vl-copy">'+esc(v("fb_copy"))+'</button><button class="btn btn-line" type="button" id="vl-back">'+esc(v("fb_back"))+'</button></div></div>';
+  $("vl-copy").addEventListener("click",function(){var t=$("vl-txt");t.select();try{navigator.clipboard.writeText(t.value);}catch(x){document.execCommand("copy");}});
+  $("vl-back").addEventListener("click",function(){reset(r);});
+}
+function reset(r){
+  $("vl-area").innerHTML=formHTML;
+  if(r&&r.team){["team","country","contact","email","phone","ref"].forEach(function(k){$("vl-"+k).value=r[k]||"";});$("vl-arr").value=r.arrival;$("vl-dep").value=r.departure;}
+  else rows=[{role:"student"},{role:"student"},{role:"coach"}];
+  labels();bind();
+}
+labels();bind();
+new MutationObserver(function(){labels();}).observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+})();
+</script>
 </body>
 </html>
