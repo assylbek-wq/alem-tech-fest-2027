@@ -152,7 +152,7 @@ function handleDecision_(p) {
       htmlBody: '<p>Dear ' + esc_(req.contact || 'colleagues') + ',</p>' +
         '<p>Please find attached the official invitation letter for team <b>' + esc_(req.team) +
         '</b> (' + req.people.length + ' people) to the Central Asia <i>FIRST</i>® Championship 2027 / Alem Tech Fest 2027, 18–21 February 2027, Astana.</p>' +
-        '<p>If you need a visa, present this letter to the Embassy or Consulate of Kazakhstan, or use it for an e-visa application on vmp.gov.kz.</p>' +
+        
         '<p>Best regards,<br>USTEM Foundation<br>hello@ustemfoundation.org · alemtechfest.kz</p>',
       attachments: [pdf]
     });
@@ -202,10 +202,13 @@ function letterPdf_(req, draft) {
     'at the Kazakh National University of Sports (KNUS), 15 Karkaraly Highway, Astana, Republic of Kazakhstan, and is expected to bring together over 500 teams and more than 5,000 participants.</p>' +
     '<p>We confirm that your team is registered for the event and invite the following persons to visit the Republic of Kazakhstan' + period + ':</p>' +
     '<table class="l"><tr><th>No.</th><th>Full name</th><th>Date of birth</th><th>Citizenship</th><th>Passport No.</th><th>Role</th></tr>' + rows + '</table>' +
-    '<p>This letter may be presented to the Embassies and Consulates of the Republic of Kazakhstan, or used for an electronic visa application, as the basis for issuing entry visas to the persons listed above.</p>' +
     '<p>We look forward to welcoming you in Astana. Should you have any questions, please contact us at hello@ustemfoundation.org.</p>' +
-    '<table class="h" style="margin-top:14pt"><tr><td style="width:60%"><b>Sincerely,</b><br><br><b>Assylbek Murzakhmetov</b><br><b>Head of USTEM Foundation</b></td>' +
-    '<td>' + (!draft && A.stamp ? '<img src="' + A.stamp + '" style="width:36mm">' : '') + (!draft && A.signature ? '<img src="' + A.signature + '" style="width:13mm;margin-left:-14mm;vertical-align:top">' : '') + '</td></tr></table>' +
+    '<table class="h" style="margin-top:16pt"><tr>' +
+    '<td style="width:44%;vertical-align:bottom"><b>Sincerely,</b><br><br><b>Assylbek Murzakhmetov</b><br><b>Head of USTEM Foundation</b></td>' +
+    '<td style="width:22%;vertical-align:bottom;text-align:center">' + (!draft && A.signature ? '<img src="' + A.signature + '" style="height:24mm">' : '') + '</td>' +
+    '<td style="vertical-align:middle">' + (!draft && A.stamp ? '<img src="' + A.stamp + '" style="width:40mm;margin-left:-8mm">' : '') + '</td>' +
+    '</tr></table>' +
+    (draft ? '<p style="color:#C0261C;font-size:10pt;margin-top:8pt">Signature and stamp are added automatically after approval.</p>' : '') +
     '</body></html>';
   var blob = HtmlService.createHtmlOutput(html).getBlob().getAs('application/pdf');
   blob.setName((draft ? 'DRAFT_' : '') + 'Invitation_ATF2027_' + req.id + '_' + String(req.team).replace(/[^\w-]+/g, '_') + '.pdf');
