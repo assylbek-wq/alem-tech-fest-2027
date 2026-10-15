@@ -344,6 +344,7 @@ footer a{color:#fff}
 @media (max-width:1000px){.kd{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:560px){.kd{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .reglink{justify-self:start;margin-top:6px;font:800 .76rem/1 var(--f);text-transform:uppercase;letter-spacing:.06em;color:var(--lime-ink);background:var(--lime);padding:8px 11px;border-radius:9px;text-decoration:none}
+.discnote{display:block;margin-top:6px;font:600 .8rem/1.35 var(--f)}.discnote a{font-weight:800}
 .regsoon{margin-top:4px;font:600 .74rem/1.2 var(--f);color:rgba(255,255,255,.7)}
 /* guests */
 .g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
@@ -680,7 +681,7 @@ footer a{color:#fff}
           <fieldset>
             <legend data-t="r_team">Team</legend>
             <div class="f full"><label for="r-team"><span data-t="r_teamname">Team name</span> <i>*</i></label><input id="r-team" name="team" required maxlength="80" autocomplete="off"></div>
-            <div class="f"><label for="r-disc"><span data-t="r_disc">Discipline</span> <i>*</i></label><select id="r-disc" name="discipline" required></select></div>
+            <div class="f"><label for="r-disc"><span data-t="r_disc">Discipline</span> <i>*</i></label><select id="r-disc" name="discipline" required></select><small id="r-disc-note" class="discnote" hidden></small></div>
             <div class="f"><label for="r-cat"><span data-t="r_cat">Category / age group</span></label><input id="r-cat" name="category" maxlength="60" data-tp="r_cat_ph" placeholder="e.g. FLL Challenge, 9-16"></div>
             <div class="f"><label for="r-students"><span data-t="r_students">Participants</span> <i>*</i></label><input id="r-students" name="students" type="number" min="1" max="40" value="4" required></div>
             <div class="f"><label for="r-coaches"><span data-t="r_coaches">Coaches / mentors</span></label><input id="r-coaches" name="coaches" type="number" min="0" max="10" value="1"></div>
@@ -916,7 +917,7 @@ var DISC=[
 {id:"drone",w:1,f:"air",img:"img/drone2.jpg",tag:"Alem Drone League",n:{en:"Alem Drone League",kk:"Alem Drone League",ru:"Alem Drone League"},d:{en:"Tiny Whoop racing, DCL simulator racing and drone soccer.",kk:"Tiny Whoop жарысы, DCL симуляторы және дрон-футбол.",ru:"Гонки Tiny Whoop, симулятор DCL и дрон-футбол."},a:["8+"]},
 {id:"wso",f:"air",img:"img/wso.jpg",tag:"WSO",n:{en:"World Space Olympiad",kk:"World Space Olympiad",ru:"World Space Olympiad"},d:{en:"CanSat, CubeSat, rovers and space research projects.",kk:"CanSat, CubeSat, роверлер және ғарыштық зерттеу жобалары.",ru:"CanSat, CubeSat, роверы и научные космические проекты."},a:["12+"]},
 {id:"race",w:1,f:"eng",img:"img/race.jpg",tag:"Future Race",n:{en:"Future Race",kk:"Future Race",ru:"Future Race"},d:{en:"Electric karts and autonomous driving in three tiers, from school kart builders to LiDAR-equipped cars.",kk:"Үш деңгейдегі электрокарттар мен автономды басқару: мектеп карттарынан LiDAR бар көліктерге дейін.",ru:"Электрокарты и автопилот в трех лигах: от школьных картов до автомобилей с LiDAR."},a:["14-17","18-25","20+"]},
-{id:"robocon",f:"rob",img:"img/robocon.jpg",tag:"ABU",n:{en:"ABU Robocon",kk:"ABU Robocon",ru:"ABU Robocon"},d:{en:"University engineering challenge: robots built for a new game mission every year.",kk:"Студенттік инженерлік жарыс: жыл сайын жаңа ойын миссиясына арналған роботтар.",ru:"Студенческое инженерное соревнование: роботы под новую игровую миссию каждый год."},a:["18-25"]},
+{id:"robocon",f:"rob",img:"img/robocon.jpg",tag:"ABU",n:{en:"ABU Robocon",kk:"ABU Robocon",ru:"ABU Robocon"},page:"robocon/",d:{en:"Kazakhstan national selection for ABU Robocon 2027: university teams, two robots, final at the festival. The winner goes to Indonesia.",kk:"ABU Robocon 2027 ұлттық іріктеуі: ЖОО командалары, екі робот, финал фестивальде. Жеңімпаз Индонезияға барады.",ru:"Национальный отбор Казахстана на ABU Robocon 2027: команды вузов, два робота, финал на фестивале. Победитель едет в Индонезию."},a:["18-25"]},
 {id:"bots",f:"eng",img:"img/bots2.jpg",tag:"Battle of Bots",n:{en:"Battle of Bots",kk:"Battle of Bots",ru:"Battle of Bots"},d:{en:"One-on-one robot combat: durable design, tactics and real-time control.",kk:"Бір-біріне қарсы робот шайқасы: берік құрылым, тактика және нақты уақытта басқару.",ru:"Бои роботов один на один: прочная конструкция, тактика и управление в реальном времени."},a:["12+"]},
 {id:"soccer",f:"rob",img:"img/soccer2.jpg",tag:"RoboCup",n:{en:"RoboCup Soccer",kk:"RoboCup Soccer",ru:"RoboCup Soccer"},d:{en:"Teams design and program humanoid robots to play football.",kk:"Командалар футбол ойнайтын гуманоид роботтарды құрастырып, бағдарламалайды.",ru:"Команды собирают и программируют роботов-гуманоидов для игры в футбол."},a:["8+"]},
 {id:"rescue",f:"rob",img:"img/rescue2.jpg",tag:"RoboCup",n:{en:"RoboCup Rescue",kk:"RoboCup Rescue",ru:"RoboCup Rescue"},d:{en:"Search-and-rescue missions with quadruped robots through obstacle courses.",kk:"Кедергілері бар трассада робот-иттермен іздеу-құтқару миссиялары.",ru:"Поисково-спасательные миссии с роботами-собаками на трассе с препятствиями."},a:["14+"]},
@@ -1005,7 +1006,7 @@ var filter="all";
 function renderDisc(){
   var g=document.getElementById("disc-grid");
   g.innerHTML=DISC.filter(function(d){return filter==="all"||d.f===filter;}).map(function(d){
-    return '<article class="disc'+(d.w?' wide':'')+'"><div class="tint"><img src="'+d.img+'" alt="'+esc(L(d.n))+'" loading="lazy"></div><div class="disc-body"><div class="disc-tag">'+esc(d.tag)+'</div><h3>'+esc(L(d.n))+'</h3><p>'+esc(L(d.d))+'</p><div class="ages">'+d.a.map(function(a){return "<span>"+esc(a)+"</span>";}).join("")+'</div>'+((typeof CFG!=="undefined"&&CFG.regs[d.id])?'<a class="reglink" href="'+CFG.regs[d.id]+'" target="_blank" rel="noopener">'+esc(L(X.reg_btn))+' ↓</a>':'<div class="regsoon">'+esc(typeof X!=="undefined"?L(X.reg_soon):"")+'</div>')+'</div></article>';
+    return '<article class="disc'+(d.w?' wide':'')+'"><div class="tint"><img src="'+d.img+'" alt="'+esc(L(d.n))+'" loading="lazy"></div><div class="disc-body"><div class="disc-tag">'+esc(d.tag)+'</div><h3>'+esc(L(d.n))+'</h3><p>'+esc(L(d.d))+'</p><div class="ages">'+d.a.map(function(a){return "<span>"+esc(a)+"</span>";}).join("")+'</div>'+(d.page?'<a class="reglink" href="'+d.page+'?lang='+(lang==="kk"?"kz":lang)+'">'+esc(L(X.reg_page))+' →</a>':(typeof CFG!=="undefined"&&CFG.regs[d.id])?'<a class="reglink" href="'+CFG.regs[d.id]+'" target="_blank" rel="noopener">'+esc(L(X.reg_btn))+' ↓</a>':'<div class="regsoon">'+esc(typeof X!=="undefined"?L(X.reg_soon):"")+'</div>')+'</div></article>';
   }).join("");
 }
 var TL=[["Washington","2017",{en:"8th place",kk:"8-орын",ru:"8 место"}],["Dubai","2019",{en:"3rd place",kk:"3-орын",ru:"3 место"}],["Geneva","2022",{en:"World champions",kk:"Әлем чемпиондары",ru:"Чемпионы мира"}],["Singapore","2023",{en:"2× world champions",kk:"2 дүркін әлем чемпионы",ru:"Двукратные чемпионы мира"}],["Athens","2024",{en:"3× world champions",kk:"3 дүркін әлем чемпионы",ru:"Трехкратные чемпионы мира"}],["Panama City","2025",{en:"4× world champions",kk:"4 дүркін әлем чемпионы",ru:"Четырехкратные чемпионы мира"}]];
@@ -1046,8 +1047,14 @@ function renderVisa(){
 function fillDiscSelect(){
   var sel=document.getElementById("r-disc"),cur=sel.value;
   sel.innerHTML='<option value="">'+esc(t("sel"))+'</option>'+DISC.map(function(d){return '<option value="'+d.id+'">'+esc(L(d.n))+'</option>';}).join("");
-  sel.value=cur;
+  sel.value=cur;discNote();
 }
+function discNote(){
+  var sel=document.getElementById("r-disc"),n=document.getElementById("r-disc-note"),d=DISC.filter(function(x){return x.id===sel.value;})[0];
+  if(!n)return;
+  if(d&&d.page){n.innerHTML=esc(L(X.disc_page))+' <a href="'+d.page+'?lang='+(lang==="kk"?"kz":lang)+'#register">'+esc(L(X.disc_page_go))+' →</a>';n.hidden=false;}else{n.hidden=true;n.textContent="";}
+}
+document.getElementById("r-disc").addEventListener("change",discNote);
 function applyLang(l){
   lang=T[l]?l:"en";
   document.documentElement.lang=lang==="kk"?"kk":lang;
@@ -1084,6 +1091,9 @@ kd_title:{en:"Key dates",kk:"Маңызды күндер",ru:"Ключевые �
 fee_t:{en:"Participation fee",kk:"Қатысу жарнасы",ru:"Стоимость участия"},
 fee_d:{en:"Sent with the registration confirmation",kk:"Өтінімді растағанда жіберіледі",ru:"Придет вместе с подтверждением заявки"},
 reg_btn:{en:"Regulations",kk:"Ереже",ru:"Регламент"},
+reg_page:{en:"Register",kk:"Тіркелу",ru:"Регистрация"},
+disc_page:{en:"ABU Robocon has its own registration form for university teams:",kk:"ABU Robocon үшін ЖОО командаларына арналған жеке тіркеу формасы бар:",ru:"Для ABU Robocon есть отдельная форма регистрации команд вузов:"},
+disc_page_go:{en:"open the form",kk:"форманы ашу",ru:"открыть форму"},
 reg_soon:{en:"Regulations: coming soon",kk:"Ереже: жақында",ru:"Регламент: скоро"},
 gs_kicker:{en:"Guests & accommodation",kk:"Қонақтар мен тұру",ru:"Гостям и командам"},
 gs_title:{en:"Come <em>to watch</em>",kk:"Көруге <em>келіңіз</em>",ru:"Приходите <em>болеть</em>"},
