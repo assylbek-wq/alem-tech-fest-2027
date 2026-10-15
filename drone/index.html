@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Регистрация · AI Drone Championship 2026 · Alem Drone League</title>
+<meta name="description" content="Первый в Казахстане чемпионат автономных дронов. Онлайн-отбор 16-30 ноября, полуфинал в Алматы 5-6 декабря, финал в Астане 19-20 декабря. Регистрация до 14 ноября.">
+<meta property="og:title" content="AI Drone Championship 2026 · Регистрация открыта">
+<meta property="og:description" content="Пульт не нужен. Летает твой код. Алматы · Астана · декабрь 2026.">
+<meta property="og:image" content="assets/hero.jpg">
+<meta name="theme-color" content="#031C4A">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#031c4a;--navy2:#062a6b;--blue:#0164d9;--bright:#0184ff;--lime:#c6ff3d;--ink:#05102a;--white:#fff;--muted:rgba(255,255,255,.72);--line:rgba(255,255,255,.18);--card:rgba(255,255,255,.07);--err:#ff6b6b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--white);font:16px/1.5 Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--lime)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+/* header */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;padding:20px 0}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.top img{height:56px;display:block}
+.lang{display:flex;background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:100px;padding:4px}
+.lang button{all:unset;cursor:pointer;padding:6px 14px;border-radius:100px;font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.lang button[aria-pressed=true]{background:var(--lime);color:var(--ink)}
+/* hero */
+.hero{position:relative;min-height:min(820px,100svh);display:flex;align-items:flex-end;overflow:hidden;
+ background:linear-gradient(180deg,rgba(3,28,74,.75) 0%,rgba(3,28,74,0) 22%,rgba(1,100,217,0) 45%,rgba(1,100,217,.85) 75%,var(--navy) 100%),url(assets/hero.jpg) center 40%/cover no-repeat}
+.hero:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-58deg,transparent 0 120px,rgba(1,132,255,.16) 120px 150px,transparent 150px 260px);mix-blend-mode:screen;pointer-events:none}
+.hero .wrap{position:relative;z-index:2;padding-bottom:64px;padding-top:140px;width:100%}
+.drone{position:absolute;right:-40px;top:22%;width:min(46vw,560px);transform:rotate(-10deg);filter:drop-shadow(0 40px 50px rgba(0,8,30,.6));z-index:1;animation:hover 5s ease-in-out infinite}
+@keyframes hover{50%{transform:rotate(-8deg) translateY(-14px)}}
+@media (prefers-reduced-motion:reduce){.drone{animation:none}}
+.pill{display:inline-block;background:var(--lime);color:var(--ink);font-weight:800;font-size:14px;letter-spacing:.08em;padding:9px 18px;border-radius:100px}
+h1{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(44px,8.4vw,104px);line-height:.92;letter-spacing:-.02em;margin:18px 0 16px}
+.sub{font-size:clamp(17px,2vw,22px);font-weight:600;max-width:640px;margin:0 0 26px}
+.dates{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.chip{background:rgba(255,255,255,.12);border:1px solid var(--line);border-radius:14px;padding:10px 16px;backdrop-filter:blur(6px)}
+.chip b{display:block;color:var(--lime);font-style:italic;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:-.01em}
+.chip span{font-size:14px;color:var(--muted);font-weight:600}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--blue);font-weight:800;letter-spacing:.04em;text-decoration:none;padding:16px 28px;border-radius:100px;font-size:16px}
+.cta:hover{background:var(--lime);color:var(--ink)}
+/* partners */
+.partners{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.partners .wrap{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+.partners small{color:var(--muted);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.partners img{height:44px;display:block}
+.partners i{width:1px;height:36px;background:var(--line)}
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:56px 0 0}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+.fact b{display:block;font-style:italic;font-weight:900;font-size:34px;line-height:1;margin-bottom:6px}
+.fact span{color:var(--muted);font-size:14px;font-weight:600}
+@media (max-width:780px){.facts{grid-template-columns:1fr 1fr}}
+/* form */
+.reg{padding:64px 0 96px}
+h2{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(34px,5vw,56px);line-height:.95;margin:0 0 10px}
+.lead{color:var(--muted);margin:0 0 32px;max-width:640px}
+form{display:grid;gap:22px}
+fieldset{border:1px solid var(--line);background:var(--card);border-radius:24px;padding:26px 24px 28px;margin:0;min-width:0}
+legend{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;padding:0 8px;margin-left:-8px}
+legend em{font-style:normal;background:var(--lime);color:var(--ink);font-size:13px;font-weight:800;border-radius:8px;padding:3px 8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.full{grid-column:1/-1}
+@media (max-width:700px){.grid{grid-template-columns:1fr}}
+label.f{display:grid;gap:7px;font-weight:600;font-size:14px}
+label.f .h{font-weight:500;color:var(--muted);font-size:13px}
+.req:after{content:" *";color:var(--lime)}
+input[type=text],input[type=email],input[type=tel],textarea,select{width:100%;font:inherit;font-size:16px;color:var(--white);background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 14px;outline:none}
+textarea{min-height:120px;resize:vertical}
+select option{color:#000}
+input:focus,textarea:focus,select:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,255,61,.2)}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt span{display:inline-block;padding:10px 16px;border:1px solid rgba(255,255,255,.28);border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;user-select:none}
+.opt input:checked+span{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.opt input:focus-visible+span{box-shadow:0 0 0 3px rgba(198,255,61,.35)}
+.qt{font-weight:600;font-size:14px;margin-bottom:10px}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.45;cursor:pointer}
+.check input{width:22px;height:22px;flex:0 0 22px;accent-color:var(--lime);margin-top:1px}
+.checks{display:grid;gap:14px}
+.invalid input[type=text],.invalid input[type=email],.invalid input[type=tel],.invalid textarea,.invalid select{border-color:var(--err)}
+.invalid .opt span,.invalid.check{color:var(--err)}
+.invalid .qt,.invalid > .req{color:var(--err)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.submit button{all:unset;cursor:pointer;background:var(--lime);color:var(--ink);font-weight:900;font-style:italic;text-transform:uppercase;font-size:22px;padding:18px 36px;border-radius:100px}
+.submit button[disabled]{opacity:.6;cursor:wait}
+.msg{font-weight:600}
+.msg.err{color:var(--err)}
+.done{display:none;background:var(--lime);color:var(--ink);border-radius:28px;padding:40px 32px;text-align:center}
+.done h3{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(30px,5vw,48px);line-height:1;margin:0 0 12px}
+.done .id{display:inline-block;background:var(--ink);color:var(--lime);font-weight:800;padding:8px 16px;border-radius:12px;margin:8px 0 16px;letter-spacing:.06em}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:640px){
+ .wrap{padding:0 16px}
+ .top img{height:44px}
+ .drone{top:78px;width:58vw;right:-14vw;opacity:.85}
+ .hero .wrap{padding-top:230px;padding-bottom:44px}
+ h1{font-size:9.4vw}
+ .fact b{font-size:26px;white-space:nowrap}
+ .partners img{height:36px}
+ .partners i{display:none}
+ fieldset{padding:22px 16px 24px}
+ .submit button{font-size:19px;padding:16px 28px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <img src="assets/logo-adl.png" alt="Alem Drone League">
+  <div class="lang" role="group" aria-label="Язык / Тіл">
+    <button type="button" data-set-lang="ru" aria-pressed="true">РУС</button>
+    <button type="button" data-set-lang="kz" aria-pressed="false">ҚАЗ</button>
+  </div>
+</div></header>
+
+<section class="hero">
+  <img class="drone" src="assets/drone.png" alt="">
+  <div class="wrap">
+    <span class="pill" data-kz="ТІРКЕУ АШЫҚ">РЕГИСТРАЦИЯ ОТКРЫТА</span>
+    <h1>AI Drone<br>Championship 2026</h1>
+    <p class="sub" data-kz="Қазақстандағы автономды дрондар бойынша алғашқы чемпионат. Пульт керек емес: сенің кодың ұшады.">Первый в Казахстане чемпионат автономных дронов. Пульт не нужен: летает твой код.</p>
+    <div class="dates">
+      <div class="chip"><b data-kz="16-30 қараша">16-30 ноября</b><span data-kz="Симулятордағы онлайн іріктеу">Онлайн-отбор в симуляторе</span></div>
+      <div class="chip"><b data-kz="5-6 желтоқсан">5-6 декабря</b><span data-kz="Жартылай финал, Алматы">Полуфинал, Алматы</span></div>
+      <div class="chip"><b data-kz="19-20 желтоқсан">19-20 декабря</b><span data-kz="Финал, Астана">Финал, Астана</span></div>
+    </div>
+    <a class="cta" href="#register" data-kz="Тіркелу ↓">Зарегистрировать команду ↓</a>
+  </div>
+</section>
+
+<section class="partners"><div class="wrap">
+  <small data-kz="Ұйымдастырушылар">Организаторы</small>
+  <img src="assets/logo-ustem.png" alt="USTEM Foundation">
+  <i></i>
+  <img src="assets/logo-ashyq-aspan.png" alt="Ashyq Aspan Foundation">
+  <!-- DTC: добавьте сюда логотип Defence Tech Centre:
+  <i></i><img src="assets/logo-dtc.png" alt="Defence Tech Centre"> -->
+</div></section>
+
+<main class="wrap">
+  <div class="facts">
+    <div class="fact"><b>16+</b><span data-kz="ашық санат">открытая категория</span></div>
+    <div class="fact"><b>2-5</b><span data-kz="адамнан тұратын команда">человек в команде</span></div>
+    <div class="fact"><b>0 ₸</b><span data-kz="қатысу тегін">участие бесплатное</span></div>
+    <div class="fact"><b data-kz="ДРОНДАР">ДРОНЫ</b><span data-kz="ұйымдастырушы береді">выдает организатор</span></div>
+  </div>
+
+  <section class="reg" id="register">
+    <h2 data-kz="Командаңды тірке">Регистрация команды</h2>
+    <p class="lead" data-kz="Форманы команда капитаны толтырады. Тіркеу 14 қарашада 23:59-да жабылады. Өтінімнен кейін симуляторға қолжетімділік пен нұсқаулықты жібереміз.">Заполняет капитан команды. Регистрация закрывается 14 ноября в 23:59. После заявки пришлем доступ к симулятору и инструкцию.</p>
+
+    <form id="f" novalidate>
+      <input type="hidden" name="lang" value="ru">
+      <input type="hidden" name="ts" value="">
+      <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <fieldset>
+        <legend><em>01</em><span data-kz="Команда">Команда</span></legend>
+        <div class="grid">
+          <label class="f" data-field="team"><span class="req" data-kz="Команда атауы">Название команды</span><input type="text" name="team" maxlength="80" required></label>
+          <label class="f" data-field="city"><span class="req" data-kz="Қала">Город</span><input type="text" name="city" maxlength="80" required></label>
+          <label class="f full" data-field="org"><span class="req" data-kz="ЖОО, компания немесе ұйым">Вуз, компания или организация</span><input type="text" name="org" maxlength="150" required><span class="h" data-kz="Тәуелсіз команда болса, «жоқ» деп жазыңыз">Если команда независимая, напишите «нет»</span></label>
+          <div class="full" data-field="size"><div class="qt req" data-kz="Командадағы адам саны">Сколько человек в команде</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="size" value="2"><span>2</span></label>
+              <label class="opt"><input type="radio" name="size" value="3"><span>3</span></label>
+              <label class="opt"><input type="radio" name="size" value="4"><span>4</span></label>
+              <label class="opt"><input type="radio" name="size" value="5"><span>5</span></label>
+            </div></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>02</em><span data-kz="Команда капитаны">Капитан команды</span></legend>
+        <div class="grid">
+          <label class="f full" data-field="cap"><span class="req" data-kz="Капитанның аты-жөні">ФИО капитана</span><input type="text" name="cap_name" maxlength="120" autocomplete="name" required></label>
+          <label class="f" data-field="email"><span class="req">Email</span><input type="email" name="cap_email" maxlength="120" autocomplete="email" required></label>
+          <label class="f" data-field="phone"><span class="req" data-kz="Телефон / WhatsApp">Телефон / WhatsApp</span><input type="tel" name="cap_phone" maxlength="40" autocomplete="tel" placeholder="+7 701 123 45 67" required></label>
+          <label class="f full"><span>Telegram</span><input type="text" name="cap_tg" maxlength="60" placeholder="@username"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>03</em><span data-kz="Қатысушылар">Участники</span></legend>
+        <div class="grid">
+          <label class="f full" data-field="members"><span class="req" data-kz="Команданың басқа қатысушылары">Остальные участники команды</span>
+            <span class="h" data-kz="Әр жолға біреуден: аты-жөні, жасы, командадағы рөлі">По одному в строке: ФИО, возраст, роль в команде</span>
+            <textarea name="members" maxlength="2000" required data-ph-ru="Иванов Иван, 21, компьютерное зрение&#10;Сейткали Айгерим, 17, PX4 и полеты" data-ph-kz="Сейтқали Айгерім, 17, PX4 және ұшу&#10;Иванов Иван, 21, компьютерлік көру"></textarea></label>
+          <div class="full checks">
+            <label class="check" data-field="age16"><input type="checkbox" name="age16" value="yes"><span class="req" data-kz="Команданың барлық қатысушылары 16 жасқа толған">Всем участникам команды исполнилось 16 лет</span></label>
+            <label class="check" data-field="parents"><input type="checkbox" name="parents" value="yes"><span class="req" data-kz="Командада 16-17 жастағы қатысушылар болса, күндізгі кезеңдерге ата-анасының жазбаша келісімін әкелеміз (үлгісін тіркелгеннен кейін жібереміз)">Если в команде есть участники 16-17 лет, на очные этапы мы принесем письменное согласие родителей (шаблон пришлем после регистрации)</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>04</em><span data-kz="Тәжірибе және қатысу">Опыт и участие</span></legend>
+        <div class="grid">
+          <div class="full" data-field="disciplines"><div class="qt req" data-kz="Қай пәндерге қатысасыз?">В каких дисциплинах участвуете?</div>
+            <div class="opts">
+              <label class="opt"><input type="checkbox" name="disciplines[]" value="ai_race"><span data-kz="AI Race: қақпалар арқылы жарыс">AI Race: гонка через ворота</span></label>
+              <label class="opt"><input type="checkbox" name="disciplines[]" value="ai_mission"><span data-kz="AI Mission: нысан іздеу және қону">AI Mission: поиск целей и посадка</span></label>
+              <label class="opt"><input type="checkbox" name="disciplines[]" value="sim_race"><span data-kz="Sim Race: симулятордағы жарыс">Sim Race: гонка в симуляторе</span></label>
+            </div></div>
+          <div class="full" data-field="experience"><div class="qt req" data-kz="Командада қандай тәжірибе бар?">С чем у команды уже есть опыт?</div>
+            <div class="opts">
+              <label class="opt"><input type="checkbox" name="experience[]" value="ros"><span>ROS / ROS 2</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="px4"><span>PX4 / ArduPilot</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="cv"><span data-kz="Компьютерлік көру (OpenCV, YOLO)">Компьютерное зрение (OpenCV, YOLO)</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="ml"><span data-kz="Машиналық оқыту / RL">Машинное обучение / RL</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="sim"><span data-kz="Симуляторлар (Gazebo, Isaac Sim)">Симуляторы (Gazebo, Isaac Sim)</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="fpv"><span data-kz="FPV-пилоттау">FPV-пилотирование</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="none"><span data-kz="Әзірге жоқ, үйренгіміз келеді">Пока нет, хотим научиться</span></label>
+            </div></div>
+          <div class="full" data-field="bootcamp"><div class="qt req" data-kz="7-8 қарашада Алматыда буткемп">Буткемп 7-8 ноября в Алматы</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="bootcamp" value="offline"><span data-kz="Күндізгі келеміз">Придем очно</span></label>
+              <label class="opt"><input type="radio" name="bootcamp" value="online"><span data-kz="Онлайн-вебинарларды көреміз">Будем смотреть онлайн-вебинары</span></label>
+              <label class="opt"><input type="radio" name="bootcamp" value="no"><span data-kz="Қажет емес">Не нужно</span></label>
+            </div></div>
+          <label class="f"><span data-kz="Чемпионат туралы қайдан білдіңіз?">Откуда узнали о чемпионате?</span>
+            <select name="source">
+              <option value="" data-kz="Таңдаңыз">Выберите</option>
+              <option value="instagram">Instagram</option>
+              <option value="telegram">Telegram</option>
+              <option value="university" data-kz="ЖОО немесе жұмыс">Вуз или работа</option>
+              <option value="friends" data-kz="Достар">Друзья</option>
+              <option value="site" data-kz="Сайт">Сайт</option>
+              <option value="other" data-kz="Басқа">Другое</option>
+            </select></label>
+          <label class="f" id="srcOther" hidden><span data-kz="Нақтылаңыз">Уточните</span><input type="text" name="source_other" maxlength="100"></label>
+          <label class="f full"><span data-kz="Ұйымдастырушыларға сұрақ немесе пікір">Вопросы или комментарии организаторам</span><textarea name="comment" maxlength="1000" style="min-height:90px"></textarea></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>05</em><span data-kz="Келісім">Согласие</span></legend>
+        <div class="checks">
+          <label class="check" data-field="pd"><input type="checkbox" name="consent_pd" value="yes"><span class="req" data-kz="Чемпионатты өткізу үшін дербес деректерді өңдеуге келісемін. Капитан ретінде команданың барлық қатысушыларының келісімін алдым.">Согласен на обработку персональных данных для проведения чемпионата. Как капитан, я получил согласие всех участников команды.</span></label>
+          <label class="check" data-field="photo"><input type="checkbox" name="consent_photo" value="yes"><span class="req" data-kz="Іс-шаралар кезінде қатысушыларды фото- және бейнетүсірілімге келісемін">Согласен на фото- и видеосъемку участников во время мероприятий</span></label>
+        </div>
+      </fieldset>
+
+      <div class="submit">
+        <button type="submit" data-kz="Өтінім жіберу">Отправить заявку</button>
+        <div class="msg" id="msg" role="status" aria-live="polite"></div>
+      </div>
+    </form>
+
+    <div class="done" id="done" role="status">
+      <h3 data-kz="Өтінім қабылданды!">Заявка принята!</h3>
+      <div class="id" id="regId"></div>
+      <p data-kz="Капитанның поштасына растау хат жібердік. Жақын арада симуляторға қолжетімділік пен нұсқаулықты жібереміз.">Мы отправили подтверждение на почту капитана. В ближайшее время пришлем доступ к симулятору и инструкцию.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Alem Drone League · USTEM Foundation · Ashyq Aspan Foundation</span>
+  <span><span data-kz="Сұрақтар:">Вопросы:</span> <a href="mailto:assylbek@ustemfoundation.org">assylbek@ustemfoundation.org</a> · <a href="tel:+77004446000">+7 700 444 6000</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var MSG={ru:{required:'Заполните отмеченные поля',sending:'Отправляем...',net:'Не удалось отправить. Проверьте интернет и попробуйте еще раз.',closed:'Регистрация закрыта.',rate:'Слишком много заявок подряд. Попробуйте через 10 минут.',fast:'Проверьте данные и нажмите еще раз.',email:'Проверьте email',phone:'Проверьте номер телефона'},
+           kz:{required:'Белгіленген өрістерді толтырыңыз',sending:'Жіберілуде...',net:'Жіберу мүмкін болмады. Интернетті тексеріп, қайталап көріңіз.',closed:'Тіркеу жабылды.',rate:'Өтінім тым көп. 10 минуттан кейін қайталаңыз.',fast:'Деректерді тексеріп, қайта басыңыз.',email:'Email-ді тексеріңіз',phone:'Телефон нөмірін тексеріңіз'}};
+  var lang='ru', f=document.getElementById('f'), msg=document.getElementById('msg');
+  f.ts.value=Date.now();
+  document.querySelectorAll('[data-kz]').forEach(function(el){el.setAttribute('data-ru',el.textContent);});
+  function setLang(l){
+    lang=l; document.documentElement.lang=(l==='kz'?'kk':'ru'); f.lang.value=l;
+    document.querySelectorAll('[data-kz]').forEach(function(el){el.textContent=el.getAttribute('data-'+l);});
+    document.querySelectorAll('[data-ph-ru]').forEach(function(el){el.placeholder=el.getAttribute('data-ph-'+l).replace(/&#10;/g,'\n');});
+    document.querySelectorAll('[data-set-lang]').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-lang')===l);});
+    try{localStorage.setItem('adl_lang',l);}catch(e){}
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-set-lang'));});});
+  var q=new URLSearchParams(location.search).get('lang'), saved=null; try{saved=localStorage.getItem('adl_lang');}catch(e){}
+  setLang(q==='kz'||q==='ru'?q:(saved||'ru'));
+  f.source.addEventListener('change',function(){document.getElementById('srcOther').hidden=f.source.value!=='other';});
+
+  function checked(name){return f.querySelectorAll('[name="'+name+'"]:checked').length>0;}
+  function validate(){
+    var bad=[];
+    [['team','team'],['city','city'],['org','org'],['cap','cap_name'],['members','members']].forEach(function(p){if(!f[p[1]].value.trim())bad.push(p[0]);});
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.cap_email.value.trim()))bad.push('email');
+    if(f.cap_phone.value.replace(/\D/g,'').length<10)bad.push('phone');
+    if(!checked('size'))bad.push('size');
+    if(!checked('disciplines[]'))bad.push('disciplines');
+    if(!checked('experience[]'))bad.push('experience');
+    if(!checked('bootcamp'))bad.push('bootcamp');
+    ['age16','parents'].forEach(function(n){if(!f[n].checked)bad.push(n);});
+    if(!f.consent_pd.checked)bad.push('pd'); if(!f.consent_photo.checked)bad.push('photo');
+    return bad;
+  }
+  function mark(bad){
+    document.querySelectorAll('[data-field]').forEach(function(el){el.classList.toggle('invalid',bad.indexOf(el.getAttribute('data-field'))>-1);});
+    var first=document.querySelector('.invalid'); if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  f.addEventListener('input',function(e){var w=e.target.closest('[data-field]'); if(w)w.classList.remove('invalid');});
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); var bad=validate(); mark(bad);
+    if(bad.length){msg.className='msg err';msg.textContent=bad.indexOf('email')>-1&&bad.length===1?MSG[lang].email:(bad.indexOf('phone')>-1&&bad.length===1?MSG[lang].phone:MSG[lang].required);return;}
+    var btn=f.querySelector('button[type=submit]'); btn.disabled=true; msg.className='msg'; msg.textContent=MSG[lang].sending;
+    fetch('submit.php',{method:'POST',body:new FormData(f)}).then(function(r){return r.json();}).then(function(j){
+      if(j.ok){f.style.display='none';document.getElementById('regId').textContent=j.id;var d=document.getElementById('done');d.style.display='block';d.scrollIntoView({behavior:'smooth',block:'center'});return;}
+      btn.disabled=false; msg.className='msg err';
+      if(j.error==='validation'){mark(j.fields||[]);msg.textContent=MSG[lang].required;}
+      else msg.textContent=MSG[lang][{closed:'closed',rate:'rate',too_fast:'fast'}[j.error]||'net'];
+    }).catch(function(){btn.disabled=false;msg.className='msg err';msg.textContent=MSG[lang].net;});
+  });
+})();
+</script>
+</body>
+</html>
