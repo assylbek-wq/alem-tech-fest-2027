@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Регистрация · AI Drone Championship 2026 · Alem Drone League</title>
-<meta name="description" content="Первый в Казахстане чемпионат автономных дронов. Онлайн-отбор 16-30 ноября, полуфинал в Алматы 5-6 декабря, финал в Астане 19-20 декабря. Регистрация до 14 ноября.">
+<meta name="description" content="Первый в Казахстане чемпионат автономных дронов. Онлайн-отбор 16-30 ноября, этапы в Алматы 5-6 декабря и в Астане 19-20 декабря, финал на Alem Tech Fest 18-21 февраля 2027. Регистрация до 14 ноября.">
 <meta property="og:title" content="AI Drone Championship 2026 · Регистрация открыта">
-<meta property="og:description" content="Пульт не нужен. Летает твой код. Алматы · Астана · декабрь 2026.">
+<meta property="og:description" content="Пульт не нужен. Летает твой код. Алматы · Астана · финал на Alem Tech Fest.">
 <meta property="og:image" content="assets/hero.jpg">
 <meta name="theme-color" content="#031C4A">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,9 +44,10 @@ h1{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(44
 .cta:hover{background:var(--lime);color:var(--ink)}
 /* partners */
 .partners{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
-.partners .wrap{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
-.partners small{color:var(--muted);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.partners .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px 28px;flex-wrap:wrap}
+.partners small{color:var(--muted);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px;width:100%}
 .partners img{height:44px;display:block}
+.partners img.slim{height:26px}
 .partners i{width:1px;height:36px;background:var(--line)}
 /* facts */
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:56px 0 0}
@@ -103,7 +104,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  .hero .wrap{padding-top:230px;padding-bottom:44px}
  h1{font-size:9.4vw}
  .fact b{font-size:26px;white-space:nowrap}
- .partners img{height:36px}
+ .partners .wrap{gap:18px 24px}
+ .partners small{width:100%}
+ .partners img{height:34px}
+ .partners img.slim{height:20px}
  .partners i{display:none}
  fieldset{padding:22px 16px 24px}
  .submit button{font-size:19px;padding:16px 28px}
@@ -127,20 +131,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <p class="sub" data-kz="Қазақстандағы автономды дрондар бойынша алғашқы чемпионат. Пульт керек емес: сенің кодың ұшады.">Первый в Казахстане чемпионат автономных дронов. Пульт не нужен: летает твой код.</p>
     <div class="dates">
       <div class="chip"><b data-kz="16-30 қараша">16-30 ноября</b><span data-kz="Симулятордағы онлайн іріктеу">Онлайн-отбор в симуляторе</span></div>
-      <div class="chip"><b data-kz="5-6 желтоқсан">5-6 декабря</b><span data-kz="Жартылай финал, Алматы">Полуфинал, Алматы</span></div>
-      <div class="chip"><b data-kz="19-20 желтоқсан">19-20 декабря</b><span data-kz="Финал, Астана">Финал, Астана</span></div>
+      <div class="chip"><b data-kz="5-6 желтоқсан">5-6 декабря</b><span data-kz="Кезең, Алматы">Этап, Алматы</span></div>
+      <div class="chip"><b data-kz="19-20 желтоқсан">19-20 декабря</b><span data-kz="Кезең, Астана">Этап, Астана</span></div>
+      <div class="chip"><b data-kz="18-21 ақпан">18-21 февраля</b><span data-kz="Финал, Alem Tech Fest">Финал, Alem Tech Fest</span></div>
     </div>
     <a class="cta" href="#register" data-kz="Тіркелу ↓">Зарегистрировать команду ↓</a>
   </div>
 </section>
 
 <section class="partners"><div class="wrap">
-  <small data-kz="Ұйымдастырушылар">Организаторы</small>
+  <small data-kz="Ұйымдастырушылар мен серіктестер">Организаторы и партнеры</small>
   <img src="assets/logo-ustem.png" alt="USTEM Foundation">
   <i></i>
   <img src="assets/logo-ashyq-aspan.png" alt="Ashyq Aspan Foundation">
-  <!-- DTC: добавьте сюда логотип Defence Tech Centre:
-  <i></i><img src="assets/logo-dtc.png" alt="Defence Tech Centre"> -->
+  <i></i>
+  <img src="assets/logo-dtc.png" alt="Defence Tech Center" class="slim">
+  <i></i>
+  <img src="assets/logo-astanahub.png" alt="Astana Hub">
 </div></section>
 
 <main class="wrap">
@@ -262,7 +269,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </main>
 
 <footer><div class="wrap">
-  <span>© 2026 Alem Drone League · USTEM Foundation · Ashyq Aspan Foundation</span>
+  <span>© 2026 Alem Drone League · USTEM Foundation · Ashyq Aspan Foundation · Defence Tech Center</span>
   <span><span data-kz="Сұрақтар:">Вопросы:</span> <a href="mailto:assylbek@ustemfoundation.org">assylbek@ustemfoundation.org</a> · <a href="tel:+77004446000">+7 700 444 6000</a></span>
 </div></footer>
 
