@@ -59,6 +59,9 @@ h1{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(44
 .reg{padding:64px 0 96px}
 h2{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(34px,5vw,56px);line-height:.95;margin:0 0 10px}
 .lead{color:var(--muted);margin:0 0 32px;max-width:640px}
+.note{display:flex;flex-direction:column;gap:6px;margin:20px 0 0;padding:16px 20px;border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:14px;background:rgba(255,255,255,.06)}
+.note b{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--lime);}
+.note span{color:var(--muted);font-size:15px}
 form{display:grid;gap:22px}
 fieldset{border:1px solid var(--line);background:var(--card);border-radius:24px;padding:26px 24px 28px;margin:0;min-width:0}
 legend{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;padding:0 8px;margin-left:-8px}
@@ -160,6 +163,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="fact"><b data-kz="ДРОН">ДРОН</b><span data-kz="өзіңнің, команда әкеледі">свой, привозит команда</span></div>
   </div>
 
+  <div class="note"><b data-kz="Толық ережелер кейінірек болады">Подробные правила будут позже</b><span data-kz="Регламентті, бағалау жүйесін және дронға қойылатын техникалық талаптарды осы бетте жариялаймыз және тіркелген командаларға жібереміз.">Регламент, система оценки и технические требования к дрону появятся на этой странице и придут на почту всем зарегистрированным командам.</span></div>
   <section class="reg" id="register">
     <h2 data-kz="Командаңды тірке">Регистрация команды</h2>
     <p class="lead" data-kz="Форманы команда капитаны толтырады. Тіркеу 14 қарашада 23:59-да жабылады. Өтінімнен кейін симуляторға қолжетімділік пен нұсқаулықты жібереміз.">Заполняет капитан команды. Регистрация закрывается 14 ноября в 23:59. После заявки пришлем доступ к симулятору и инструкцию.</p>
