@@ -44,10 +44,11 @@ h1{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(44
 .cta:hover{background:var(--lime);color:var(--ink)}
 /* partners */
 .partners{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
-.partners .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px 28px;flex-wrap:wrap}
+.partners .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px 20px;flex-wrap:wrap}
 .partners small{color:var(--muted);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px;width:100%}
-.partners img{height:44px;display:block}
-.partners img.slim{height:26px}
+.partners img{height:40px;display:block}
+.partners img.slim{height:24px}
+.partners img.mn{height:44px}
 .partners i{width:1px;height:36px;background:var(--line)}
 /* facts */
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:56px 0 0}
@@ -123,6 +124,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
  .partners small{width:100%}
  .partners img{height:34px}
  .partners img.slim{height:20px}
+ .partners img.mn{height:40px}
  .partners i{display:none}
  fieldset{padding:22px 16px 24px}
  .submit button{font-size:19px;padding:16px 28px}
@@ -157,6 +159,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section class="partners"><div class="wrap">
   <small data-kz="Ұйымдастырушылар мен серіктестер">Организаторы и партнеры</small>
   <img src="assets/logo-ustem.png" alt="USTEM Foundation">
+  <i></i>
+  <img class="mn" src="assets/logo-mnvo-ru.png" data-src-kz="assets/logo-mnvo-kz.png" alt="Министерство науки и высшего образования РК">
   <i></i>
   <img src="assets/logo-ashyq-aspan.png" alt="Ashyq Aspan Foundation">
   <i></i>
@@ -313,7 +317,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 </main>
 
 <footer><div class="wrap">
-  <span>© 2026 Alem Drone League · USTEM Foundation · Ashyq Aspan Foundation · Defence Tech Center</span>
+  <span>© 2026 Alem Drone League · USTEM Foundation · МНВО РК · Ashyq Aspan Foundation · Defence Tech Center</span>
   <span><span data-kz="Сұрақтар:">Вопросы:</span> <a href="mailto:assylbek@ustemfoundation.org">assylbek@ustemfoundation.org</a> · <a href="tel:+77004446000">+7 700 444 6000</a></span>
 </div></footer>
 
@@ -327,6 +331,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   function setLang(l){
     lang=l; document.documentElement.lang=(l==='kz'?'kk':'ru'); f.lang.value=l;
     document.querySelectorAll('[data-kz]').forEach(function(el){el.textContent=el.getAttribute('data-'+l);});
+    document.querySelectorAll('[data-src-kz]').forEach(function(el){if(!el.dataset.srcRu)el.dataset.srcRu=el.getAttribute('src');el.src=l==='kz'?el.dataset.srcKz:el.dataset.srcRu;});
     document.querySelectorAll('[data-ph-ru]').forEach(function(el){el.placeholder=el.getAttribute('data-ph-'+l).replace(/&#10;/g,'\n');});
     document.querySelectorAll('[data-set-lang]').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-lang')===l);});
     try{localStorage.setItem('adl_lang',l);}catch(e){}
