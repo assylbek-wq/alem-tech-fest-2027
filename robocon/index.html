@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ABU Robocon 2027 · Национальный отбор Казахстана · Alem Tech Fest</title>
+<meta name="description" content="Регистрация вузовских команд на национальный отбор ABU Robocon 2027. Финал казахстанского отбора 18-21 февраля 2027 на Alem Tech Fest в Астане. Победитель представит Казахстан на ABU Robocon 2027 в Соло, Индонезия.">
+<link rel="canonical" href="https://alemtechfest.kz/robocon/">
+<meta property="og:title" content="ABU Robocon 2027 · Национальный отбор Казахстана">
+<meta property="og:description" content="Финал отбора на Alem Tech Fest, Астана, 18-21 февраля 2027. Победитель едет на ABU Robocon 2027 в Индонезию.">
+<meta property="og:image" content="https://alemtechfest.kz/robocon/assets/hero.jpg">
+<meta property="og:url" content="https://alemtechfest.kz/robocon/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#031C4A">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#031c4a;--navy2:#062a6b;--blue:#0346f5;--bright:#0184ff;--lime:#c6ff3d;--ink:#05102a;--white:#fff;--muted:rgba(255,255,255,.72);--line:rgba(255,255,255,.18);--card:rgba(255,255,255,.07);--err:#ff6b6b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--white);font:16px/1.5 Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--lime)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+/* header */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;padding:20px 0}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{color:var(--white);text-decoration:none;font-weight:900;font-style:italic;text-transform:lowercase;font-size:22px;line-height:.9;letter-spacing:-.02em}
+.brand small{display:block;font-size:12px;font-style:normal;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lime)}
+.lang{display:flex;background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:100px;padding:4px}
+.lang button{all:unset;cursor:pointer;padding:6px 12px;border-radius:100px;font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--muted)}
+.lang button[aria-pressed=true]{background:var(--lime);color:var(--ink)}
+/* hero */
+.hero{position:relative;min-height:min(820px,100svh);display:flex;align-items:flex-end;overflow:hidden;
+ background:linear-gradient(180deg,rgba(3,28,74,.85) 0%,rgba(3,28,74,.15) 26%,rgba(3,70,245,.05) 45%,rgba(3,52,170,.88) 76%,var(--navy) 100%),url(assets/hero.jpg) center 35%/cover no-repeat}
+.hero:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-58deg,transparent 0 120px,rgba(1,132,255,.14) 120px 150px,transparent 150px 260px);mix-blend-mode:screen;pointer-events:none}
+.hero .wrap{position:relative;z-index:2;padding-bottom:64px;padding-top:140px;width:100%}
+.pill{display:inline-block;background:var(--lime);color:var(--ink);font-weight:800;font-size:14px;letter-spacing:.08em;padding:9px 18px;border-radius:100px;text-transform:uppercase}
+h1{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(46px,8.6vw,108px);line-height:.92;letter-spacing:-.02em;margin:18px 0 16px}
+h1 span{color:var(--lime)}
+.sub{font-size:clamp(17px,2vw,22px);font-weight:600;max-width:700px;margin:0 0 26px}
+.dates{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
+.chip{background:rgba(255,255,255,.12);border:1px solid var(--line);border-radius:14px;padding:10px 16px;backdrop-filter:blur(6px)}
+.chip b{display:block;color:var(--lime);font-style:italic;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:-.01em}
+.chip span{font-size:14px;color:var(--muted);font-weight:600}
+.cta{display:inline-flex;align-items:center;gap:10px;background:var(--white);color:var(--blue);font-weight:800;letter-spacing:.04em;text-decoration:none;padding:16px 28px;border-radius:100px;font-size:16px}
+.cta:hover{background:var(--lime);color:var(--ink)}
+/* partners */
+.partners{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0}
+.partners .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px 24px;flex-wrap:wrap}
+.partners small{color:var(--muted);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:12px}
+.partners img{height:40px;display:block}
+.partners .links{display:flex;gap:10px;flex-wrap:wrap}
+.ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-weight:700;font-size:14px;text-decoration:none;color:var(--white)}
+.ghost:hover{border-color:var(--lime);color:var(--lime)}
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:56px 0 0}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+.fact b{display:block;font-style:italic;font-weight:900;font-size:34px;line-height:1;margin-bottom:6px}
+.fact span{color:var(--muted);font-size:14px;font-weight:600}
+@media (max-width:780px){.facts{grid-template-columns:1fr 1fr}}
+/* game */
+.game{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;margin:64px 0 0;align-items:start}
+@media (max-width:860px){.game{grid-template-columns:1fr}}
+.game p{color:var(--muted);margin:0 0 14px}
+.eyebrow{color:var(--lime);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+.spec{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:22px 22px 8px}
+.spec h3{margin:0 0 12px;font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.spec ul{margin:0;padding:0;list-style:none}
+.spec li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:0 0 14px;font-size:14.5px;font-weight:500}
+.spec li:before{content:"";width:10px;height:10px;margin-top:6px;border-radius:3px;background:var(--lime)}
+/* steps */
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0 0}
+@media (max-width:780px){.path{grid-template-columns:1fr}}
+.stp{border:1px solid var(--line);border-radius:20px;padding:18px 20px;background:linear-gradient(160deg,rgba(3,70,245,.35),rgba(3,70,245,0) 70%)}
+.stp em{font-style:normal;font-weight:800;font-size:12px;letter-spacing:.12em;color:var(--lime)}
+.stp b{display:block;font-size:18px;font-weight:800;margin:6px 0 4px}
+.stp span{color:var(--muted);font-size:14px}
+/* form */
+.reg{padding:64px 0 96px}
+h2{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(34px,5vw,56px);line-height:.95;margin:0 0 10px}
+.lead{color:var(--muted);margin:0 0 32px;max-width:680px}
+.note{display:flex;flex-direction:column;gap:6px;margin:28px 0 0;padding:16px 20px;border:1px solid var(--line);border-left:4px solid var(--lime);border-radius:14px;background:rgba(255,255,255,.06)}
+.note b{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--lime)}
+.note span{color:var(--muted);font-size:15px}
+form{display:grid;gap:22px}
+fieldset{border:1px solid var(--line);background:var(--card);border-radius:24px;padding:26px 24px 28px;margin:0;min-width:0}
+legend{display:flex;align-items:center;gap:12px;font-weight:800;font-size:18px;padding:0 8px;margin-left:-8px}
+legend em{font-style:normal;background:var(--lime);color:var(--ink);font-size:13px;font-weight:800;border-radius:8px;padding:3px 8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.full{grid-column:1/-1}
+@media (max-width:700px){.grid{grid-template-columns:1fr}}
+label.f{display:grid;gap:7px;font-weight:600;font-size:14px;align-content:start}
+[hidden]{display:none!important}
+label.f .h,.qt + .h{font-weight:500;color:var(--muted);font-size:13px}
+.qt + .h{display:block;margin:-4px 0 10px}
+.req:after{content:" *";color:var(--lime)}
+input[type=text],input[type=email],input[type=tel],textarea,select{width:100%;font:inherit;font-size:16px;color:var(--white);background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 14px;outline:none}
+textarea{min-height:90px;resize:vertical}
+select option{color:#000}
+input:focus,textarea:focus,select:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,255,61,.2)}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opt span{display:inline-block;padding:10px 16px;border:1px solid rgba(255,255,255,.28);border-radius:100px;font-size:14px;font-weight:600;cursor:pointer;user-select:none}
+.opt input:checked+span{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.opt input:focus-visible+span{box-shadow:0 0 0 3px rgba(198,255,61,.35)}
+.qt{font-weight:600;font-size:14px;margin-bottom:10px}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.45;cursor:pointer}
+.check input{width:22px;height:22px;flex:0 0 22px;accent-color:var(--lime);margin-top:1px}
+.checks{display:grid;gap:14px}
+.invalid input[type=text],.invalid input[type=email],.invalid input[type=tel],.invalid textarea,.invalid select{border-color:var(--err)}
+.members{display:grid;gap:14px}
+.mcard{border:1px solid var(--line);border-radius:18px;padding:16px 16px 18px;background:rgba(0,0,0,.14)}
+.mcard h4{margin:0 0 12px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:10px}
+.mcard h4 em{font-style:normal;background:rgba(198,255,61,.16);color:var(--lime);border-radius:8px;padding:2px 8px;font-size:12px}
+.mcard h4 i{font-style:normal;background:var(--lime);color:var(--ink);border-radius:8px;padding:2px 8px;font-size:12px}
+.mgrid{display:grid;grid-template-columns:1.6fr .8fr 1.4fr;gap:12px 14px}
+.mgrid .w2{grid-column:span 2}
+.pgrid{display:grid;grid-template-columns:2fr 1fr;gap:12px 14px}
+@media (max-width:700px){.mgrid,.pgrid{grid-template-columns:1fr}.mgrid .w2{grid-column:auto}}
+.mhint{color:var(--muted);font-size:13px;margin:0 0 12px}
+.mcard.invalid{border-color:var(--err)}
+.invalid .opt span,.invalid.check{color:var(--err)}
+.invalid .qt,.invalid > .req{color:var(--err)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.submit{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.submit button{all:unset;cursor:pointer;background:var(--lime);color:var(--ink);font-weight:900;font-style:italic;text-transform:uppercase;font-size:22px;padding:18px 36px;border-radius:100px}
+.submit button[disabled]{opacity:.6;cursor:wait}
+.msg{font-weight:600}
+.msg.err{color:var(--err)}
+.done{display:none;background:var(--lime);color:var(--ink);border-radius:28px;padding:40px 32px;text-align:center}
+.done h3{font-weight:900;font-style:italic;text-transform:uppercase;font-size:clamp(30px,5vw,48px);line-height:1;margin:0 0 12px}
+.done .id{display:inline-block;background:var(--ink);color:var(--lime);font-weight:800;padding:8px 16px;border-radius:12px;margin:8px 0 16px;letter-spacing:.06em}
+.done a{color:var(--ink);font-weight:700}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (max-width:640px){
+ .wrap{padding:0 16px}
+ .hero .wrap{padding-top:120px;padding-bottom:44px}
+ h1{font-size:12vw}
+ .fact b{font-size:26px;white-space:nowrap}
+ .partners img{height:34px}
+ fieldset{padding:22px 16px 24px}
+ .submit button{font-size:19px;padding:16px 28px}
+ .lang button{padding:6px 10px}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="../" data-href-kz="../kk/" data-href-en="../en/">alem techfest<small>2027</small></a>
+  <div class="lang" role="group" aria-label="Язык / Тіл / Language">
+    <button type="button" data-set-lang="ru" aria-pressed="true">РУС</button>
+    <button type="button" data-set-lang="kz" aria-pressed="false">ҚАЗ</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  </div>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="pill" data-kz="Тіркеу ашық · ұлттық іріктеу" data-en="Registration open · national selection">Регистрация открыта · национальный отбор</span>
+    <h1>ABU Robocon<br><span>2027</span></h1>
+    <p class="sub" data-kz="Студенттік робототехника бойынша Азия-Тынық мұхит жарысына Қазақстанның ұлттық іріктеуі. Финал Alem Tech Fest-те, жеңімпаз Индонезиядағы ABU Robocon 2027-ге барады." data-en="Kazakhstan's national selection for the Asia-Pacific university robot contest. The final is at Alem Tech Fest, and the winner goes to ABU Robocon 2027 in Indonesia.">Национальный отбор Казахстана на Азиатско-Тихоокеанский студенческий конкурс роботов. Финал на Alem Tech Fest, победитель едет на ABU Robocon 2027 в Индонезию.</p>
+    <div class="dates">
+      <div class="chip"><b data-kz="18-21 ақпан 2027" data-en="18-21 Feb 2027">18-21 февраля 2027</b><span data-kz="Іріктеу финалы, Alem Tech Fest, Астана" data-en="Selection final, Alem Tech Fest, Astana">Финал отбора, Alem Tech Fest, Астана</span></div>
+      <div class="chip"><b data-kz="29 тамыз 2027" data-en="29 Aug 2027">29 августа 2027</b><span data-kz="ABU Robocon, Соло, Индонезия" data-en="ABU Robocon, Solo, Indonesia">ABU Robocon, Соло, Индонезия</span></div>
+    </div>
+    <a class="cta" href="#register" data-kz="Команданы тіркеу ↓" data-en="Register your team ↓">Зарегистрировать команду ↓</a>
+  </div>
+</section>
+
+<section class="partners"><div class="wrap">
+  <small data-kz="Ұлттық іріктеуді ұйымдастырушы" data-en="National selection organized by">Организатор национального отбора</small>
+  <img src="../img/ustem-white.png" alt="USTEM Foundation">
+  <div class="links">
+    <a class="ghost" href="https://aburobocon2027.id/rulebook/" target="_blank" rel="noopener" data-kz="Ресми ереже ↗" data-en="Official rulebook ↗">Официальные правила ↗</a>
+    <a class="ghost" href="https://aburobocon2027.id/" target="_blank" rel="noopener">aburobocon2027.id ↗</a>
+  </div>
+</div></section>
+
+<main class="wrap">
+  <div class="facts">
+    <div class="fact"><b>3 + 1</b><span data-kz="студент және инструктор, бір ЖОО-дан" data-en="students and an instructor from one university">студента и инструктор из одного вуза</span></div>
+    <div class="fact"><b data-kz="2 робот" data-en="2 robots">2 робота</b><span data-kz="Transporter және толық автономды Builder" data-en="Transporter and a fully automatic Builder">Transporter и полностью автономный Builder</span></div>
+    <div class="fact"><b data-kz="3 мин" data-en="3 min">3 мин</b><span data-kz="бір матч, қызыл мен көкке қарсы" data-en="per match, red vs blue">один матч, красные против синих</span></div>
+    <div class="fact"><b data-kz="1 орын" data-en="1 slot">1 место</b><span data-kz="ABU Robocon-да елден бір команда" data-en="one team per country at ABU Robocon">от страны на ABU Robocon</span></div>
+  </div>
+
+  <section class="game">
+    <div>
+      <p class="eyebrow" data-kz="2027 жылғы тақырып" data-en="2027 theme">Тема 2027 года</p>
+      <h2>The Pursuit of Mustika Nusantara</h2>
+      <p data-kz="Ойын көне ғибадатхана сәулетінен шабыт алған: командалар іргетас блоктарынан мұнаралар тұрғызып, матчтың соңында орталық тірекке Мустика жәдігерін орнатуға тырысады. Қайсы команда көбірек ұпай жинаса, сол жеңеді." data-en="The game draws on ancient temple architecture: teams stack foundation blocks into towers and race to place the Mustika artifact on the central pillar. The team with more points after three minutes wins.">Игра вдохновлена древней храмовой архитектурой: команды строят башни из блоков-фундаментов и соревнуются, кто первым установит артефакт Мустика на центральную колонну. Побеждает команда, набравшая больше очков за три минуты.</p>
+      <p data-kz="Transporter роботы блоктарды жинап, тасымалдау аймағына жеткізеді, ал автономды Builder роботы мұнараларды тұрғызады. Матч кезінде екі робот бір-бірімен байланыса алмайды." data-en="The Transporter robot collects blocks and brings them to the transfer area, and the automatic Builder robot builds the towers. The two robots may not communicate with each other during a match.">Робот Transporter собирает блоки и доставляет их в зону передачи, а автономный робот Builder строит башни. Во время матча роботы не могут обмениваться данными друг с другом.</p>
+      <p data-kz="Қазақстандық іріктеу ресми ABU Robocon 2027 ережесі бойынша өтеді." data-en="The Kazakhstan selection follows the official ABU Robocon 2027 rulebook.">Казахстанский отбор проходит по официальным правилам ABU Robocon 2027.</p>
+    </div>
+    <div class="spec">
+      <h3 data-kz="Негізгі талаптар" data-en="Key requirements">Ключевые требования</h3>
+      <ul>
+        <li><span data-kz="Команда: 3 студент және 1 инструктор, бәрі бір ЖОО, колледж немесе политехникадан" data-en="Team: 3 students and 1 instructor, all from the same university, college or polytechnic">Команда: 3 студента и 1 инструктор, все из одного вуза, колледжа или политеха</span></li>
+        <li><span data-kz="Тағы 3 студентке дейін pit crew ретінде тіркеуге болады" data-en="Up to 3 more students can be registered as pit crew">Еще до 3 студентов можно заявить как pit crew</span></li>
+        <li><span data-kz="Тек бакалавриат немесе колледж студенттері, магистранттар қатыса алмайды" data-en="Undergraduate or diploma students only, no postgraduates">Только студенты бакалавриата или колледжа, магистранты не допускаются</span></li>
+        <li><span data-kz="Әр робот басында 700 × 700 × 700 мм ішіне сыюы керек, салмағы 50 кг-ға дейін" data-en="Each robot starts within 700 × 700 × 700 mm and weighs up to 50 kg">Каждый робот на старте вписывается в 700 × 700 × 700 мм и весит до 50 кг</span></li>
+        <li><span data-kz="Аккумулятор кернеуі 24 В-тан аспайды, байланыс тек Wi-Fi, Zigbee немесе Bluetooth" data-en="Battery voltage up to 24 V, radio only via Wi-Fi, Zigbee or Bluetooth">Напряжение батарей до 24 В, связь только Wi-Fi, Zigbee или Bluetooth</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="path">
+    <div class="stp"><em>01</em><b data-kz="Тіркеу" data-en="Register">Регистрация</b><span data-kz="ЖОО командасы осы бетте өтінім береді" data-en="University teams apply on this page">Команда вуза подает заявку на этой странице</span></div>
+    <div class="stp"><em>02</em><b data-kz="Іріктеу финалы" data-en="Selection final">Финал отбора</b><span data-kz="18-21 ақпан, Alem Tech Fest, Астана" data-en="18-21 February, Alem Tech Fest, Astana">18-21 февраля, Alem Tech Fest, Астана</span></div>
+    <div class="stp"><em>03</em><b>ABU Robocon 2027</b><span data-kz="Жеңімпаз Қазақстан атынан Соло қаласына, Индонезия" data-en="The winner represents Kazakhstan in Solo, Indonesia">Победитель представляет Казахстан в Соло, Индонезия</span></div>
+  </div>
+
+  <div class="note"><b data-kz="Ұлттық іріктеу ережесі жақында" data-en="National selection regulations coming soon">Регламент национального отбора скоро</b><span data-kz="Кезеңдерді, мерзімдерді және финалға қатысу шарттарын осы бетте жариялаймыз және тіркелген командаларға поштамен жібереміз." data-en="We will publish the stages, deadlines and final participation terms on this page and email them to registered teams.">Этапы, сроки и условия участия в финале опубликуем на этой странице и пришлем на почту зарегистрированным командам.</span></div>
+
+  <section class="reg" id="register">
+    <h2 data-kz="Команданы тіркеу" data-en="Team registration">Регистрация команды</h2>
+    <p class="lead" data-kz="Форманы инструктор немесе команда капитаны толтырады. Бір ЖОО бірнеше команда тіркей алады, әр командаға жеке өтінім." data-en="The instructor or team captain fills in the form. A university can register several teams, one form per team.">Заполняет инструктор или капитан команды. Вуз может заявить несколько команд, по одной заявке на каждую.</p>
+
+    <form id="f" novalidate>
+      <input type="hidden" name="lang" value="ru">
+      <input type="hidden" name="ts" value="">
+      <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <fieldset>
+        <legend><em>01</em><span data-kz="ЖОО және команда" data-en="University and team">Вуз и команда</span></legend>
+        <div class="grid">
+          <label class="f full" data-field="uni"><span class="req" data-kz="ЖОО, колледж немесе политехника" data-en="University, college or polytechnic">Вуз, колледж или политех</span><input type="text" name="uni" maxlength="150" required></label>
+          <label class="f" data-field="city"><span class="req" data-kz="Қала" data-en="City">Город</span><input type="text" name="city" maxlength="80" required></label>
+          <label class="f"><span data-kz="Факультет немесе кафедра" data-en="Faculty or department">Факультет или кафедра</span><input type="text" name="dept" maxlength="150"></label>
+          <label class="f full" data-field="team"><span class="req" data-kz="Команда атауы" data-en="Team name">Название команды</span><input type="text" name="team" maxlength="80" required></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>02</em><span data-kz="Инструктор" data-en="Instructor">Инструктор</span></legend>
+        <div class="grid">
+          <p class="mhint full" data-kz="ЖОО оқытушысы немесе қызметкері. Команданы ресми түрде ұсынады және ұйымдастырушылармен байланыста болады." data-en="A lecturer or staff member of the university. Officially represents the team and is the main contact for organizers.">Преподаватель или сотрудник вуза. Официально представляет команду и держит связь с организаторами.</p>
+          <label class="f" data-field="i_name"><span class="req" data-kz="Аты-жөні" data-en="Full name">ФИО</span><input type="text" name="inst_name" maxlength="120" autocomplete="name" required></label>
+          <label class="f" data-field="i_pos"><span class="req" data-kz="Лауазымы" data-en="Position">Должность</span><input type="text" name="inst_pos" maxlength="120" required></label>
+          <label class="f" data-field="i_email"><span class="req">Email</span><input type="email" name="inst_email" maxlength="120" autocomplete="email" required></label>
+          <label class="f" data-field="i_phone"><span class="req" data-kz="Телефон / WhatsApp" data-en="Phone / WhatsApp">Телефон / WhatsApp</span><input type="tel" name="inst_phone" maxlength="40" autocomplete="tel" placeholder="+7 701 123 45 67" required></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>03</em><span data-kz="Негізгі құрам" data-en="Main team">Основной состав</span></legend>
+        <p class="mhint" data-kz="Ережеге сәйкес командада дәл 3 студент. Бірінші қатысушы - команда капитаны (team leader)." data-en="The rules require exactly 3 students. The first student is the team captain (team leader).">По правилам в команде ровно 3 студента. Первый участник - капитан команды (team leader).</p>
+        <div class="members" id="students"></div>
+        <div class="grid" style="margin-top:16px">
+          <label class="f" data-field="c_phone"><span class="req" data-kz="Капитанның телефоны / WhatsApp" data-en="Captain's phone / WhatsApp">Телефон капитана / WhatsApp</span><input type="tel" name="cap_phone" maxlength="40" autocomplete="off" placeholder="+7 701 123 45 67"></label>
+          <label class="f"><span data-kz="Капитанның Telegram-ы" data-en="Captain's Telegram">Telegram капитана</span><input type="text" name="cap_tg" maxlength="60" placeholder="@username"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>04</em><span>Pit crew</span></legend>
+        <p class="mhint" data-kz="Міндетті емес. Сол ЖОО-дан тағы 3 студентке дейін: олар питте көмектеседі, бірақ алаңға шықпайды." data-en="Optional. Up to 3 more students from the same university: they help in the pit area but do not enter the field.">Необязательно. До 3 студентов того же вуза: помогают в пит-зоне, но не выходят на поле.</p>
+        <div class="members" id="pit"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>05</em><span data-kz="Тәжірибе және дайындық" data-en="Experience and readiness">Опыт и готовность</span></legend>
+        <div class="grid">
+          <div class="full" data-field="experience"><div class="qt req" data-kz="Командада қандай тәжірибе бар?" data-en="What experience does the team have?">С чем у команды уже есть опыт?</div>
+            <div class="opts">
+              <label class="opt"><input type="checkbox" name="experience[]" value="robocon"><span data-kz="ABU Robocon немесе ұлттық Robocon" data-en="ABU Robocon or a national Robocon">ABU Robocon или национальные Robocon</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="ftc"><span>FIRST (FTC / FRC)</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="robomaster"><span>RoboMaster</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="ros"><span>ROS / ROS 2</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="cad"><span data-kz="CAD және механикалық өңдеу" data-en="CAD and machining">CAD и мехобработка</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="embedded"><span data-kz="Микроконтроллерлер (STM32, ESP32)" data-en="Microcontrollers (STM32, ESP32)">Микроконтроллеры (STM32, ESP32)</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="cv"><span data-kz="Компьютерлік көру" data-en="Computer vision">Компьютерное зрение</span></label>
+              <label class="opt"><input type="checkbox" name="experience[]" value="none"><span data-kz="Әзірге жоқ, үйренгіміз келеді" data-en="None yet, we want to learn">Пока нет, хотим научиться</span></label>
+            </div></div>
+          <div class="full" data-field="robots"><div class="qt req" data-kz="Роботтар қандай кезеңде?" data-en="Where are you with the robots?">На какой стадии роботы?</div>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="robots" value="idea"><span data-kz="Енді бастап жатырмыз" data-en="Just starting">Только начинаем</span></label>
+              <label class="opt"><input type="radio" name="robots" value="design"><span data-kz="Жобалап жатырмыз" data-en="Designing">Проектируем</span></label>
+              <label class="opt"><input type="radio" name="robots" value="building"><span data-kz="Жинап жатырмыз" data-en="Building">Собираем</span></label>
+              <label class="opt"><input type="radio" name="robots" value="ready"><span data-kz="Жұмыс істейтін прототиптер бар" data-en="Working prototypes">Есть рабочие прототипы</span></label>
+            </div></div>
+          <div class="full"><div class="qt" data-kz="Неден көмек керек?" data-en="What help would be useful?">С чем нужна помощь?</div>
+            <div class="opts">
+              <label class="opt"><input type="checkbox" name="help[]" value="parts"><span data-kz="Құрамдас бөліктер" data-en="Components">Комплектующие</span></label>
+              <label class="opt"><input type="checkbox" name="help[]" value="field"><span data-kz="Жаттығуға арналған алаң элементтері" data-en="Field elements for practice">Элементы поля для тренировок</span></label>
+              <label class="opt"><input type="checkbox" name="help[]" value="mentor"><span data-kz="Тәлімгер кеңесі" data-en="Mentor consultations">Консультации наставника</span></label>
+              <label class="opt"><input type="checkbox" name="help[]" value="stay"><span data-kz="Астанада тұру" data-en="Accommodation in Astana">Проживание в Астане</span></label>
+            </div></div>
+          <label class="f"><span data-kz="Іріктеу туралы қайдан білдіңіз?" data-en="How did you hear about the selection?">Откуда узнали об отборе?</span>
+            <select name="source">
+              <option value="" data-kz="Таңдаңыз" data-en="Select">Выберите</option>
+              <option value="instagram">Instagram</option>
+              <option value="telegram">Telegram</option>
+              <option value="university" data-kz="ЖОО" data-en="University">Вуз</option>
+              <option value="friends" data-kz="Достар" data-en="Friends">Друзья</option>
+              <option value="site" data-kz="Сайт" data-en="Website">Сайт</option>
+              <option value="other" data-kz="Басқа" data-en="Other">Другое</option>
+            </select></label>
+          <label class="f" id="srcOther" hidden><span data-kz="Нақтылаңыз" data-en="Please specify">Уточните</span><input type="text" name="source_other" maxlength="100"></label>
+          <label class="f full"><span data-kz="Ұйымдастырушыларға сұрақ немесе пікір" data-en="Questions or comments for the organizers">Вопросы или комментарии организаторам</span><textarea name="comment" maxlength="1000"></textarea></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><em>06</em><span data-kz="Растау және келісім" data-en="Confirmation and consent">Подтверждение и согласие</span></legend>
+        <div class="checks">
+          <label class="check" data-field="elig"><input type="checkbox" name="consent_elig" value="yes"><span class="req" data-kz="Растаймын: команданың барлық мүшелері мен инструктор бір ЖОО-дан, студенттер бакалавриатта немесе колледжде оқиды" data-en="I confirm that all team members and the instructor are from the same institution and the students are undergraduate or diploma students">Подтверждаю: все участники и инструктор из одного вуза, студенты учатся в бакалавриате или колледже</span></label>
+          <label class="check" data-field="pd"><input type="checkbox" name="consent_pd" value="yes"><span class="req" data-kz="Іріктеуді өткізу үшін дербес деректерді өңдеуге келісемін және команданың барлық мүшелерінің келісімін алдым" data-en="I agree to the processing of personal data to run the selection and have the consent of all team members">Согласен на обработку персональных данных для проведения отбора и получил согласие всех участников команды</span></label>
+          <label class="check" data-field="photo"><input type="checkbox" name="consent_photo" value="yes"><span class="req" data-kz="Іс-шаралар кезінде фото- және бейнетүсірілімге келісемін" data-en="I agree to photo and video recording during the events">Согласен на фото- и видеосъемку во время мероприятий</span></label>
+        </div>
+      </fieldset>
+
+      <div class="submit">
+        <button type="submit" data-kz="Өтінім жіберу" data-en="Submit registration">Отправить заявку</button>
+        <div class="msg" id="msg" role="status" aria-live="polite"></div>
+      </div>
+    </form>
+
+    <template id="sTpl">
+      <div class="mcard">
+        <h4><em class="mnum"></em><span data-kz="Студент" data-en="Student">Студент</span><i class="capt" hidden data-kz="капитан" data-en="captain">капитан</i></h4>
+        <div class="mgrid">
+          <label class="f"><span class="req" data-kz="Аты-жөні" data-en="Full name">ФИО</span><input type="text" name="s_name[]" maxlength="120" autocomplete="off"></label>
+          <label class="f"><span class="req" data-kz="Курс" data-en="Year">Курс</span>
+            <select name="s_course[]">
+              <option value="" data-kz="Таңдаңыз" data-en="Select">Выберите</option>
+              <option value="1" data-kz="1 курс" data-en="Year 1">1 курс</option>
+              <option value="2" data-kz="2 курс" data-en="Year 2">2 курс</option>
+              <option value="3" data-kz="3 курс" data-en="Year 3">3 курс</option>
+              <option value="4" data-kz="4 курс" data-en="Year 4">4 курс</option>
+              <option value="5" data-kz="5 курс" data-en="Year 5">5 курс</option>
+              <option value="college" data-kz="Колледж" data-en="College">Колледж</option>
+            </select></label>
+          <label class="f"><span class="req" data-kz="Командадағы рөлі" data-en="Role in the team">Роль в команде</span>
+            <select name="s_role[]">
+              <option value="" data-kz="Таңдаңыз" data-en="Select">Выберите</option>
+              <option value="lead" data-kz="Капитан / оператор" data-en="Captain / operator">Капитан / оператор</option>
+              <option value="mech" data-kz="Механика және CAD" data-en="Mechanics and CAD">Механика и CAD</option>
+              <option value="elec" data-kz="Электроника" data-en="Electronics">Электроника</option>
+              <option value="code" data-kz="Бағдарламалау және автономия" data-en="Programming and autonomy">Программирование и автономия</option>
+              <option value="other" data-kz="Басқа" data-en="Other">Другое</option>
+            </select></label>
+          <label class="f w2"><span class="req" data-kz="Мамандығы" data-en="Major">Специальность</span><input type="text" name="s_major[]" maxlength="120" autocomplete="off"></label>
+          <label class="f"><span class="em" data-kz="Email" data-en="Email">Email</span><input type="email" name="s_email[]" maxlength="120" autocomplete="off"></label>
+        </div>
+      </div>
+    </template>
+    <template id="pTpl">
+      <div class="mcard">
+        <h4><em class="mnum"></em><span>Pit crew</span></h4>
+        <div class="pgrid">
+          <label class="f"><span data-kz="Аты-жөні" data-en="Full name">ФИО</span><input type="text" name="pit_name[]" maxlength="120" autocomplete="off"></label>
+          <label class="f"><span data-kz="Курс" data-en="Year">Курс</span>
+            <select name="pit_course[]">
+              <option value="" data-kz="Таңдаңыз" data-en="Select">Выберите</option>
+              <option value="1" data-kz="1 курс" data-en="Year 1">1 курс</option>
+              <option value="2" data-kz="2 курс" data-en="Year 2">2 курс</option>
+              <option value="3" data-kz="3 курс" data-en="Year 3">3 курс</option>
+              <option value="4" data-kz="4 курс" data-en="Year 4">4 курс</option>
+              <option value="5" data-kz="5 курс" data-en="Year 5">5 курс</option>
+              <option value="college" data-kz="Колледж" data-en="College">Колледж</option>
+            </select></label>
+        </div>
+      </div>
+    </template>
+
+    <div class="done" id="done" role="status">
+      <h3 data-kz="Өтінім қабылданды!" data-en="Registration received!">Заявка принята!</h3>
+      <div class="id" id="regId"></div>
+      <p data-kz="Инструктор мен капитанның поштасына растау хат жібердік. Іріктеу кезеңдері мен мерзімдерін жақын арада жібереміз." data-en="We sent a confirmation to the instructor and the captain. We will email the selection stages and deadlines shortly.">Мы отправили подтверждение на почту инструктора и капитана. Этапы отбора и сроки пришлем в ближайшее время.</p>
+      <p><a href="#" id="again" data-kz="Тағы бір команда тіркеу" data-en="Register another team">Зарегистрировать еще одну команду</a></p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>© 2026 Alem Tech Fest · USTEM Foundation · <span data-kz="ABU Robocon - Азия-Тынық мұхит хабар тарату одағының (ABU) жарысы" data-en="ABU Robocon is a contest of the Asia-Pacific Broadcasting Union (ABU)">ABU Robocon - конкурс Азиатско-Тихоокеанского вещательного союза (ABU)</span></span>
+  <span><span data-kz="Сұрақтар:" data-en="Questions:">Вопросы:</span> <a href="mailto:assylbek@ustemfoundation.org">assylbek@ustemfoundation.org</a> · <a href="tel:+77004446000">+7 700 444 6000</a></span>
+</div></footer>
+
+<script>
+(function(){
+  var MSG={
+    ru:{required:'Заполните отмеченные поля',sending:'Отправляем...',net:'Не удалось отправить. Проверьте интернет и попробуйте еще раз.',closed:'Регистрация закрыта.',rate:'Слишком много заявок подряд. Попробуйте через 10 минут.',fast:'Проверьте данные и нажмите еще раз.',email:'Проверьте email',phone:'Проверьте номер телефона',capEmail:'Email капитана обязателен'},
+    kz:{required:'Белгіленген өрістерді толтырыңыз',sending:'Жіберілуде...',net:'Жіберу мүмкін болмады. Интернетті тексеріп, қайталап көріңіз.',closed:'Тіркеу жабылды.',rate:'Өтінім тым көп. 10 минуттан кейін қайталаңыз.',fast:'Деректерді тексеріп, қайта басыңыз.',email:'Email-ді тексеріңіз',phone:'Телефон нөмірін тексеріңіз',capEmail:'Капитанның email-і міндетті'},
+    en:{required:'Please fill in the marked fields',sending:'Sending...',net:'Could not send. Check your connection and try again.',closed:'Registration is closed.',rate:'Too many submissions in a row. Try again in 10 minutes.',fast:'Check the form and press again.',email:'Check the email address',phone:'Check the phone number',capEmail:"The captain's email is required"}
+  };
+  var lang='ru', f=document.getElementById('f'), msg=document.getElementById('msg');
+  var sBox=document.getElementById('students'), pBox=document.getElementById('pit');
+  f.ts.value=Date.now();
+
+  function build(box,tpl,n,start,prefix){
+    for(var i=0;i<n;i++){var c=document.getElementById(tpl).content.firstElementChild.cloneNode(true);c.querySelector('.mnum').textContent=String(i+start).padStart(2,'0');if(prefix)c.setAttribute('data-field',prefix+i);box.appendChild(c);}
+  }
+  build(sBox,'sTpl',3,1,'s'); build(pBox,'pTpl',3,1,'');
+  var cap=sBox.children[0]; cap.querySelector('.capt').hidden=false; cap.querySelector('.em').classList.add('req');
+  cap.querySelector('[name="s_role[]"]').value='lead';
+
+  // запоминаем русский текст как основу
+  document.querySelectorAll('[data-kz],[data-en]').forEach(function(el){if(!el.hasAttribute('data-ru'))el.setAttribute('data-ru',el.textContent);});
+  function setLang(l){
+    lang=l; document.documentElement.lang=(l==='kz'?'kk':l); f.lang.value=l;
+    document.querySelectorAll('[data-ru]').forEach(function(el){el.textContent=el.getAttribute('data-'+l)||el.getAttribute('data-ru');});
+    document.querySelectorAll('[data-href-kz]').forEach(function(el){if(!el.dataset.hrefRu)el.dataset.hrefRu=el.getAttribute('href');el.href=l==='ru'?el.dataset.hrefRu:el.getAttribute('data-href-'+l);});
+    document.querySelectorAll('[data-set-lang]').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-set-lang')===l);});
+    try{localStorage.setItem('abu_lang',l);}catch(e){}
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-set-lang'));});});
+  var q=new URLSearchParams(location.search).get('lang'), saved=null; try{saved=localStorage.getItem('abu_lang');}catch(e){}
+  if(q==='kk')q='kz';
+  setLang(['ru','kz','en'].indexOf(q)>-1?q:(['ru','kz','en'].indexOf(saved)>-1?saved:'ru'));
+  f.source.addEventListener('change',function(){document.getElementById('srcOther').hidden=f.source.value!=='other';});
+
+  var emailRe=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function checked(name){return f.querySelectorAll('[name="'+name+'"]:checked').length>0;}
+  function validate(){
+    var bad=[];
+    [['team','team'],['uni','uni'],['city','city'],['i_name','inst_name'],['i_pos','inst_pos']].forEach(function(p){if(!f[p[1]].value.trim())bad.push(p[0]);});
+    if(!emailRe.test(f.inst_email.value.trim()))bad.push('i_email');
+    if(f.inst_phone.value.replace(/\D/g,'').length<10)bad.push('i_phone');
+    if(f.cap_phone.value.replace(/\D/g,'').length<10)bad.push('c_phone');
+    [].forEach.call(sBox.children,function(c,i){
+      var v=function(n){return c.querySelector('[name="'+n+'[]"]').value.trim();};
+      if(!v('s_name')||!v('s_course')||!v('s_role')||!v('s_major')||(i===0&&!emailRe.test(v('s_email'))))bad.push('s'+i);
+    });
+    if(!checked('experience[]'))bad.push('experience');
+    if(!checked('robots'))bad.push('robots');
+    if(!f.consent_elig.checked)bad.push('elig'); if(!f.consent_pd.checked)bad.push('pd'); if(!f.consent_photo.checked)bad.push('photo');
+    return bad;
+  }
+  function mark(bad){
+    document.querySelectorAll('[data-field]').forEach(function(el){el.classList.toggle('invalid',bad.indexOf(el.getAttribute('data-field'))>-1);});
+    var first=document.querySelector('.invalid'); if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  function hint(bad){
+    if(bad.length===1){if(bad[0]==='i_email')return MSG[lang].email;if(bad[0]==='i_phone'||bad[0]==='c_phone')return MSG[lang].phone;
+      if(bad[0]==='s0'&&!emailRe.test(cap.querySelector('[name="s_email[]"]').value.trim()))return MSG[lang].capEmail;}
+    return MSG[lang].required;
+  }
+  f.addEventListener('input',function(e){var w=e.target.closest('[data-field]'); if(w)w.classList.remove('invalid');});
+  f.addEventListener('change',function(e){var w=e.target.closest('[data-field]'); if(w)w.classList.remove('invalid');});
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); var bad=validate(); mark(bad);
+    if(bad.length){msg.className='msg err';msg.textContent=hint(bad);return;}
+    var btn=f.querySelector('button[type=submit]'); btn.disabled=true; msg.className='msg'; msg.textContent=MSG[lang].sending;
+    fetch('submit.php',{method:'POST',body:new FormData(f)}).then(function(r){return r.json();}).then(function(j){
+      if(j.ok){f.style.display='none';msg.textContent='';document.getElementById('regId').textContent=j.id;var d=document.getElementById('done');d.style.display='block';d.scrollIntoView({behavior:'smooth',block:'center'});return;}
+      btn.disabled=false; msg.className='msg err';
+      if(j.error==='validation'){mark(j.fields||[]);msg.textContent=hint(j.fields||[]);}
+      else msg.textContent=MSG[lang][{closed:'closed',rate:'rate',too_fast:'fast'}[j.error]||'net'];
+    }).catch(function(){btn.disabled=false;msg.className='msg err';msg.textContent=MSG[lang].net;});
+  });
+  document.getElementById('again').addEventListener('click',function(e){
+    e.preventDefault(); f.reset(); cap.querySelector('[name="s_role[]"]').value='lead'; f.ts.value=Date.now();
+    f.querySelector('button[type=submit]').disabled=false; document.getElementById('srcOther').hidden=true;
+    document.getElementById('done').style.display='none'; f.style.display=''; f.scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
