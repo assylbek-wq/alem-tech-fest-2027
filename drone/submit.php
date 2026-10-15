@@ -15,6 +15,10 @@ function arr($key, $allowed) {
   if (!is_array($v)) $v = [$v];
   return array_values(array_intersect($allowed, array_map('strval', $v)));
 }
+function clean($v, $max) {
+  if (!is_string($v)) return '';
+  return mb_substr(trim(preg_replace('/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/u', '', $v)), 0, $max);
+}
 function csvsafe($v) {
   // защита от формул при открытии в Excel
   if ($v !== '' && preg_match('/^[=@\t\r]|^[+\-](?![\d\s(])/u', $v)) return "'" . $v;
@@ -45,7 +49,7 @@ $d = [
   'email'     => s('cap_email', 120),
   'phone'     => s('cap_phone', 40),
   'tg'        => s('cap_tg', 60),
-  'members'   => s('members', 2000),
+  'cap_age'   => (int)s('cap_age', 3),
   'disc'      => arr('disciplines', $DISC),
   'exp'       => arr('experience', $EXP),
   'drone'     => s('drone', 10),
@@ -54,14 +58,30 @@ $d = [
   'src'       => s('source', 20),
   'src_other' => s('source_other', 100),
   'comment'   => s('comment', 1000),
-  'age16'     => s('age16', 3) === 'yes',
   'parents'   => s('parents', 3) === 'yes',
   'pd'        => s('consent_pd', 3) === 'yes',
   'photo'     => s('consent_photo', 3) === 'yes',
 ];
 
+$ROLE = ['code' => 'Программирование', 'cv' => 'Компьютерное зрение/ИИ', 'hw' => 'Сборка и электроника', 'pilot' => 'Пилот и тесты', 'other' => 'Другое'];
+$mn = $_POST['m_name'] ?? []; $ma = $_POST['m_age'] ?? []; $mr = $_POST['m_role'] ?? []; $mc = $_POST['m_contact'] ?? [];
+foreach (['mn', 'ma', 'mr', 'mc'] as $k) if (!is_array($$k)) $$k = [];
+$members = []; $mErr = false;
+$need = max(1, (int)$d['size'] - 1);
+for ($i = 0; $i < $need; $i++) {
+  $m = ['name' => clean($mn[$i] ?? '', 120), 'age' => (int)clean($ma[$i] ?? '', 3), 'role' => clean($mr[$i] ?? '', 10), 'contact' => clean($mc[$i] ?? '', 120)];
+  if ($m['name'] === '' || $m['age'] < 16 || $m['age'] > 99 || !isset($ROLE[$m['role']])) $mErr = true;
+  $members[] = $m;
+}
+$ages = array_merge([$d['cap_age']], array_column($members, 'age'));
+$minors = (bool)array_filter($ages, fn($a) => $a === 16 || $a === 17);
+$d['members'] = implode("\n", array_map(fn($m, $i) => ($i + 2) . '. ' . $m['name'] . ', ' . $m['age'] . ', ' . ($ROLE[$m['role']] ?? '') . ($m['contact'] !== '' ? ', ' . $m['contact'] : ''), $members, array_keys($members)));
+
 $err = [];
-foreach (['team', 'city', 'org', 'cap', 'email', 'phone', 'members'] as $k) if ($d[$k] === '') $err[] = $k;
+if ($mErr) $err[] = 'members';
+if ($d['cap_age'] < 16 || $d['cap_age'] > 99) $err[] = 'cap_age';
+if ($minors && !$d['parents']) $err[] = 'parents';
+foreach (['team', 'city', 'org', 'cap', 'email', 'phone'] as $k) if ($d[$k] === '') $err[] = $k;
 if ($d['email'] !== '' && !filter_var($d['email'], FILTER_VALIDATE_EMAIL)) $err[] = 'email';
 if ($d['phone'] !== '' && strlen(preg_replace('/\D/', '', $d['phone'])) < 10) $err[] = 'phone';
 if (!in_array($d['size'], ['2', '3', '4', '5'], true)) $err[] = 'size';
@@ -70,7 +90,7 @@ if (!$d['exp']) $err[] = 'experience';
 if (!in_array($d['drone'], $DRONE, true)) $err[] = 'drone';
 if (!in_array($d['boot'], $BOOT, true)) $err[] = 'bootcamp';
 if ($d['src'] !== '' && !in_array($d['src'], $SRC, true)) $d['src'] = 'other';
-foreach (['age16', 'parents', 'pd', 'photo'] as $k) if (!$d[$k]) $err[] = $k;
+foreach (['pd', 'photo'] as $k) if (!$d[$k]) $err[] = $k;
 if ($err) out(['ok' => false, 'error' => 'validation', 'fields' => array_values(array_unique($err))], 422);
 
 $L = [
@@ -92,8 +112,8 @@ $row = [
   $id, date('Y-m-d H:i'), strtoupper($d['lang']), $d['team'], $d['city'], $d['org'], $d['size'],
   $d['cap'], $d['email'], $d['phone'], $d['tg'], $d['members'],
   $map($d['disc']), $map($d['exp']), $L[$d['boot']] ?? $d['boot'], $src, $d['comment'],
-  'да', 'да', 'да', 'да', $_SERVER['REMOTE_ADDR'] ?? '',
-  $d['drone'] === 'none' ? 'Пока нет' : ($L[$d['drone']] ?? $d['drone']), $d['drone_spec'],
+  'да', $minors ? 'да' : 'не требуется', 'да', 'да', $_SERVER['REMOTE_ADDR'] ?? '',
+  $d['drone'] === 'none' ? 'Пока нет' : ($L[$d['drone']] ?? $d['drone']), $d['drone_spec'], $d['cap_age'],
 ];
 $row = array_map('csvsafe', $row);
 
@@ -119,7 +139,7 @@ fflush($fh); flock($fh, LOCK_UN); fclose($fh);
 $headers = "From: Alem Drone League <" . MAIL_FROM . ">\r\nContent-Type: text/plain; charset=UTF-8\r\n";
 $body = "Новая заявка $id\n\n"
   . "Команда: {$d['team']} ({$d['size']} чел.)\nГород: {$d['city']}\nОрганизация: {$d['org']}\n"
-  . "Капитан: {$d['cap']}\nEmail: {$d['email']}\nТелефон: {$d['phone']}\nTelegram: {$d['tg']}\n\n"
+  . "Капитан: {$d['cap']}, {$d['cap_age']}\nEmail: {$d['email']}\nТелефон: {$d['phone']}\nTelegram: {$d['tg']}\n\n"
   . "Участники:\n{$d['members']}\n\n"
   . "Дисциплины: " . $map($d['disc']) . "\nОпыт: " . $map($d['exp']) . "\n"
   . "Дрон: " . $row[22] . ($d['drone_spec'] !== '' ? " ({$d['drone_spec']})" : '') . "\nБуткемп: " . ($L[$d['boot']] ?? '') . "\nОткуда узнали: $src\nКомментарий: {$d['comment']}\n";

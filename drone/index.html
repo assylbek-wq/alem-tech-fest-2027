@@ -74,7 +74,7 @@ label.f{display:grid;gap:7px;font-weight:600;font-size:14px}
 label.f .h,.qt + .h{font-weight:500;color:var(--muted);font-size:13px}
 .qt + .h{display:block;margin:-4px 0 10px}
 .req:after{content:" *";color:var(--lime)}
-input[type=text],input[type=email],input[type=tel],textarea,select{width:100%;font:inherit;font-size:16px;color:var(--white);background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 14px;outline:none}
+input[type=text],input[type=email],input[type=tel],input[type=number],textarea,select{width:100%;font:inherit;font-size:16px;color:var(--white);background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 14px;outline:none}
 textarea{min-height:120px;resize:vertical}
 select option{color:#000}
 input:focus,textarea:focus,select:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,255,61,.2)}
@@ -88,7 +88,17 @@ input:focus,textarea:focus,select:focus{border-color:var(--lime);box-shadow:0 0 
 .check{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.45;cursor:pointer}
 .check input{width:22px;height:22px;flex:0 0 22px;accent-color:var(--lime);margin-top:1px}
 .checks{display:grid;gap:14px}
-.invalid input[type=text],.invalid input[type=email],.invalid input[type=tel],.invalid textarea,.invalid select{border-color:var(--err)}
+.invalid input[type=text],.invalid input[type=email],.invalid input[type=tel],.invalid input[type=number],.invalid textarea,.invalid select{border-color:var(--err)}
+.members{display:grid;gap:14px}
+.mcard{border:1px solid var(--line);border-radius:18px;padding:16px 16px 18px;background:rgba(0,0,0,.14)}
+.mcard h4{margin:0 0 12px;font-size:14px;font-weight:800;display:flex;align-items:center;gap:10px}
+.mcard h4 em{font-style:normal;background:rgba(198,255,61,.16);color:var(--lime);border-radius:8px;padding:2px 8px;font-size:12px}
+.mgrid{display:grid;grid-template-columns:2fr 0.8fr 1.4fr;gap:12px 14px}
+.mgrid .wide{grid-column:1/-1}
+@media (max-width:700px){.mgrid{grid-template-columns:1fr}}
+.mhint{color:var(--muted);font-size:13px;margin:0 0 12px}
+.mcard.invalid{border-color:var(--err)}
+input[type=number]{-moz-appearance:textfield;appearance:textfield}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .invalid .opt span,.invalid.check{color:var(--err)}
 .invalid .qt,.invalid > .req{color:var(--err)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
@@ -195,19 +205,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <label class="f full" data-field="cap"><span class="req" data-kz="Капитанның аты-жөні">ФИО капитана</span><input type="text" name="cap_name" maxlength="120" autocomplete="name" required></label>
           <label class="f" data-field="email"><span class="req">Email</span><input type="email" name="cap_email" maxlength="120" autocomplete="email" required></label>
           <label class="f" data-field="phone"><span class="req" data-kz="Телефон / WhatsApp">Телефон / WhatsApp</span><input type="tel" name="cap_phone" maxlength="40" autocomplete="tel" placeholder="+7 701 123 45 67" required></label>
-          <label class="f full"><span>Telegram</span><input type="text" name="cap_tg" maxlength="60" placeholder="@username"></label>
+          <label class="f" data-field="cap_age"><span class="req" data-kz="Капитанның жасы">Возраст капитана</span><input type="number" name="cap_age" min="16" max="99" inputmode="numeric"></label>
+          <label class="f"><span>Telegram</span><input type="text" name="cap_tg" maxlength="60" placeholder="@username"></label>
         </div>
       </fieldset>
 
       <fieldset>
         <legend><em>03</em><span data-kz="Қатысушылар">Участники</span></legend>
         <div class="grid">
-          <label class="f full" data-field="members"><span class="req" data-kz="Команданың басқа қатысушылары">Остальные участники команды</span>
-            <span class="h" data-kz="Әр жолға біреуден: аты-жөні, жасы, командадағы рөлі">По одному в строке: ФИО, возраст, роль в команде</span>
-            <textarea name="members" maxlength="2000" required data-ph-ru="Иванов Иван, 21, компьютерное зрение&#10;Сейткали Айгерим, 17, PX4 и полеты" data-ph-kz="Сейтқали Айгерім, 17, PX4 және ұшу&#10;Иванов Иван, 21, компьютерлік көру"></textarea></label>
+          <div class="full" data-field="members">
+            <p class="mhint" id="mHint" data-kz="Капитаннан басқа команданың әр мүшесін толтырыңыз. Карточкалар саны команда көлеміне сәйкес келеді: 01 бөлімінде адам санын таңдаңыз.">Заполните карточку на каждого участника, кроме капитана. Число карточек совпадает с размером команды: выберите количество человек в разделе 01.</p>
+            <div class="members" id="members"></div>
+          </div>
           <div class="full checks">
-            <label class="check" data-field="age16"><input type="checkbox" name="age16" value="yes"><span class="req" data-kz="Команданың барлық қатысушылары 16 жасқа толған">Всем участникам команды исполнилось 16 лет</span></label>
-            <label class="check" data-field="parents"><input type="checkbox" name="parents" value="yes"><span class="req" data-kz="Командада 16-17 жастағы қатысушылар болса, күндізгі кезеңдерге ата-анасының жазбаша келісімін әкелеміз (үлгісін тіркелгеннен кейін жібереміз)">Если в команде есть участники 16-17 лет, на очные этапы мы принесем письменное согласие родителей (шаблон пришлем после регистрации)</span></label>
+            <label class="check" data-field="parents" id="parentsBox" hidden><input type="checkbox" name="parents" value="yes"><span class="req" data-kz="Командада 16-17 жастағы қатысушылар бар: күндізгі кезеңдерге ата-анасының жазбаша келісімін әкелеміз (үлгісін тіркелгеннен кейін жібереміз)">В команде есть участники 16-17 лет: на очные этапы мы принесем письменное согласие родителей (шаблон пришлем после регистрации)</span></label>
           </div>
         </div>
       </fieldset>
@@ -273,6 +284,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div class="msg" id="msg" role="status" aria-live="polite"></div>
       </div>
     </form>
+    <template id="mTpl">
+      <div class="mcard">
+        <h4><em class="mnum"></em><span data-ru="Участник" data-kz="Қатысушы"></span></h4>
+        <div class="mgrid">
+          <label class="f nm"><span class="req" data-ru="ФИО" data-kz="Аты-жөні">ФИО</span><input type="text" name="m_name[]" maxlength="120" autocomplete="off"></label>
+          <label class="f"><span class="req" data-ru="Возраст" data-kz="Жасы">Возраст</span><input type="number" name="m_age[]" min="16" max="99" inputmode="numeric"></label>
+          <label class="f"><span class="req" data-ru="Роль в команде" data-kz="Командадағы рөлі">Роль в команде</span>
+            <select name="m_role[]">
+              <option value="" data-ru="Выберите" data-kz="Таңдаңыз">Выберите</option>
+              <option value="code" data-ru="Программирование и автономия" data-kz="Бағдарламалау және автономия">Программирование и автономия</option>
+              <option value="cv" data-ru="Компьютерное зрение и ИИ" data-kz="Компьютерлік көру және ЖИ">Компьютерное зрение и ИИ</option>
+              <option value="hw" data-ru="Сборка дрона и электроника" data-kz="Дрон құрастыру және электроника">Сборка дрона и электроника</option>
+              <option value="pilot" data-ru="Пилот и тесты" data-kz="Пилот және сынақтар">Пилот и тесты</option>
+              <option value="other" data-ru="Другое" data-kz="Басқа">Другое</option>
+            </select></label>
+          <label class="f wide"><span data-ru="Email или телефон" data-kz="Email немесе телефон">Email или телефон</span><input type="text" name="m_contact[]" maxlength="120" autocomplete="off"></label>
+        </div>
+      </div>
+    </template>
 
     <div class="done" id="done" role="status">
       <h3 data-kz="Өтінім қабылданды!">Заявка принята!</h3>
@@ -289,8 +319,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
 <script>
 (function(){
-  var MSG={ru:{required:'Заполните отмеченные поля',sending:'Отправляем...',net:'Не удалось отправить. Проверьте интернет и попробуйте еще раз.',closed:'Регистрация закрыта.',rate:'Слишком много заявок подряд. Попробуйте через 10 минут.',fast:'Проверьте данные и нажмите еще раз.',email:'Проверьте email',phone:'Проверьте номер телефона'},
-           kz:{required:'Белгіленген өрістерді толтырыңыз',sending:'Жіберілуде...',net:'Жіберу мүмкін болмады. Интернетті тексеріп, қайталап көріңіз.',closed:'Тіркеу жабылды.',rate:'Өтінім тым көп. 10 минуттан кейін қайталаңыз.',fast:'Деректерді тексеріп, қайта басыңыз.',email:'Email-ді тексеріңіз',phone:'Телефон нөмірін тексеріңіз'}};
+  var MSG={ru:{required:'Заполните отмеченные поля. Возраст участников: от 16 лет',sending:'Отправляем...',net:'Не удалось отправить. Проверьте интернет и попробуйте еще раз.',closed:'Регистрация закрыта.',rate:'Слишком много заявок подряд. Попробуйте через 10 минут.',fast:'Проверьте данные и нажмите еще раз.',email:'Проверьте email',phone:'Проверьте номер телефона'},
+           kz:{required:'Белгіленген өрістерді толтырыңыз. Қатысушылардың жасы: 16-дан бастап',sending:'Жіберілуде...',net:'Жіберу мүмкін болмады. Интернетті тексеріп, қайталап көріңіз.',closed:'Тіркеу жабылды.',rate:'Өтінім тым көп. 10 минуттан кейін қайталаңыз.',fast:'Деректерді тексеріп, қайта басыңыз.',email:'Email-ді тексеріңіз',phone:'Телефон нөмірін тексеріңіз'}};
   var lang='ru', f=document.getElementById('f'), msg=document.getElementById('msg');
   f.ts.value=Date.now();
   document.querySelectorAll('[data-kz]').forEach(function(el){el.setAttribute('data-ru',el.textContent);});
@@ -306,10 +336,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   setLang(q==='kz'||q==='ru'?q:(saved||'ru'));
   f.source.addEventListener('change',function(){document.getElementById('srcOther').hidden=f.source.value!=='other';});
 
+  var box=document.getElementById('members'), tpl=document.getElementById('mTpl'), pBox=document.getElementById('parentsBox');
+  function tr(root){root.querySelectorAll('[data-kz]').forEach(function(el){el.textContent=el.getAttribute('data-'+lang);});}
+  function renderMembers(){
+    var sz=f.querySelector('[name=size]:checked'), n=sz?Math.max(1,+sz.value-1):1;
+    for(var i=box.children.length;i<n;i++){var c=tpl.content.firstElementChild.cloneNode(true);c.setAttribute('data-field','m'+i);c.querySelector('.mnum').textContent=String(i+2).padStart(2,'0');tr(c);box.appendChild(c);}
+    [].forEach.call(box.children,function(c,i){var on=i<n;c.hidden=!on;c.querySelectorAll('input,select').forEach(function(x){x.disabled=!on;});});
+    checkMinors();
+  }
+  function ages(){var a=[+f.cap_age.value||0];box.querySelectorAll('[name="m_age[]"]:not(:disabled)').forEach(function(x){a.push(+x.value||0);});return a;}
+  function checkMinors(){var m=ages().some(function(x){return x===16||x===17;});pBox.hidden=!m;if(!m)f.parents.checked=false;}
+  f.querySelectorAll('[name=size]').forEach(function(r){r.addEventListener('change',renderMembers);});
+  f.addEventListener('input',function(e){if(e.target.name==='cap_age'||e.target.name==='m_age[]')checkMinors();});
+  renderMembers();
+  var _setLang=setLang; setLang=function(l){_setLang(l);tr(box);};
+
   function checked(name){return f.querySelectorAll('[name="'+name+'"]:checked').length>0;}
   function validate(){
     var bad=[];
-    [['team','team'],['city','city'],['org','org'],['cap','cap_name'],['members','members']].forEach(function(p){if(!f[p[1]].value.trim())bad.push(p[0]);});
+    [['team','team'],['city','city'],['org','org'],['cap','cap_name']].forEach(function(p){if(!f[p[1]].value.trim())bad.push(p[0]);});
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.cap_email.value.trim()))bad.push('email');
     if(f.cap_phone.value.replace(/\D/g,'').length<10)bad.push('phone');
     if(!checked('size'))bad.push('size');
@@ -317,7 +362,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     if(!checked('experience[]'))bad.push('experience');
     if(!checked('drone'))bad.push('drone');
     if(!checked('bootcamp'))bad.push('bootcamp');
-    ['age16','parents'].forEach(function(n){if(!f[n].checked)bad.push(n);});
+    var ca=+f.cap_age.value; if(!(ca>=16&&ca<=99))bad.push('cap_age');
+    [].forEach.call(box.children,function(c,i){if(c.hidden)return;var nm=c.querySelector('[name="m_name[]"]').value.trim(),ag=+c.querySelector('[name="m_age[]"]').value,rl=c.querySelector('[name="m_role[]"]').value;if(!nm||!(ag>=16&&ag<=99)||!rl)bad.push('m'+i);});
+    if(!pBox.hidden&&!f.parents.checked)bad.push('parents');
     if(!f.consent_pd.checked)bad.push('pd'); if(!f.consent_photo.checked)bad.push('photo');
     return bad;
   }
