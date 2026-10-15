@@ -153,19 +153,19 @@ if (SEND_CONFIRMATION) {
     $txt = "Сәлеметсіз бе!\n\n«{$d['team']}» командасының ({$d['uni']}) өтінімі қабылданды. Нөмірі: $id\n\n"
       . "Ұлттық іріктеудің финалы 2027 жылғы 18-21 ақпанда Астанада, Alem Tech Fest аясында (ҚҰСУ / KNUS) өтеді. Жеңімпаз команда Қазақстан атынан ABU Robocon 2027 халықаралық жарысына (Соло, Индонезия, 29 тамыз 2027) қатысады.\n\n"
       . "Ойын ережесі: The Pursuit of Mustika Nusantara, https://aburobocon2027.id/rulebook/\n"
-      . "Іріктеу кезеңдері мен мерзімдерін жақын арада поштаға жібереміз.\n\nAlem Tech Fest · USTEM Foundation · ҚР ҒЖБМ · Хабар агенттігі";
+      . "Іріктеу кезеңдері мен мерзімдерін жақын арада поштаға жібереміз.\n\nAlem Tech Fest · USTEM Foundation · ҚР ҒЖБМ · Хабар агенттігі · Defence Tech Center";
   } elseif ($d['lang'] === 'en') {
     $subj = "Registration received: ABU Robocon 2027 Kazakhstan national selection";
     $txt = "Hello!\n\nWe have received the registration of team \"{$d['team']}\" ({$d['uni']}). Reference: $id\n\n"
       . "The national selection final takes place on 18-21 February 2027 in Astana at Alem Tech Fest (KNUS). The winning team represents Kazakhstan at ABU Robocon 2027 in Solo, Indonesia (29 August 2027).\n\n"
       . "Game rules: The Pursuit of Mustika Nusantara, https://aburobocon2027.id/rulebook/\n"
-      . "We will email the selection stages and deadlines shortly.\n\nAlem Tech Fest · USTEM Foundation · Ministry of Science and Higher Education of Kazakhstan · Khabar Agency";
+      . "We will email the selection stages and deadlines shortly.\n\nAlem Tech Fest · USTEM Foundation · Ministry of Science and Higher Education of Kazakhstan · Khabar Agency · Defence Tech Center";
   } else {
     $subj = "Заявка принята: национальный отбор ABU Robocon 2027";
     $txt = "Здравствуйте!\n\nЗаявка команды «{$d['team']}» ({$d['uni']}) принята. Номер: $id\n\n"
       . "Финал национального отбора пройдет 18-21 февраля 2027 года в Астане на Alem Tech Fest (KNUS). Команда-победитель представит Казахстан на ABU Robocon 2027 в Соло, Индонезия (29 августа 2027).\n\n"
       . "Правила игры: The Pursuit of Mustika Nusantara, https://aburobocon2027.id/rulebook/\n"
-      . "Этапы отбора и сроки пришлем на почту в ближайшее время.\n\nAlem Tech Fest · USTEM Foundation · МНВО РК · Агентство «Хабар»";
+      . "Этапы отбора и сроки пришлем на почту в ближайшее время.\n\nAlem Tech Fest · USTEM Foundation · МНВО РК · Агентство «Хабар» · Defence Tech Center";
   }
   $to = $d['i_email'] . ($cap['email'] && strcasecmp($cap['email'], $d['i_email']) !== 0 ? ', ' . $cap['email'] : '');
   @mail($to, '=?UTF-8?B?' . base64_encode($subj) . '?=', $txt, $headers . "Reply-To: " . NOTIFY_EMAIL . "\r\n");
