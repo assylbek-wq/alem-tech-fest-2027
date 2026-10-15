@@ -32,6 +32,7 @@ if ($ts > 0 && (time() * 1000 - $ts) < 4000) out(['ok' => false, 'error' => 'too
 $DISC = ['ai_race', 'ai_mission', 'sim_race'];
 $EXP  = ['ros', 'px4', 'cv', 'ml', 'sim', 'fpv', 'none'];
 $BOOT = ['offline', 'online', 'no'];
+$DRONE = ['ready', 'building', 'none'];
 $SRC  = ['instagram', 'telegram', 'university', 'friends', 'site', 'other'];
 
 $d = [
@@ -47,6 +48,8 @@ $d = [
   'members'   => s('members', 2000),
   'disc'      => arr('disciplines', $DISC),
   'exp'       => arr('experience', $EXP),
+  'drone'     => s('drone', 10),
+  'drone_spec'=> s('drone_spec', 200),
   'boot'      => s('bootcamp', 10),
   'src'       => s('source', 20),
   'src_other' => s('source_other', 100),
@@ -64,6 +67,7 @@ if ($d['phone'] !== '' && strlen(preg_replace('/\D/', '', $d['phone'])) < 10) $e
 if (!in_array($d['size'], ['2', '3', '4', '5'], true)) $err[] = 'size';
 if (!$d['disc']) $err[] = 'disciplines';
 if (!$d['exp']) $err[] = 'experience';
+if (!in_array($d['drone'], $DRONE, true)) $err[] = 'drone';
 if (!in_array($d['boot'], $BOOT, true)) $err[] = 'bootcamp';
 if ($d['src'] !== '' && !in_array($d['src'], $SRC, true)) $d['src'] = 'other';
 foreach (['age16', 'parents', 'pd', 'photo'] as $k) if (!$d[$k]) $err[] = $k;
@@ -73,6 +77,7 @@ $L = [
   'ai_race' => 'AI Race', 'ai_mission' => 'AI Mission', 'sim_race' => 'Sim Race',
   'ros' => 'ROS/ROS 2', 'px4' => 'PX4/ArduPilot', 'cv' => 'Компьютерное зрение', 'ml' => 'ML/RL',
   'sim' => 'Симуляторы', 'fpv' => 'FPV-пилотирование', 'none' => 'Нет опыта',
+  'ready' => 'Есть готовый', 'building' => 'Собирают',
   'offline' => 'Очно', 'online' => 'Онлайн-вебинары', 'no' => 'Не нужно',
   'instagram' => 'Instagram', 'telegram' => 'Telegram', 'university' => 'Вуз/работа',
   'friends' => 'Друзья', 'site' => 'Сайт', 'other' => 'Другое',
@@ -88,6 +93,7 @@ $row = [
   $d['cap'], $d['email'], $d['phone'], $d['tg'], $d['members'],
   $map($d['disc']), $map($d['exp']), $L[$d['boot']] ?? $d['boot'], $src, $d['comment'],
   'да', 'да', 'да', 'да', $_SERVER['REMOTE_ADDR'] ?? '',
+  $d['drone'] === 'none' ? 'Пока нет' : ($L[$d['drone']] ?? $d['drone']), $d['drone_spec'],
 ];
 $row = array_map('csvsafe', $row);
 
@@ -116,19 +122,19 @@ $body = "Новая заявка $id\n\n"
   . "Капитан: {$d['cap']}\nEmail: {$d['email']}\nТелефон: {$d['phone']}\nTelegram: {$d['tg']}\n\n"
   . "Участники:\n{$d['members']}\n\n"
   . "Дисциплины: " . $map($d['disc']) . "\nОпыт: " . $map($d['exp']) . "\n"
-  . "Буткемп: " . ($L[$d['boot']] ?? '') . "\nОткуда узнали: $src\nКомментарий: {$d['comment']}\n";
+  . "Дрон: " . $row[22] . ($d['drone_spec'] !== '' ? " ({$d['drone_spec']})" : '') . "\nБуткемп: " . ($L[$d['boot']] ?? '') . "\nОткуда узнали: $src\nКомментарий: {$d['comment']}\n";
 @mail(NOTIFY_EMAIL, '=?UTF-8?B?' . base64_encode("ADL: заявка $id - {$d['team']}") . '?=', $body, $headers . "Reply-To: {$d['email']}\r\n");
 
 if (SEND_CONFIRMATION) {
   if ($d['lang'] === 'kz') {
     $subj = "Өтінім қабылданды: AI Drone Championship 2026";
     $txt = "Сәлеметсіз бе, {$d['cap']}!\n\n«{$d['team']}» командасының өтінімі қабылданды. Нөмірі: $id\n\n"
-      . "Жақын арада симуляторға қолжетімділік пен нұсқаулықты жібереміз.\n"
+      . "Жақын арада симуляторға қолжетімділікті, нұсқаулықты және дронға қойылатын талаптарды жібереміз. Күндізгі кезеңдерде командалар өз дрондарымен ұшады.\n"
       . "Онлайн іріктеу: 16-30 қараша. Алматы кезеңі: 5-6 желтоқсан. Астана кезеңі: 19-20 желтоқсан. Финал: 18-21 ақпан, Alem Tech Fest, Астана.\n\nAlem Drone League";
   } else {
     $subj = "Заявка принята: AI Drone Championship 2026";
     $txt = "Здравствуйте, {$d['cap']}!\n\nЗаявка команды «{$d['team']}» принята. Номер: $id\n\n"
-      . "В ближайшее время пришлем доступ к симулятору и инструкцию.\n"
+      . "В ближайшее время пришлем доступ к симулятору, инструкцию и требования к дрону. На очных этапах команды летают на своих дронах.\n"
       . "Онлайн-отбор: 16-30 ноября. Этап в Алматы: 5-6 декабря. Этап в Астане: 19-20 декабря. Финал: 18-21 февраля, Alem Tech Fest, Астана.\n\nAlem Drone League";
   }
   @mail($d['email'], '=?UTF-8?B?' . base64_encode($subj) . '?=', $txt, $headers . "Reply-To: " . NOTIFY_EMAIL . "\r\n");

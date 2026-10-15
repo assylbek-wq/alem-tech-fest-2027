@@ -67,7 +67,9 @@ legend em{font-style:normal;background:var(--lime);color:var(--ink);font-size:13
 .full{grid-column:1/-1}
 @media (max-width:700px){.grid{grid-template-columns:1fr}}
 label.f{display:grid;gap:7px;font-weight:600;font-size:14px}
-label.f .h{font-weight:500;color:var(--muted);font-size:13px}
+[hidden]{display:none!important}
+label.f .h,.qt + .h{font-weight:500;color:var(--muted);font-size:13px}
+.qt + .h{display:block;margin:-4px 0 10px}
 .req:after{content:" *";color:var(--lime)}
 input[type=text],input[type=email],input[type=tel],textarea,select{width:100%;font:inherit;font-size:16px;color:var(--white);background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 14px;outline:none}
 textarea{min-height:120px;resize:vertical}
@@ -155,7 +157,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="fact"><b>16+</b><span data-kz="ашық санат">открытая категория</span></div>
     <div class="fact"><b>2-5</b><span data-kz="адамнан тұратын команда">человек в команде</span></div>
     <div class="fact"><b>0 ₸</b><span data-kz="қатысу тегін">участие бесплатное</span></div>
-    <div class="fact"><b data-kz="ДРОНДАР">ДРОНЫ</b><span data-kz="ұйымдастырушы береді">выдает организатор</span></div>
+    <div class="fact"><b data-kz="ДРОН">ДРОН</b><span data-kz="өзіңнің, команда әкеледі">свой, привозит команда</span></div>
   </div>
 
   <section class="reg" id="register">
@@ -225,6 +227,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
               <label class="opt"><input type="checkbox" name="experience[]" value="fpv"><span data-kz="FPV-пилоттау">FPV-пилотирование</span></label>
               <label class="opt"><input type="checkbox" name="experience[]" value="none"><span data-kz="Әзірге жоқ, үйренгіміз келеді">Пока нет, хотим научиться</span></label>
             </div></div>
+          <div class="full" data-field="drone"><div class="qt req" data-kz="Командада дрон бар ма?">Есть ли у команды дрон?</div>
+            <span class="h" data-kz="Командалар өз дрондарымен ұшады. Дронға қойылатын талаптарды (өлшемі, салмағы, бұранда қорғанысы, авариялық сөндіру) тіркеуден кейін жібереміз.">Команды летают на своих дронах. Требования к дрону (размер, масса, защита винтов, аварийное отключение) пришлем после регистрации.</span>
+            <div class="opts">
+              <label class="opt"><input type="radio" name="drone" value="ready"><span data-kz="Иә, дайын дрон бар">Да, есть готовый дрон</span></label>
+              <label class="opt"><input type="radio" name="drone" value="building"><span data-kz="Жинап жатырмыз">Собираем</span></label>
+              <label class="opt"><input type="radio" name="drone" value="none"><span data-kz="Әзірге жоқ">Пока нет</span></label>
+            </div></div>
+          <label class="f full"><span data-kz="Дрон платформасы">Платформа дрона</span><input type="text" name="drone_spec" maxlength="200" data-ph-ru="Например: рама 5&quot;, PX4, Jetson Orin Nano, камера" data-ph-kz="Мысалы: 5&quot; рама, PX4, Jetson Orin Nano, камера" placeholder="Например: рама 5&quot;, PX4, Jetson Orin Nano, камера"></label>
           <div class="full" data-field="bootcamp"><div class="qt req" data-kz="7-8 қарашада Алматыда буткемп">Буткемп 7-8 ноября в Алматы</div>
             <div class="opts">
               <label class="opt"><input type="radio" name="bootcamp" value="offline"><span data-kz="Күндізгі келеміз">Придем очно</span></label>
@@ -301,6 +311,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     if(!checked('size'))bad.push('size');
     if(!checked('disciplines[]'))bad.push('disciplines');
     if(!checked('experience[]'))bad.push('experience');
+    if(!checked('drone'))bad.push('drone');
     if(!checked('bootcamp'))bad.push('bootcamp');
     ['age16','parents'].forEach(function(n){if(!f[n].checked)bad.push(n);});
     if(!f.consent_pd.checked)bad.push('pd'); if(!f.consent_photo.checked)bad.push('photo');
