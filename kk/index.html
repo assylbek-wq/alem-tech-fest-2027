@@ -344,6 +344,7 @@ footer a{color:#fff}
 @media (max-width:1000px){.kd{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:560px){.kd{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .reglink{justify-self:start;margin-top:6px;font:800 .76rem/1 var(--f);text-transform:uppercase;letter-spacing:.06em;color:var(--lime-ink);background:var(--lime);padding:8px 11px;border-radius:9px;text-decoration:none}
+.sepreg{background:var(--night);color:#fff;border-radius:18px;padding:18px 20px;margin-bottom:22px;display:grid;gap:12px}.sepreg b{font:800 1rem/1.3 var(--f)}.sepreg p{margin:0;font-size:.9rem;color:rgba(255,255,255,.78)}.sepreg .sl{display:flex;gap:10px;flex-wrap:wrap}.sepreg a{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--lime-ink);font:800 .9rem/1 var(--f);padding:12px 16px;border-radius:999px;text-decoration:none}
 .discnote{display:block;margin-top:6px;font:600 .8rem/1.35 var(--f)}.discnote a{font-weight:800}
 .regsoon{margin-top:4px;font:600 .74rem/1.2 var(--f);color:rgba(255,255,255,.7)}
 /* guests */
@@ -675,6 +676,7 @@ footer a{color:#fff}
       <h2 class="H" data-t="r_title" data-html="1">Register <em>your team</em></h2>
       <p class="sub" data-t="r_sub">One form per team. The organizers confirm each registration and send regulations, invoices and the invitation letter if you request one.</p>
     </div>
+    <div class="sepreg" id="sepreg"></div>
     <div class="reg-grid">
       <div id="reg-area">
         <form class="reg" id="reg-form" novalidate>
@@ -821,7 +823,7 @@ ab_eyebrow:"Фестиваль туралы",ab_title:"Жарыс арқылы �
 ab_p1:"Alem Tech Fest – Қазақстан, Өзбекстан және Қырғызстандағы FIRST ресми операторы USTEM Foundation қорының халықаралық фестивалі. 2027 жылы фестиваль Астанаға, Қазақ ұлттық спорт университетінің жаңа кампусына көшеді.",
 ab_p2:"4 жастан 25 жасқа дейінгі және одан үлкен командалар роботтарын, дрондарын, спутниктері мен кодын әкеледі. Нәтижелер ұлттық рейтингке және халықаралық чемпионаттарға іріктеуге есептеледі.",
 pl1:"Жарыс",pl1d:"FIRST, RoboCup, дрондар, ғарыш, киберқауіпсіздік",pl2:"Білім",pl2d:"Шеберлік сабақтары, Hour of AI және ашық экспо-аймақ",pl3:"Байланыс",pl3d:"Орталық Азия мен басқа елдердің командалары",
-d_eyebrow:"Бағыттар",d_title:"13 бағыт: 4 жастан кәсіпқойларға дейін",d_sub:"Командаңызға сай бағытты таңдаңыз. Ережелер мен алаң сипаттамалары тіркелген командаларға жіберіледі.",
+d_eyebrow:"Бағыттар",d_title:"14 бағыт: 4 жастан кәсіпқойларға дейін",d_sub:"Командаңызға сай бағытты таңдаңыз. Ережелер мен алаң сипаттамалары тіркелген командаларға жіберіледі.",
 f_all:"Барлығы",f_rob:"Робототехника",f_air:"Дрондар мен ғарыш",f_ai:"ЖИ және кибер",f_eng:"Инженерия",
 d_note:"Бағыттар тізімі алдын ала берілген және өзгеруі мүмкін. Түпкілікті ережелер тіркеу жабылғанға дейін жарияланады.",
 p_eyebrow:"Бағдарлама",p_sub:"Алдын ала кесте. Әр бағыттың нақты уақыты командаларға ақпанның басында жіберіледі.",
@@ -867,7 +869,7 @@ ab_eyebrow:"О фестивале",ab_title:"Обучение через сор�
 ab_p1:"Alem Tech Fest - международный фестиваль USTEM Foundation, официального оператора FIRST в Казахстане, Узбекистане и Кыргызстане. В 2027 году фестиваль проходит в Астане, в новом кампусе Казахского национального университета спорта.",
 ab_p2:"Команды от 4 до 25 лет и старше привозят роботов, дроны, спутники и код. Результаты идут в национальный рейтинг и в отбор на международные чемпионаты.",
 pl1:"Соревнования",pl1d:"FIRST, RoboCup, дроны, космос, кибербезопасность",pl2:"Обучение",pl2d:"Мастер-классы, Hour of AI и открытая экспо-зона",pl3:"Нетворкинг",pl3d:"Команды из Центральной Азии и других стран",
-d_eyebrow:"Дисциплины",d_title:"13 направлений: от 4 лет до профессионалов",d_sub:"Выберите направление для вашей команды. Регламенты и описания полей получают зарегистрированные команды.",
+d_eyebrow:"Дисциплины",d_title:"14 направлений: от 4 лет до профессионалов",d_sub:"Выберите направление для вашей команды. Регламенты и описания полей получают зарегистрированные команды.",
 f_all:"Все",f_rob:"Робототехника",f_air:"Дроны и космос",f_ai:"ИИ и кибер",f_eng:"Инженерия",
 d_note:"Список направлений предварительный и может уточняться. Окончательные регламенты будут опубликованы до закрытия регистрации.",
 p_eyebrow:"Программа",p_sub:"Предварительное расписание. Точное время по каждому направлению команды получат в начале февраля.",
@@ -915,16 +917,17 @@ var DISC=[
 {id:"fll",w:1,f:"rob",img:"../img/fll2.jpg",tag:"FIRST",n:{en:"FIRST LEGO League",kk:"FIRST LEGO League",ru:"FIRST LEGO League"},d:{en:"Discover, Explore and Challenge: LEGO robots, research projects and core values.",kk:"Discover, Explore және Challenge: LEGO роботтары, зерттеу жобалары және негізгі құндылықтар.",ru:"Discover, Explore и Challenge: роботы LEGO, исследовательские проекты и базовые ценности."},a:["4-6","6-10","9-16"]},
 {id:"ftc",f:"rob",img:"../img/ftc-kid.jpg",tag:"FIRST",n:{en:"FIRST Tech Challenge",kk:"FIRST Tech Challenge",ru:"FIRST Tech Challenge"},d:{en:"Metal robots in 2v2 alliances with computer vision, Android control and autonomous modes.",kk:"Компьютерлік көру, Android басқаруы және автономды режимі бар 2×2 одақтағы металл роботтар.",ru:"Металлические роботы в альянсах 2×2 с компьютерным зрением, Android-управлением и автономным режимом."},a:["12-18"]},
 {id:"drone",w:1,f:"air",img:"../img/drone2.jpg",tag:"Alem Drone League",n:{en:"Alem Drone League",kk:"Alem Drone League",ru:"Alem Drone League"},d:{en:"Tiny Whoop racing, DCL simulator racing and drone soccer.",kk:"Tiny Whoop жарысы, DCL симуляторы және дрон-футбол.",ru:"Гонки Tiny Whoop, симулятор DCL и дрон-футбол."},a:["8+"]},
+{id:"aidrone",f:"air",img:"../img/aidrone.jpg",tag:"Alem Drone League",n:{en:"AI Drone Championship",kk:"AI Drone Championship",ru:"AI Drone Championship"},page:"../drone/",d:{en:"Autonomous drones: no remote control, your code flies. Online qualifier, stages in Almaty and Astana, final at the festival.",kk:"Автономды дрондар: пульт жоқ, сіздің кодыңыз ұшады. Онлайн іріктеу, Алматы мен Астанадағы кезеңдер, финал фестивальде.",ru:"Автономные дроны: без пульта, летает твой код. Онлайн-отбор, этапы в Алматы и Астане, финал на фестивале."},a:["16+"]},
 {id:"wso",f:"air",img:"../img/wso.jpg",tag:"WSO",n:{en:"World Space Olympiad",kk:"World Space Olympiad",ru:"World Space Olympiad"},d:{en:"CanSat, CubeSat, rovers and space research projects.",kk:"CanSat, CubeSat, роверлер және ғарыштық зерттеу жобалары.",ru:"CanSat, CubeSat, роверы и научные космические проекты."},a:["12+"]},
 {id:"race",w:1,f:"eng",img:"../img/race.jpg",tag:"Future Race",n:{en:"Future Race",kk:"Future Race",ru:"Future Race"},d:{en:"Electric karts and autonomous driving in three tiers, from school kart builders to LiDAR-equipped cars.",kk:"Үш деңгейдегі электрокарттар мен автономды басқару: мектеп карттарынан LiDAR бар көліктерге дейін.",ru:"Электрокарты и автопилот в трех лигах: от школьных картов до автомобилей с LiDAR."},a:["14-17","18-25","20+"]},
 {id:"robocon",f:"rob",img:"../img/robocon.jpg",tag:"ABU",n:{en:"ABU Robocon",kk:"ABU Robocon",ru:"ABU Robocon"},page:"../robocon/",d:{en:"Kazakhstan national selection for ABU Robocon 2027: university teams, two robots, final at the festival. The winner goes to Indonesia.",kk:"ABU Robocon 2027 ұлттық іріктеуі: ЖОО командалары, екі робот, финал фестивальде. Жеңімпаз Индонезияға барады.",ru:"Национальный отбор Казахстана на ABU Robocon 2027: команды вузов, два робота, финал на фестивале. Победитель едет в Индонезию."},a:["18-25"]},
 {id:"bots",f:"eng",img:"../img/bots2.jpg",tag:"Battle of Bots",n:{en:"Battle of Bots",kk:"Battle of Bots",ru:"Battle of Bots"},page:"../bots/",d:{en:"Battle of Bots Kazakhstan: one-on-one robot combat in the 1.5 kg Light Weight class. Qualifying submissions by 20 November, final at the festival.",kk:"Battle of Bots Kazakhstan: 1,5 кг Light Weight санатындағы робот жекпе-жегі. Іріктеу жұмыстары 20 қарашаға дейін, финал фестивальде.",ru:"Battle of Bots Kazakhstan: бои роботов один на один в категории Light Weight до 1,5 кг. Работы на квалификацию до 20 ноября, финал на фестивале."},a:["12+"]},
 {id:"soccer",f:"rob",img:"../img/soccer2.jpg",tag:"RoboCup",n:{en:"RoboCup Soccer",kk:"RoboCup Soccer",ru:"RoboCup Soccer"},d:{en:"Teams design and program humanoid robots to play football.",kk:"Командалар футбол ойнайтын гуманоид роботтарды құрастырып, бағдарламалайды.",ru:"Команды собирают и программируют роботов-гуманоидов для игры в футбол."},a:["8+"]},
 {id:"rescue",f:"rob",img:"../img/rescue2.jpg",tag:"RoboCup",n:{en:"RoboCup Rescue",kk:"RoboCup Rescue",ru:"RoboCup Rescue"},d:{en:"Search-and-rescue missions with quadruped robots through obstacle courses.",kk:"Кедергілері бар трассада робот-иттермен іздеу-құтқару миссиялары.",ru:"Поисково-спасательные миссии с роботами-собаками на трассе с препятствиями."},a:["14+"]},
-{id:"hack",f:"ai",img:"../img/humanoid2.jpg",tag:"Physical AI",n:{en:"Physical AI Hackathon",kk:"Physical AI хакатоны",ru:"Physical AI хакатон"},d:{en:"Perception, navigation and motion control for humanoid robots.",kk:"Гуманоид роботтарға арналған қабылдау, навигация және қозғалысты басқару жүйелері.",ru:"Системы восприятия, навигации и управления движением для гуманоидных роботов."},a:["16+"]},
+{id:"hack",w:1,f:"ai",img:"../img/humanoid2.jpg",tag:"Physical AI",n:{en:"Physical AI Hackathon",kk:"Physical AI хакатоны",ru:"Physical AI хакатон"},d:{en:"Perception, navigation and motion control for humanoid robots.",kk:"Гуманоид роботтарға арналған қабылдау, навигация және қозғалысты басқару жүйелері.",ru:"Системы восприятия, навигации и управления движением для гуманоидных роботов."},a:["16+"]},
 {id:"ctf",f:"ai",img:"../img/ctf.jpg",tag:"Cyber",n:{en:"CTF Cybersecurity",kk:"CTF киберқауіпсіздік",ru:"CTF кибербезопасность"},d:{en:"Capture The Flag: find vulnerabilities, analyze systems and protect data.",kk:"Capture The Flag: осалдықтарды іздеу, жүйелерді талдау және деректерді қорғау.",ru:"Capture The Flag: поиск уязвимостей, анализ систем и защита данных."},a:["14+"]},
-{id:"sarbaz",f:"eng",img:"../img/sarbaz.jpg",tag:"Smart Sarbaz",n:{en:"Smart Sarbaz",kk:"Smart Sarbaz",ru:"Smart Sarbaz"},d:{en:"Engineering track of the Zhas Sarbaz movement: robotics, unmanned systems and electronics.",kk:"«Жас Сарбаз» қозғалысының инженерлік бағыты: робототехника, ұшқышсыз жүйелер, электроника.",ru:"Инженерное направление движения «Жас Сарбаз»: робототехника, беспилотные системы, электроника."},a:["10-18"]},
-{id:"stem",f:"ai",img:"../img/hourai2.jpg",tag:"AI STEM Cup",n:{en:"AI STEM Cup",kk:"AI STEM Cup",ru:"AI STEM Cup"},d:{en:"Science experiments with digital sensors, data analysis and AI. Plus Hour of AI for every visitor.",kk:"Цифрлық датчиктермен ғылыми тәжірибелер, деректерді талдау және ЖИ. Әр қонаққа арналған Hour of AI.",ru:"Научные эксперименты с цифровыми датчиками, анализ данных и ИИ. Плюс Hour of AI для всех гостей."},a:["8-16"]}
+{id:"sarbaz",w:1,f:"eng",img:"../img/sarbaz.jpg",tag:"Smart Sarbaz",n:{en:"Smart Sarbaz",kk:"Smart Sarbaz",ru:"Smart Sarbaz"},d:{en:"Engineering track of the Zhas Sarbaz movement: robotics, unmanned systems and electronics.",kk:"«Жас Сарбаз» қозғалысының инженерлік бағыты: робототехника, ұшқышсыз жүйелер, электроника.",ru:"Инженерное направление движения «Жас Сарбаз»: робототехника, беспилотные системы, электроника."},a:["10-18"]},
+{id:"stem",w:1,f:"ai",img:"../img/hourai2.jpg",tag:"AI STEM Cup",n:{en:"AI STEM Cup",kk:"AI STEM Cup",ru:"AI STEM Cup"},d:{en:"Science experiments with digital sensors, data analysis and AI. Plus Hour of AI for every visitor.",kk:"Цифрлық датчиктермен ғылыми тәжірибелер, деректерді талдау және ЖИ. Әр қонаққа арналған Hour of AI.",ru:"Научные эксперименты с цифровыми датчиками, анализ данных и ИИ. Плюс Hour of AI для всех гостей."},a:["8-16"]}
 ];
 var DAYS=[
 {n:"18",w:{en:"Thu",kk:"Бс",ru:"Чт"},h:{en:"Arrival & setup",kk:"Келу және дайындық",ru:"Заезд и подготовка"},i:{en:["Team check-in and accreditation","Pit setup and robot inspection","Practice runs on official fields","Coaches' briefing"],kk:["Командаларды тіркеу және аккредиттеу","Питтерді орнату және роботтарды тексеру","Ресми алаңдарда жаттығу","Жаттықтырушылар брифингі"],ru:["Заезд и аккредитация команд","Обустройство питов и техосмотр роботов","Тренировочные заезды на полях","Брифинг для тренеров"]}},
@@ -1046,8 +1049,12 @@ function renderVisa(){
 }
 function fillDiscSelect(){
   var sel=document.getElementById("r-disc"),cur=sel.value;
-  sel.innerHTML='<option value="">'+esc(t("sel"))+'</option>'+DISC.map(function(d){return '<option value="'+d.id+'">'+esc(L(d.n))+'</option>';}).join("");
-  sel.value=cur;discNote();
+  sel.innerHTML='<option value="">'+esc(t("sel"))+'</option>'+DISC.filter(function(d){return !d.page;}).map(function(d){return '<option value="'+d.id+'">'+esc(L(d.n))+'</option>';}).join("");
+  sel.value=cur;discNote();sepReg();
+}
+function sepReg(){
+  var b=document.getElementById("sepreg");if(!b)return;var q='?lang='+(lang==="kk"?"kz":lang)+'#register';
+  b.innerHTML='<b>'+esc(L(X.sep_t))+'</b><p>'+esc(L(X.sep_p))+'</p><div class="sl">'+DISC.filter(function(d){return d.page;}).map(function(d){return '<a href="'+d.page+q+'">'+esc(L(d.n))+' →</a>';}).join("")+'</div>';
 }
 function discNote(){
   var sel=document.getElementById("r-disc"),n=document.getElementById("r-disc-note"),d=DISC.filter(function(x){return x.id===sel.value;})[0];
@@ -1092,6 +1099,8 @@ fee_t:{en:"Participation fee",kk:"Қатысу жарнасы",ru:"Стоимо�
 fee_d:{en:"Sent with the registration confirmation",kk:"Өтінімді растағанда жіберіледі",ru:"Придет вместе с подтверждением заявки"},
 reg_btn:{en:"Regulations",kk:"Ереже",ru:"Регламент"},
 reg_page:{en:"Register",kk:"Тіркелу",ru:"Регистрация"},
+sep_t:{en:"ABU Robocon, AI Drone Championship and Battle of Bots have their own registration",kk:"ABU Robocon, AI Drone Championship және Battle of Bots бағыттарының жеке тіркеуі бар",ru:"У ABU Robocon, AI Drone Championship и Battle of Bots отдельная регистрация"},
+sep_p:{en:"Register for these tracks on their own pages. Use the form below for all other disciplines.",kk:"Бұл бағыттарға өз беттерінде тіркеліңіз. Қалған бағыттар үшін төмендегі форманы толтырыңыз.",ru:"На эти направления регистрируйтесь на их страницах. Форма ниже - для всех остальных дисциплин."},
 disc_page:{en:"This discipline has its own registration form:",kk:"Бұл бағыттың жеке тіркеу формасы бар:",ru:"Для этой дисциплины есть отдельная форма регистрации:"},
 disc_page_go:{en:"open the form",kk:"форманы ашу",ru:"открыть форму"},
 reg_soon:{en:"Regulations: coming soon",kk:"Ереже: жақында",ru:"Регламент: скоро"},
